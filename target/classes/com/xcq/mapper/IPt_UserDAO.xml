@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace:接口绝对路径-->
+<mapper namespace="com.xcq.mapper.IPt_UserDAO">
+    <resultMap id="pt_user" type="com.xcq.entity.Pt_User">
+        <id property="u_id" javaType="int" column="u_id"/>
+        <result property="d_id" javaType="int" column="d_id"/>
+        <result property="u_name" javaType="String" column="u_name"/>
+        <result property="u_nickName" javaType="String" column="u_nickName"/>
+        <result property="password" javaType="String" column="password"/>
+        <result property="u_gender" javaType="int" column="u_gender"/>
+        <result property="u_email" javaType="String" column="u_email"/>
+
+        <association property="role" javaType="com.xcq.entity.Pt_Role" select="selectMultSQL" column="u_id">
+        </association>
+    </resultMap>
+
+    <resultMap id="pt_role" type="com.xcq.entity.Pt_Role">
+        <id property="id" javaType="int" column="id"/>
+        <result property="r_name" javaType="String" column="r_name"/>
+    </resultMap>
+
+    <select id="selectMultSQL" resultMap="pt_role">
+        SELECT r.* FROM pt_user u,user_role ur,pt_role r WHERE u.`u_id` = ur.`u_id` AND r.`id` = ur.`r_id` AND ur.`u_id` = #{u_id}
+    </select>
+
+
+    <!--登录-->
+    <select id="Login" resultMap="pt_user">
+        SELECT * FROM pt_user where u_name=#{0} AND  password=#{1}
+    </select>
+
+    <select id="getByDIDUserList" resultMap="pt_user">
+        SELECT * FROM pt_user WHERE d_id=#{d_id}
+    </select>
+
+    <select id="getStatisticsList" resultType="com.xcq.entity.Statistics">
+        SELECT t.t_name AS 'name',COUNT(p.t_id) AS 'count' FROM pt_problem p,pt_type t WHERE p.t_id = t.t_id GROUP BY p.t_id
+    </select>
+
+</mapper>

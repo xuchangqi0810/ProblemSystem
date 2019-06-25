@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace:接口绝对路径-->
+<mapper namespace="com.xcq.mapper.IPt_ProblemDAO">
+    <resultMap id="pt_problem" type="com.xcq.entity.Pt_problem">
+        <id property="pl_id" javaType="int" column="pl_id"/>
+        <result property="t_id" javaType="int" column="t_id"/>
+        <result property="u_id" javaType="int" column="u_id"/>
+        <result property="pl_name" javaType="String" column="pl_name"/>
+        <result property="pl_feedback" javaType="String" column="pl_feedback"/>
+        <result property="pl_describe" javaType="String" column="pl_describe"/>
+        <result property="pl_lrDate" javaType="Date" column="pl_lrDate"/>
+        <result property="pl_fsDate" javaType="Date" column="pl_fsDate"/>
+        <result property="pl_yqDate" javaType="Date" column="pl_yqDate"/>
+        <result property="pl_wcDate" javaType="Date" column="pl_wcDate"/>
+        <result property="pl_state" javaType="int" column="pl_state"/>
+        <result property="pl_serious" javaType="int" column="pl_serious"/>
+        <result property="pl_programme" javaType="String" column="pl_programme"/>
+        <result property="pl_yjhours" javaType="int" column="pl_yjhours"/>
+        <result property="pl_surplustime" javaType="int" column="pl_surplustime"/>
+        <result property="pl_starttime" javaType="Date" column="pl_starttime"/>
+
+        <association property="pt_user" javaType="com.xcq.entity.Pt_User" select="selectMultSQL" column="u_id">
+        </association>
+
+        <association property="pt_type" javaType="com.xcq.entity.Pt_type" select="selectMultSQL2" column="t_id">
+        </association>
+
+        <collection property="lists" ofType="com.xcq.entity.Pt_img" select="selectMultSQLByImg" column="pl_id">
+        </collection>
+
+        <collection property="proInfos" ofType="com.xcq.entity.Pt_proInfo" select="selectMultSQLByProInfo" column="pl_id">
+        </collection>
+    </resultMap>
+
+    <resultMap id="pt_user" type="com.xcq.entity.Pt_User">
+        <id property="u_id" javaType="int" column="u_id"/>
+        <result property="d_id" javaType="int" column="d_id"/>
+        <result property="u_name" javaType="String" column="u_name"/>
+        <result property="u_nickName" javaType="String" column="u_nickName"/>
+        <result property="password" javaType="String" column="password"/>
+        <result property="u_gender" javaType="int" column="u_gender"/>
+        <result property="u_email" javaType="String" column="u_email"/>
+    </resultMap>
+
+    <resultMap id="pt_type" type="com.xcq.entity.Pt_type">
+        <id property="t_id" javaType="int" column="t_id"/>
+        <result property="t_name" javaType="String" column="t_name"/>
+    </resultMap>
+
+    <resultMap id="pt_img" type="com.xcq.entity.Pt_img">
+        <id property="id" javaType="int" column="id"/>
+        <result property="pl_id" javaType="int" column="pl_id"/>
+        <result property="url" javaType="String" column="url"/>
+    </resultMap>
+
+    <resultMap id="pt_proInfo" type="com.xcq.entity.Pt_proInfo">
+        <id property="id" javaType="int" column="id"/>
+        <result property="pl_id" javaType="int" column="pl_id"/>
+        <result property="u_id" javaType="int" column="u_id"/>
+        <result property="proDate" javaType="Date" column="proDate"/>
+        <result property="state" javaType="int" column="state"/>
+        <result property="hours" javaType="int" column="hours"/>
+        <result property="surplus" javaType="int" column="surplus"/>
+        <result property="remakes" javaType="String" column="remakes"/>
+        <association property="user" javaType="com.xcq.entity.Pt_User" select="selectMultSQL" column="u_id">
+        </association>
+    </resultMap>
+
+
+    <select id="selectMultSQL" resultMap="pt_user">
+        SELECT * from pt_user
+        where u_id=#{u_id}
+    </select>
+    <select id="selectMultSQL2" resultMap="pt_type">
+        SELECT * from pt_type
+        where t_id=#{t_id}
+    </select>
+    <select id="selectMultSQLByImg" resultType="Pt_img">
+        SELECT * FROM pt_img WHERE pl_id = #{pl_id}
+    </select>
+    <select id="selectMultSQLByProInfo" resultMap="pt_proInfo">
+        SELECT * FROM pt_proinfo WHERE pl_id = #{pl_id}
+    </select>
+
+
+    <!--查询所有问题-->
+    <select id="ProblemList" resultMap="pt_problem">
+        SELECT * FROM pt_problem p
+        <where>
+        <if test='state != 0'>
+            AND p.pl_state = #{state}
+        </if >
+        </where>
+        ORDER BY p.pl_id DESC
+    </select>
+    <!--查询所有我的问题-->
+    <select id="MyProblem" resultMap="pt_problem">
+        SELECT p.* FROM pt_problem p where p.`u_id`=#{u_id}
+            <if test='pl_state != 0'>
+                    AND p.pl_state = #{pl_state}
+            </if >
+        ORDER BY p.pl_id DESC
+    </select>
+    <!--问题分类-->
+    <select id="Pt_typeList" resultMap="pt_type">
+        select * from pt_type
+    </select>
+
+    <!--CreateProblem-start-->
+    <sql id="key">
+        <trim suffixOverrides=",">
+            <if test="t_id!=null">
+                t_id,
+            </if>
+
+            <if test="u_id!=null">
+                u_id,
+            </if>
+
+            <if test="pl_name!=null">
+                pl_name,
+            </if>
+
+            <if test="pl_feedback!=null">
+                pl_feedback,
+            </if>
+
+            <if test="pl_describe!=null">
+                pl_describe,
+            </if>
+
+            <if test="pl_lrDate!=null">
+                pl_lrDate,
+            </if>
+
+            <if test="pl_fsDate!=null">
+                pl_fsDate,
+            </if>
+
+            <if test="pl_yqDate!=null">
+                pl_yqDate,
+            </if>
+
+            <if test="pl_state!=null">
+                pl_state,
+            </if>
+
+            <if test="pl_serious!=null">
+                pl_serious,
+            </if>
+
+            <if test="pl_programme!=null">
+                pl_programme,
+            </if>
+        </trim>
+    </sql>
+
+    <sql id="value">
+        <trim suffixOverrides=",">
+            <if test="t_id!=null">
+                #{t_id},
+            </if>
+
+            <if test="u_id!=null">
+                #{u_id},
+            </if>
+
+            <if test="pl_name!=null">
+                #{pl_name},
+            </if>
+
+            <if test="pl_feedback!=null">
+                #{pl_feedback},
+            </if>
+
+            <if test="pl_describe!=null">
+                #{pl_describe},
+            </if>
+
+            <if test="pl_lrDate!=null">
+                #{pl_lrDate},
+            </if>
+
+            <if test="pl_fsDate!=null">
+                #{pl_fsDate},
+            </if>
+
+            <if test="pl_yqDate!=null">
+                #{pl_yqDate},
+            </if>
+
+            <if test="pl_state!=null">
+                #{pl_state},
+            </if>
+
+            <if test="pl_serious!=null">
+                #{pl_serious},
+            </if>
+
+            <if test="pl_programme!=null">
+                #{pl_programme},
+            </if>
+
+        </trim>
+    </sql>
+    <!--CreateProblem-stop-->
+    <!--新建问题-->
+    <insert id="CreateProblem" useGeneratedKeys="true" keyProperty="pl_id" keyColumn="pl_id">
+        INSERT INTO pt_problem(<include refid="key"/>,pl_starttime)VALUES (<include refid="value"/>,'0001-01-01')
+    </insert>
+    <!--CreateProblem-start-->
+    <!--图片上传-->
+    <insert id="UploadImg">
+        INSERT INTO pt_img(pl_id,url)VALUES(#{0},#{1})
+    </insert>
+    <!--查看问题信息-->
+    <select id="getByIdInProblem" resultMap="pt_problem">
+        SELECT * FROM pt_problem WHERE pl_id = #{pl_id}
+    </select>
+    <!--将问题状态修改为进行中-->
+    <update id="UpdateStart">
+        UPDATE pt_problem SET pl_state = 2,pl_starttime=#{pl_starttime} WHERE pl_id = #{pl_id}
+    </update>
+    <!--记录问题进度信息-->
+    <insert id="AddProInfo">
+        INSERT INTO pt_proInfo(pl_id,u_id,proDate,state,hours,remarks)VALUES(#{pl_id},#{u_id},#{proDate},#{state},#{hours},#{remarks})
+    </insert>
+    <!--修改问题进度-->
+    <update id="UpdateHours">
+        UPDATE pt_problem SET pl_surplustime=pl_surplustime-#{1} WHERE pl_id = #{0}
+    </update>
+    <!--查看问题进度-->
+    <select id="getByIdProInfo" resultMap="pt_proInfo">
+        SELECT * FROM pt_proinfo WHERE pl_id = #{pl_id} ORDER BY surplus
+    </select>
+    <!--修改问题状态-->
+    <update id="UpdateState">
+        UPDATE pt_problem
+        <set>
+            <if test="state != null">
+                pl_state = #{state},
+            </if>
+            <if test="pl_wcDate != null">
+                pl_wcDate = #{pl_wcDate}
+            </if>
+        </set>
+        WHERE pl_id = #{pl_id}
+    </update>
+
+
+    <!--修改问题信息-->
+    <update id="UpdateProblem">
+        UPDATE pt_problem SET t_id = #{t_id},u_id=#{u_id},pl_name = #{pl_name},pl_describe = #{pl_describe},pl_fsDate = #{pl_fsDate},pl_yqDate = #{pl_yqDate},pl_serious = #{pl_serious},pl_programme = #{pl_programme} WHERE pl_id = #{pl_id}
+    </update>
+    <!--将问题状态修改为已审核-->
+    <update id="UpdateStateExamine">
+        UPDATE pt_problem SET pl_state = #{1} WHERE pl_id = #{0}
+    </update>
+</mapper>
