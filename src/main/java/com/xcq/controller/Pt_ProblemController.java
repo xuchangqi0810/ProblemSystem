@@ -1,0 +1,226 @@
+package com.xcq.controller;
+
+import com.xcq.entity.Pt_User;
+import com.xcq.entity.Pt_proInfo;
+import com.xcq.entity.Pt_problem;
+import com.xcq.service.IPt_ProblemService;
+import com.xcq.service.MailSenderSrvServices;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
+@Controller
+public class Pt_ProblemController {
+    @Resource(name = "pt_Problemesrvice")
+    private IPt_ProblemService problemService;
+
+    @Autowired
+    private MailSenderSrvServices mailSend;
+
+    @RequestMapping(value = "sendEmail",method = RequestMethod.GET)
+    @ResponseBody
+    public Object send(@RequestParam String toEmail,@RequestParam String pl_name,@RequestParam Integer state){
+        /*String from = "xuchangqi@g-linkwell.com";//发件人
+        String to = toEmail;//收件人
+        String subject = "“您有新的问题待查看”";
+        String text = "<html>登陆网页版网易云邮箱<a href='ym.163.com'>ym.163.com</a>点击或复制连接<a href='192.168.1.34:8080'>192.168.1.34:8080</a>，即可登陆系统查看</br>"+pl_name+"</html>";
+        try {
+            if(state == 100){//新建
+                if(!(to.equals(""))){
+                    mailSend.sendHtmlEmail(to, from, subject, text);
+                }
+                mailSend.sendHtmlEmail("xuchangqi@g-linkwell.com", from, subject, text);//新建问题后必通知人
+                mailSend.sendHtmlEmail("xuchangqi@g-linkwell.com", from, subject, text);//
+            }else if(state == 200){//修改
+                if(!(to.equals(""))){
+                    mailSend.sendHtmlEmail(to, from, subject, text);
+                }
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }*/
+        return "发送成功";
+    }
+
+
+    @RequestMapping(value = "createProblem",method = RequestMethod.POST)
+    @ResponseBody
+    public Object CreateProblem(@RequestParam Integer t_id, @RequestParam Integer u_id,@RequestParam String pl_name, @RequestParam String pl_feedback,
+                                @RequestParam String pl_describe, @RequestParam Integer pl_serious, @RequestParam String pl_programme, @RequestParam Integer pl_state,
+                                @RequestParam String pl_fsDate, @RequestParam String pl_yqDate,HttpSession session) throws ParseException {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Pt_problem problem = new Pt_problem();
+        problem.setT_id(t_id);
+        if(u_id == 0){
+            problem.setU_id(null);
+        }else{
+            problem.setU_id(u_id);
+        }
+
+        problem.setPl_name(pl_name);
+        problem.setPl_lrDate(new Date());
+        problem.setPl_feedback(pl_feedback);
+        problem.setPl_describe(pl_describe);
+        problem.setPl_serious(pl_serious);
+        problem.setPl_programme(pl_programme);
+        problem.setPl_state(pl_state);
+        problem.setPl_fsDate(sdf.parse(pl_fsDate));
+        problem.setPl_yqDate(sdf.parse(pl_yqDate));
+
+        int i = problemService.CreateProblem(problem);
+        String success = "";
+        if(i > 0){
+            success = "success";
+        }else {
+            success = "error";
+        }
+        if(session.getAttribute("pl_id") != null){
+            session.removeAttribute("pl_id");
+        }
+        session.setAttribute("pl_id",problem.getPl_id());
+        return success;
+    }
+
+
+    @RequestMapping(value = "getByIdInProblem",method = RequestMethod.GET)//问题信息
+    @ResponseBody
+    public Object getByIdInproblem(Integer pl_id,HttpServletRequest request){
+        Pt_problem byIdInProblem = problemService.getByIdInProblem(pl_id);
+        for (int i = 0; i < byIdInProblem.getLists().size(); i++) {
+            byIdInProblem.getLists().get(i).setUrl(request.getContextPath()+"/upload/"+byIdInProblem.getLists().get(i).getUrl());
+        }
+        return byIdInProblem;
+    }
+
+    @RequestMapping(value = "ProStart",method = RequestMethod.POST)//开始
+    public String ProStart(Integer pl_id){
+        int i = problemService.UpdateStart(pl_id,new Date());
+        return "forward:myProblem";
+    }
+
+    @RequestMapping(value = "AddProInfos",method = RequestMethod.POST)//添加问题信息
+    @ResponseBody
+    public Object addProInfo(@RequestParam(value = "pl_id[]") Integer[] pl_id,@RequestParam(value = "proDate[]") String[] proDate,
+                             @RequestParam(value = "hours[]") Integer[] hours, @RequestParam(value = "remarks[]") String[] remarks,
+                             @RequestParam(value = "state") Integer state,@RequestParam(value = "method") Integer method){
+        Pt_problem problem = problemService.getByIdInProblem(pl_id[0]);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Pt_proInfo proInfo = null;
+        for (int i = 0; i < hours.length; i++) {
+            if(hours[i] == null){
+                break;
+            }
+            try {
+                proInfo = new Pt_proInfo();
+                proInfo.setPl_id(pl_id[i]);
+                proInfo.setState(state);
+                proInfo.setProDate(sdf.parse(proDate[i]));
+                proInfo.setHours(hours[i]);
+                proInfo.setRemarks(remarks[i]);
+                problemService.AddProInfo(proInfo);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
+        if(method == 200){
+            try {
+                problemService.UpdateState(pl_id[0],3,new Date());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return "success";
+    }
+
+    @RequestMapping(value = "getByIdProInfo",method = RequestMethod.GET)//获取修改问题信息
+    @ResponseBody
+    public Object getByIdProInfo(Integer pl_id){
+        List<Pt_proInfo> byIdProInfo = problemService.getByIdProInfo(pl_id);
+        return byIdProInfo;
+    }
+
+    @RequestMapping(value = "updateProblem",method = RequestMethod.POST)
+    @ResponseBody
+    public Object UpdateProblem(@RequestParam Integer pl_id,@RequestParam Integer t_id,@RequestParam Integer u_id,@RequestParam String pl_name,@RequestParam String pl_describe,
+                                @RequestParam String pl_fsDate,@RequestParam String pl_yqDate,@RequestParam Integer pl_serious,@RequestParam String pl_programme){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Pt_problem problem = new Pt_problem();
+        problem.setPl_id(pl_id);
+        problem.setT_id(t_id);
+        problem.setU_id(u_id);
+        problem.setPl_name(pl_name);
+        problem.setPl_describe(pl_describe);
+        try {
+            problem.setPl_fsDate(sdf.parse(pl_fsDate));
+            problem.setPl_yqDate(sdf.parse(pl_yqDate));
+            problem.setPl_serious(pl_serious);
+            problem.setPl_programme(pl_programme);
+            int state = problemService.UpdateProblem(problem);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return "success";
+    }
+
+    @RequestMapping(value = "ProComplete",method = RequestMethod.POST)//完成问题
+    @ResponseBody
+    public Object ProComplete(Integer pl_id,Integer state){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        int i = 0;
+        try {
+            i = problemService.UpdateState(pl_id, state, sdf.parse(sdf.format(new Date())));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return i;
+    }
+
+    @RequestMapping(value = "updateStateExamine",method = RequestMethod.POST)
+    @ResponseBody
+    public Object UpdateStateExamine(Integer pl_id,Integer pl_state){
+        int i = problemService.UpdateStateExamine(pl_id, pl_state);
+        return i;
+    }
+
+    @RequestMapping(value = "backProblem",method = RequestMethod.POST)
+    @ResponseBody
+    public Object backProblem(Integer pl_id,String remarks,HttpSession session){
+        Pt_User user = (Pt_User) session.getAttribute("pt_user");
+        int i = 0;
+        i = problemService.UpdateState(pl_id, 2, null);
+        Pt_proInfo proInfo = new Pt_proInfo();
+        proInfo.setPl_id(pl_id);
+        proInfo.setProDate(new Date());
+        proInfo.setSurplus(0);
+        proInfo.setHours(0);
+        proInfo.setState(3);
+        proInfo.setRemarks(remarks);
+        proInfo.setU_id(user.getU_id());
+        i += problemService.AddProInfo(proInfo);
+        return i;
+    }
+
+    public IPt_ProblemService getProblemService() {
+        return problemService;
+    }
+
+    public void setProblemService(IPt_ProblemService problemService) {
+        this.problemService = problemService;
+    }
+
+    public MailSenderSrvServices getMailSend() {
+        return mailSend;
+    }
+
+    public void setMailSend(MailSenderSrvServices mailSend) {
+        this.mailSend = mailSend;
+    }
+}
