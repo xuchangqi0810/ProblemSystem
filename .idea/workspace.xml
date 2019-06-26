@@ -16,7 +16,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/mapper/IPt_UserDAO.class" afterPath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/mapper/IPt_UserDAO.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/classes/com/xcq/controller/Pt_UserController.class" afterPath="$PROJECT_DIR$/../Test/target/classes/com/xcq/controller/Pt_UserController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/classes/com/xcq/mapper/IPt_UserDAO.class" afterPath="$PROJECT_DIR$/../Test/target/classes/com/xcq/mapper/IPt_UserDAO.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Test/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/mapper/IPt_UserDAO.xml" afterPath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/mapper/IPt_UserDAO.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/index.jsp" afterPath="$PROJECT_DIR$/../Test/target/Test/index.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/problemlist.jsp" afterPath="$PROJECT_DIR$/../Test/target/Test/problemlist.jsp" />
@@ -858,7 +857,7 @@
       <workItem from="1561077317958" duration="24873000" />
       <workItem from="1561335798522" duration="20347000" />
       <workItem from="1561422915772" duration="17562000" />
-      <workItem from="1561508570960" duration="320000" />
+      <workItem from="1561508570960" duration="360000" />
     </task>
     <task id="LOCAL-00001" summary="提交代码">
       <created>1561445883219</created>
@@ -874,7 +873,14 @@
       <option name="project" value="LOCAL" />
       <updated>1561508695225</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="提交代码">
+      <created>1561508902751</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1561508902751</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -910,7 +916,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="476294000" />
+    <option name="totallyTimeSpent" value="476334000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
