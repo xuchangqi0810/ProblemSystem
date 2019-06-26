@@ -138,9 +138,13 @@ public class Pt_UserController {
 
     @RequestMapping(value = "getByIdInUpdate",method = RequestMethod.GET)//进入修改
     public String getByIdInUpdate(Integer pl_id,HttpServletRequest request,HttpSession session){
+        Integer d_id = null;
         Pt_problem byIdInProblem = problemService.getByIdInProblem(pl_id);
         Pt_User pt_user = (Pt_User) session.getAttribute("pt_user");
-        List<Pt_User> byDIDUserList = userService.getByDIDUserList(pt_user.getD_id());
+        if(pt_user.getRole().getId() != 1){
+            d_id = pt_user.getD_id();
+        }
+        List<Pt_User> byDIDUserList = userService.getByDIDUserList(d_id);
         List<Pt_type> pt_types = problemService.Pt_typeList();
         request.setAttribute("problem",byIdInProblem);
         request.setAttribute("typeList",pt_types);

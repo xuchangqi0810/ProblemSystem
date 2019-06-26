@@ -273,7 +273,9 @@
                     },
                     success:function (data) {
                         layer.msg("修改成功",{icon:1});
-                        history.go(0);
+                        window.setTimeout(function(){
+                            history.go(0);
+                        }, 2000);
                     }
                 })
             }, function(){//取消
@@ -488,10 +490,10 @@
                         async:false,
                         success:function (data) {
                             if(data == 1){
-                                layer.msg('修改成功', {icon: 1});
-                                location.href = "${pageContext.request.contextPath}/myProblem";
-                            }else{
-                                layer.msg("数据或网络异常，请稍后重试");
+                                layer.msg('审批成功', {icon: 1});
+                                window.setTimeout(function(){
+                                    location.href = "${pageContext.request.contextPath}/myProblem";
+                                }, 2000);
                             }
                         }
                     })

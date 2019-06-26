@@ -33,7 +33,12 @@
     </select>
 
     <select id="getByDIDUserList" resultMap="pt_user">
-        SELECT * FROM pt_user WHERE d_id=#{d_id}
+        SELECT * FROM pt_user
+        <where>
+            <if test="d_id != null">
+                AND d_id=#{d_id}
+            </if>
+        </where>
     </select>
 
     <select id="getStatisticsList" resultType="com.xcq.entity.Statistics">
