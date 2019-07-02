@@ -15,6 +15,8 @@
 
         <association property="role" javaType="com.xcq.entity.Pt_Role" select="selectMultSQL" column="u_id">
         </association>
+        <association property="dep" javaType="com.xcq.entity.Pt_dep" select="selectDepSQL" column="d_id">
+        </association>
     </resultMap>
 
     <resultMap id="pt_role" type="com.xcq.entity.Pt_Role">
@@ -22,8 +24,17 @@
         <result property="r_name" javaType="String" column="r_name"/>
     </resultMap>
 
+    <resultMap id="pt_dep" type="com.xcq.entity.Pt_dep">
+        <id property="d_id" javaType="int" column="d_id"/>
+        <result property="d_name" javaType="String" column="d_name"/>
+    </resultMap>
+
     <select id="selectMultSQL" resultMap="pt_role">
         SELECT r.* FROM pt_user u,user_role ur,pt_role r WHERE u.`u_id` = ur.`u_id` AND r.`id` = ur.`r_id` AND ur.`u_id` = #{u_id}
+    </select>
+
+    <select id="selectDepSQL" resultMap="pt_dep">
+        SELECT * FROM pt_dep WHERE d_id =  #{d_id}
     </select>
 
 
@@ -33,12 +44,7 @@
     </select>
 
     <select id="getByDIDUserList" resultMap="pt_user">
-        SELECT * FROM pt_user
-        <where>
-            <if test="d_id != null">
-                AND d_id=#{d_id}
-            </if>
-        </where>
+        SELECT * FROM pt_user WHERE d_id=#{d_id}
     </select>
 
     <select id="getStatisticsList" resultType="com.xcq.entity.Statistics">

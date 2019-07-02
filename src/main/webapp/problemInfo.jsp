@@ -137,13 +137,13 @@
         var hours = 0;
         var content = "<li value='1'>1."+data.pl_lrDate+"，由<strong>"+data.pl_feedback+"</strong>创建。</li>";
         if(data.pl_state != 1){
-            content += "<li value='2'>2."+data.pl_starttime+"，由<strong>"+data.pl_feedback+"</strong>开始。</li>";
+            content += "<li value='2'>2."+data.pl_starttime+"，由<strong>"+data.pt_user.u_nickName+"</strong>开始。</li>";
         }
         var j = 3;
         for (var i = 0; i < data.proInfos.length; i++){
             if(data.proInfos[i].state == 2){
                 hours +=data.proInfos[i].hours;
-                content += "<li value='"+j+"'>"+j+"."+data.proInfos[i].proDate+"，由<strong>"+data.pl_feedback+"</strong>记录工时，消耗<strong>"+data.proInfos[i].hours+"</strong>小时。</li>" +
+                content += "<li value='"+j+"'>"+j+"."+data.proInfos[i].proDate+"，由<strong>"+data.pt_user.u_nickName+"</strong>记录工时，消耗<strong>"+data.proInfos[i].hours+"</strong>小时。</li>" +
                     "<div class=\"history\" style='background-color: #cac19d;padding: 1%'>        <div class=\"changes hide alert\" id=\"changeBox4\"></div>\n" +
                     "                <div class=\"article-content comment276\">"+data.proInfos[i].remarks+"</div>        \n" +
                     "        </div>";
@@ -154,8 +154,8 @@
                     "        </div>";
             }
             j++;
-            if(i == data.proInfos.length -1 && data.pl_state == 4){
-                content += "<li value='"+j+"'>"+j+"."+data.proInfos[i].proDate+"，由<strong>"+data.pl_feedback+"</strong>完成。</li>"
+            if(i == data.proInfos.length -1 && (data.pl_state == 3 || data.pl_state ==4 )){
+                content += "<li value='"+j+"'>"+j+"."+data.proInfos[i].proDate+"，由<strong>"+data.pt_user.u_nickName+"</strong>完成。</li>"
             }
         }
         $("#describe").html(data.pl_describe);

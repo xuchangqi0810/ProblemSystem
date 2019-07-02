@@ -18,17 +18,15 @@
     </bean>
 
     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
-        <property name="host" value="smtp.ym.163.com" />
-        <property name="port" value="25" />
-        <property name="username" value="xuchangqi@g-linkwell.com" />
-        <property name="password" value="17600762600" />
-
+        <property name="host" value="smtp.qq.com"/>
+        <property name="port" value="465"/>
+        <property name="username" value="1099242331@qq.com"/>
+        <property name="password" value="jpznegvhhkvagfec"/>
+        <property name="defaultEncoding" value="UTF-8"/>
         <property name="javaMailProperties">
             <props>
-                <prop key="mail.transport.protocol">smtp</prop>
                 <prop key="mail.smtp.auth">true</prop>
-                <prop key="mail.smtp.starttls.enable">true</prop>
-                <prop key="mail.debug">true</prop>
+                <prop key="mail.smtp.ssl.enable">true</prop>
             </props>
         </property>
     </bean>

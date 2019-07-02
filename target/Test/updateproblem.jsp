@@ -57,7 +57,7 @@
             <a class="navbar-brand" style="color: white" href="#">欢迎使用问题管理系统</a>
         </div>
         <ul class="nav navbar-nav navbar-right" >
-            <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span> ${pt_user.u_name}</a></li>
+            <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span>${pt_user.dep.d_name}&nbsp;&nbsp; ${pt_user.u_name}</a></li>
             <li><a href="${pageContext.request.contextPath}/loginOut" style="color: white"><span class="glyphicon glyphicon-log-in"></span> 退出</a></li>
         </ul>
     </div>
@@ -83,6 +83,8 @@
         <label class="col-sm-3 control-label">问题名称：<span class="required">*</span></label>
         <div class="col-sm-7">
             <input type="text" name="pl_name" lay-verify="title" autocomplete="off" value="${problem.pl_name}" placeholder="请输入问题名称" class="layui-input">
+            <%--<input type="hidden" name="u_id" value="${problem.u_id}">
+            <input type="hidden" name="pl_id" value="${problem.pl_id}">--%>
         </div>
         <label class="col-sm-3 control-label">问题类型：<span class="required">*</span></label>
         <div class="col-sm-7">
@@ -113,12 +115,12 @@
         <div class="layui-input-inline col-sm-7">
             <input type="text" class="layui-input" name="pl_fsDate" value="${problem.pl_fsDate}" id="fsdate" placeholder="yyyy-MM-dd">
         </div>
-
-        <label class="col-sm-3 control-label">要求时间：</label>
-        <div class="layui-input-inline col-sm-7">
-            <input type="text" class="layui-input" name="pl_yqDate" <c:if test="${problem.pl_yqDate== '0001-01-01'}">value=""</c:if> <c:if test="${problem.pl_yqDate!= '0001-01-01'}">value="${problem.pl_yqDate}"</c:if>   id="yqdate" placeholder="yyyy-MM-dd">
-        </div>
-
+        <c:if test="${pt_user.role.id != 3}">
+            <label class="col-sm-3 control-label">要求时间：</label>
+            <div class="layui-input-inline col-sm-7">
+                <input type="text" class="layui-input" name="pl_yqDate" <c:if test="${problem.pl_yqDate== '0001-01-01'}">value=""</c:if> <c:if test="${problem.pl_yqDate!= '0001-01-01'}">value="${problem.pl_yqDate}"</c:if>   id="yqdate" placeholder="yyyy-MM-dd">
+            </div>
+        </c:if>
         <label class="col-sm-3 control-label">严重等级:<span class="required">*</span></label>
         <div class="col-sm-7">
             <select class="form-control" name="pl_serious">
@@ -197,6 +199,8 @@
             if(pl_yqDate == null || pl_yqDate == undefined || pl_yqDate == ""){
                 pl_yqDate = "0001-01-01";
             }
+
+            alert(parseInt(u_id))
             $.ajax({
                 url:"${pageContext.request.contextPath}/updateProblem",
                 method:"POST",
@@ -220,10 +224,11 @@
                         layer.load(0, {shade: false});
                         $.ajax({
                             url: "${pageContext.request.contextPath}/sendEmail",
-                            method:"GET",
+                            method:"POST",
                             data:{
                                 "toEmail":toEmail,
                                 "pl_name":pl_name,
+                                //"num":num,//1发送  2不发送
                                 "state":200,
                             },
                             success:function (data) {

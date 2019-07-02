@@ -28,7 +28,7 @@
             <a class="navbar-brand" style="color: white" href="#">欢迎使用问题管理系统</a>
         </div>
         <ul class="nav navbar-nav navbar-right" >
-            <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span> ${pt_user.u_nickName}</a></li>
+            <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span>${pt_user.dep.d_name}&nbsp;&nbsp; ${pt_user.u_nickName}</a></li>
             <li><a href="${pageContext.request.contextPath}/loginOut" style="color: white"><span class="glyphicon glyphicon-log-in"></span> 退出</a></li>
         </ul>
     </div>

@@ -64,7 +64,7 @@
             <a class="navbar-brand" style="color: white" href="#">欢迎使用问题管理系统</a>
         </div>
         <ul class="nav navbar-nav navbar-right" >
-            <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span> ${pt_user.u_name}</a></li>
+            <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span>${pt_user.dep.d_name}&nbsp;&nbsp; ${pt_user.u_name}</a></li>
             <li><a href="${pageContext.request.contextPath}/loginOut" style="color: white"><span class="glyphicon glyphicon-log-in"></span> 退出</a></li>
         </ul>
     </div>
@@ -179,6 +179,7 @@
     layui.use("upload",function () {
         var $ = layui.jquery
             ,upload = layui.upload;
+        var length = 0;
         //多图片上传
         upload.render({
             elem: '#test2'
@@ -192,6 +193,9 @@
             bindAction:'#btn',
             choose:function (obj) {
                 var files = obj.pushFile();
+                for (var i in files){
+                    length++;
+                }
                 //预读本地文件示例，不支持ie8
                 obj.preview(function(index, file, result){
                     $('#ImgPreview').append('<div class="image-container" style="display: inline-block" id="container'+index+'">' +
@@ -203,6 +207,8 @@
                         delete files[index];
                         $("#container"+index).remove();
                     });
+
+
 
                     $("#showImg"+index).bind('click',function () {
                         var width = $("#showImg"+index).width();
@@ -267,6 +273,17 @@
                 return;
             }
         }
+
+        if(length != 0){
+            if(length > 2){
+                layer.msg("最多只能上传两张图片");
+                return;
+            }
+        }else{
+            layer.msg("请选择上传图片");
+            return;
+        }
+
         var toEmail = $("#fzr").find("option:selected").attr("name");//获取选中用户的邮箱
         if(pl_yqDate == null || pl_yqDate == undefined || pl_yqDate == ""){
             pl_yqDate = "0001-01-01";
@@ -294,10 +311,11 @@
                     layer.load(0, {shade: false});
                     $.ajax({
                         url: "${pageContext.request.contextPath}/sendEmail",
-                        method:"GET",
+                        method:"POST",
                         data:{
                             "toEmail":toEmail,
                             "pl_name":pl_name,
+                            "num":0,
                             "state":100,
                         },
                         success:function (data) {

@@ -11,14 +11,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0fb2891-59af-4f26-bd7d-29e418479aa7" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/classes/com/xcq/controller/Pt_ProblemController.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test.war" afterPath="$PROJECT_DIR$/../Test/target/Test.war" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/controller/Pt_ProblemController.class" afterPath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/controller/Pt_ProblemController.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/controller/Pt_UserController.class" afterPath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/controller/Pt_UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/mapper/IPt_UserDAO.class" afterPath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/mapper/IPt_UserDAO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/entity/Pt_User.class" afterPath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/entity/Pt_User.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/classes/com/xcq/controller/Pt_UserController.class" afterPath="$PROJECT_DIR$/../Test/target/classes/com/xcq/controller/Pt_UserController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/classes/com/xcq/mapper/IPt_UserDAO.class" afterPath="$PROJECT_DIR$/../Test/target/classes/com/xcq/mapper/IPt_UserDAO.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/classes/com/xcq/entity/Pt_User.class" afterPath="$PROJECT_DIR$/../Test/target/classes/com/xcq/entity/Pt_User.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Test/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/controller/Pt_ProblemController.java" afterPath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/controller/Pt_ProblemController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/controller/Pt_UserController.java" afterPath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/controller/Pt_UserController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/entity/Pt_User.java" afterPath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/entity/Pt_User.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/mapper/IPt_UserDAO.xml" afterPath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/mapper/IPt_UserDAO.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/MailSenderSrvServices.java" afterPath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/MailSenderSrvServices.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/impl/MailSenderSrvServiceImpl.java" afterPath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/impl/MailSenderSrvServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/resources/applicationContext.xml" afterPath="$PROJECT_DIR$/../Test/src/main/resources/applicationContext.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/webapp/createproblem.jsp" afterPath="$PROJECT_DIR$/../Test/src/main/webapp/createproblem.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/../Test/src/main/webapp/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/webapp/problemInfo.jsp" afterPath="$PROJECT_DIR$/../Test/src/main/webapp/problemInfo.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/webapp/problemlist.jsp" afterPath="$PROJECT_DIR$/../Test/src/main/webapp/problemlist.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/webapp/statistics.jsp" afterPath="$PROJECT_DIR$/../Test/src/main/webapp/statistics.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/webapp/updateproblem.jsp" afterPath="$PROJECT_DIR$/../Test/src/main/webapp/updateproblem.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/mapper/IPt_UserDAO.xml" afterPath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/mapper/IPt_UserDAO.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/createproblem.jsp" afterPath="$PROJECT_DIR$/../Test/target/Test/createproblem.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/index.jsp" afterPath="$PROJECT_DIR$/../Test/target/Test/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/problemInfo.jsp" afterPath="$PROJECT_DIR$/../Test/target/Test/problemInfo.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/problemlist.jsp" afterPath="$PROJECT_DIR$/../Test/target/Test/problemlist.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/statistics.jsp" afterPath="$PROJECT_DIR$/../Test/target/Test/statistics.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/updateproblem.jsp" afterPath="$PROJECT_DIR$/../Test/target/Test/updateproblem.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/classes/com/xcq/mapper/IPt_UserDAO.xml" afterPath="$PROJECT_DIR$/../Test/target/classes/com/xcq/mapper/IPt_UserDAO.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/../Test/out/" />
@@ -35,103 +55,53 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/index.jsp">
+      <file leaf-file-name="Pt_ProblemController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/controller/Pt_ProblemController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="12375">
-              <caret line="495" column="41" lean-forward="false" selection-start-line="495" selection-start-column="41" selection-end-line="495" selection-end-column="41" />
+            <state relative-caret-position="309">
+              <caret line="162" column="14" lean-forward="true" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="14" />
               <folding>
-                <marker date="1561453404734" expanded="true" signature="14059:14084" ph="..." />
-                <marker date="1561453404734" expanded="true" signature="14184:14197" ph="..." />
-                <marker date="1561453404734" expanded="true" signature="14702:14727" ph="..." />
-                <marker date="1561453404734" expanded="true" signature="14839:14852" ph="..." />
-                <marker date="1561453404734" expanded="true" signature="16319:16331" ph="..." />
-                <marker date="1561453404734" expanded="true" signature="17276:17288" ph="..." />
+                <element signature="imports" expanded="true" />
+                <element signature="e#3682#3752#0" expanded="false" />
+                <element signature="e#4399#4465#0" expanded="false" />
+                <element signature="e#5870#5938#0" expanded="false" />
+                <element signature="e#7803#7876#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="problemlist.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/problemlist.jsp">
+      <file leaf-file-name="createproblem.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/createproblem.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="239" column="86" lean-forward="false" selection-start-line="239" selection-start-column="86" selection-end-line="239" selection-end-column="86" />
+            <state relative-caret-position="208">
+              <caret line="279" column="23" lean-forward="false" selection-start-line="279" selection-start-column="23" selection-end-line="279" selection-end-column="23" />
               <folding>
-                <marker date="1561453456404" expanded="true" signature="13123:13148" ph="..." />
-                <marker date="1561453456404" expanded="true" signature="13248:13261" ph="..." />
-                <marker date="1561453456404" expanded="true" signature="13766:13791" ph="..." />
-                <marker date="1561453456404" expanded="true" signature="13903:13916" ph="..." />
-                <marker date="1561453456404" expanded="true" signature="15383:15395" ph="..." />
-                <marker date="1561453456404" expanded="true" signature="16340:16352" ph="..." />
+                <marker date="1562056575885" expanded="true" signature="7707:7728" ph="..." />
+                <marker date="1562056575885" expanded="true" signature="8027:8068" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IPt_UserDAO.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/mapper/IPt_UserDAO.xml">
+      <file leaf-file-name="updateproblem.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/updateproblem.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="875">
-              <caret line="35" column="29" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="29" />
-              <folding>
-                <marker date="1561452472023" expanded="true" signature="1195:1317" ph="SELECT r.* F... pt_user" />
-                <marker date="1561452472023" expanded="true" signature="1400:1458" ph="SELECT * FRO... pt_user" />
-                <marker date="1561452472023" expanded="true" signature="1537:1558" ph="SELECT * FRO... pt_user" />
-                <marker date="1561452472023" expanded="true" signature="1778:1894" ph="SELECT t.t_n... pt_problem" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IPt_ProblemDAO.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/mapper/IPt_ProblemDAO.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="6275">
-              <caret line="251" column="0" lean-forward="false" selection-start-line="251" selection-start-column="0" selection-end-line="251" selection-end-column="0" />
-              <folding>
-                <marker date="1561446820452" expanded="true" signature="3886:3934" ph="SELECT * fro... pt_user" />
-                <marker date="1561446820452" expanded="true" signature="4010:4058" ph="SELECT * fro... pt_type" />
-                <marker date="1561446820452" expanded="true" signature="4138:4181" ph="SELECT * FRO... pt_img" />
-                <marker date="1561446820452" expanded="true" signature="4268:4315" ph="SELECT * FRO... pt_proinfo" />
-                <marker date="1561446820452" expanded="true" signature="4411:4584" ph="SELECT * FRO... pt_problem" />
-                <marker date="1561446820452" expanded="true" signature="4678:4865" ph="SELECT p.* F... pt_problem" />
-                <marker date="1561446820452" expanded="true" signature="4954:4975" ph="select * fro... pt_type" />
-                <marker date="1561446820452" expanded="true" signature="7239:7344" ph="INSERT INTO pt_problem... " />
-                <marker date="1561446820452" expanded="true" signature="7442:7488" ph="INSERT INTO pt_img... " />
-                <marker date="1561446820452" expanded="true" signature="7587:7634" ph="SELECT * FRO... pt_problem" />
-                <marker date="1561446820452" expanded="true" signature="7710:7796" ph="UPDATE pt_pr... " />
-                <marker date="1561446820452" expanded="true" signature="7868:7994" ph="INSERT INTO pt_proInfo... " />
-                <marker date="1561446820452" expanded="true" signature="8065:8140" ph="UPDATE pt_pr... " />
-                <marker date="1561446820452" expanded="true" signature="8237:8301" ph="SELECT * FRO... pt_proinfo" />
-                <marker date="1561446820452" expanded="true" signature="8372:8643" ph="UPDATE pt_pr... " />
-                <marker date="1561446820452" expanded="true" signature="8718:8948" ph="UPDATE pt_pr... " />
-                <marker date="1561446820452" expanded="true" signature="9031:9087" ph="UPDATE pt_pr... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IPt_UserDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/mapper/IPt_UserDAO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="13" column="47" lean-forward="false" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+            <state relative-caret-position="283">
+              <caret line="202" column="32" lean-forward="false" selection-start-line="202" selection-start-column="32" selection-end-line="202" selection-end-column="32" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Pt_UserController.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Pt_UserController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/controller/Pt_UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="139" column="33" lean-forward="false" selection-start-line="139" selection-start-column="18" selection-end-line="139" selection-end-column="33" />
+            <state relative-caret-position="-816">
+              <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
               <folding>
                 <element signature="method#Login#0;class#Pt_UserController#0" expanded="false" />
                 <element signature="method#ProblemList#0;class#Pt_UserController#0" expanded="false" />
-                <element signature="method#myProblem#0;class#Pt_UserController#0" expanded="false" />
-                <element signature="method#pt_typeList#0;class#Pt_UserController#0" expanded="false" />
                 <element signature="e#4713#4775#0" expanded="false" />
                 <element signature="method#uploadImg#0;class#Pt_UserController#0" expanded="false" />
                 <element signature="method#LoginOut#0;class#Pt_UserController#0" expanded="false" />
@@ -140,12 +110,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IPt_UserService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/IPt_UserService.java">
+      <file leaf-file-name="MailSenderSrvServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/impl/MailSenderSrvServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="11" column="41" lean-forward="false" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-              <folding />
+            <state relative-caret-position="-36">
+              <caret line="55" column="48" lean-forward="false" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1069#1070#0" expanded="true" />
+                <element signature="e#1113#1114#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MailSenderSrvServices.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/MailSenderSrvServices.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="314">
+              <caret line="18" column="69" lean-forward="false" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="69" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,8 +149,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>alert</find>
-      <find>setContent</find>
       <find>setSubject</find>
       <find>problemSave</find>
       <find />
@@ -189,10 +173,12 @@
       <find>cons</find>
       <find>start</find>
       <find>eac</find>
-      <find>updateProblem</find>
       <find>getByDIDUserList</find>
       <find>getByIdInUpdate</find>
       <find>审批</find>
+      <find>typeList</find>
+      <find>pt_typeList</find>
+      <find>updateProblem</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -219,12 +205,9 @@
         <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/util/MailUtil.java" />
         <option value="$PROJECT_DIR$/../Test/src/main/test/aaaa.java" />
         <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/mapper/MailSenderSrv.java" />
-        <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/MailSenderSrvServices.java" />
         <option value="$PROJECT_DIR$/../Test/src/main/test/aaa.java" />
         <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/MailSenderSrv.java" />
-        <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/impl/MailSenderSrvServiceImpl.java" />
         <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/entity/Pt_Role.java" />
-        <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/entity/Pt_User.java" />
         <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/interceptor/LoginInterceptor.java" />
         <option value="$PROJECT_DIR$/../Test/src/main/webapp/top.jsp" />
         <option value="$PROJECT_DIR$/../Test/src/main/webapp/login.jsp" />
@@ -233,30 +216,33 @@
         <option value="$PROJECT_DIR$/../Test/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/util/Test.java" />
         <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/entity/Pt_proInfo.java" />
-        <option value="$PROJECT_DIR$/../Test/src/main/resources/applicationContext.xml" />
         <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/entity/Pt_problem.java" />
         <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/impl/Pt_ProblemServiceImpl.java" />
         <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/mapper/IPt_ProblemDAO.java" />
         <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/IPt_ProblemService.java" />
         <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/util/DateTest.java" />
-        <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/controller/Pt_ProblemController.java" />
         <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/mapper/IPt_ProblemDAO.xml" />
-        <option value="$PROJECT_DIR$/../Test/src/main/webapp/createproblem.jsp" />
-        <option value="$PROJECT_DIR$/../Test/src/main/webapp/updateproblem.jsp" />
         <option value="$PROJECT_DIR$/../Test/src/main/webapp/404.html" />
         <option value="$PROJECT_DIR$/../Test/src/main/webapp/css/404.css" />
         <option value="$PROJECT_DIR$/../Test/src/main/webapp/404.jsp" />
         <option value="$PROJECT_DIR$/../Test/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/../Test/src/main/webapp/problemInfo.jsp" />
         <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/IPt_UserService.java" />
         <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/impl/Pt_UserServiceImpl.java" />
         <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/entity/Statistics.java" />
-        <option value="$PROJECT_DIR$/../Test/src/main/webapp/statistics.jsp" />
-        <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/mapper/IPt_UserDAO.xml" />
-        <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/controller/Pt_UserController.java" />
         <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/mapper/IPt_UserDAO.java" />
+        <option value="$PROJECT_DIR$/../Test/src/main/webapp/problemInfo.jsp" />
+        <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/controller/Pt_UserController.java" />
+        <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/entity/Pt_User.java" />
+        <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/mapper/IPt_UserDAO.xml" />
+        <option value="$PROJECT_DIR$/../Test/src/main/webapp/statistics.jsp" />
         <option value="$PROJECT_DIR$/../Test/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/../Test/src/main/webapp/problemlist.jsp" />
+        <option value="$PROJECT_DIR$/../Test/src/main/resources/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/impl/MailSenderSrvServiceImpl.java" />
+        <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/MailSenderSrvServices.java" />
+        <option value="$PROJECT_DIR$/../Test/src/main/webapp/updateproblem.jsp" />
+        <option value="$PROJECT_DIR$/../Test/src/main/java/com/xcq/controller/Pt_ProblemController.java" />
+        <option value="$PROJECT_DIR$/../Test/src/main/webapp/createproblem.jsp" />
       </list>
     </option>
   </component>
@@ -280,7 +266,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
@@ -301,7 +287,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -439,6 +424,7 @@
       <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="AndroidView" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -857,7 +843,10 @@
       <workItem from="1561077317958" duration="24873000" />
       <workItem from="1561335798522" duration="20347000" />
       <workItem from="1561422915772" duration="17562000" />
-      <workItem from="1561508570960" duration="360000" />
+      <workItem from="1561508570960" duration="12320000" />
+      <workItem from="1561594368748" duration="1932000" />
+      <workItem from="1561682623172" duration="3273000" />
+      <workItem from="1561943438553" duration="20571000" />
     </task>
     <task id="LOCAL-00001" summary="提交代码">
       <created>1561445883219</created>
@@ -916,7 +905,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="476334000" />
+    <option name="totallyTimeSpent" value="514070000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -928,38 +917,38 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.26956522" sideWeight="0.50959486" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.257889" sideWeight="0.4904051" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18869936" sideWeight="0.7511111" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20682302" sideWeight="0.23993559" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.48946515" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2132753" sideWeight="0.4936034" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1773667" sideWeight="0.4936034" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22850925" sideWeight="0.4904051" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19296375" sideWeight="0.7511111" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20682302" sideWeight="0.23993559" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29270947" sideWeight="0.4936034" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20682302" sideWeight="0.2488889" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1773667" sideWeight="0.4936034" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -976,14 +965,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/impl/MailSenderSrvServiceImpl.java</url>
-          <line>21</line>
-          <properties />
-          <option name="timeStamp" value="84" />
-        </line-breakpoint>
-      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
@@ -995,7 +976,7 @@
           <properties />
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="125" />
+      <option name="time" value="131" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory">
@@ -1004,47 +985,10 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/4.1.4.RELEASE/spring-web-4.1.4.RELEASE.jar!/org/springframework/web/bind/annotation/RequestParam.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/util/Pager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="250">
-          <caret line="10" column="32" lean-forward="true" selection-start-line="10" selection-start-column="32" selection-end-line="10" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-context-support/4.3.8.RELEASE/spring-context-support-4.3.8.RELEASE.jar!/org/springframework/mail/javamail/JavaMailSender.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/util/MailUtil.java" />
     <entry file="file://$PROJECT_DIR$/../Test/src/main/test/Test.java" />
     <entry file="file://$PROJECT_DIR$/../Test/src/main/test/aaaa.java" />
     <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/MailSenderSrv.java" />
     <entry file="file://$PROJECT_DIR$/../Test/src/main/test/aaa.java" />
-    <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/MailSenderSrvServices.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="4" column="17" lean-forward="false" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/javax/mail/mail/1.4.7/mail-1.4.7.jar!/javax/mail/internet/MimeMessage.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="583" column="26" lean-forward="false" selection-start-line="583" selection-start-column="16" selection-end-line="583" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/images/adm.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1054,14 +998,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="196">
           <caret line="384" column="0" lean-forward="true" selection-start-line="384" selection-start-column="0" selection-end-line="384" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/impl/MailSenderSrvServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="32" column="73" lean-forward="false" selection-start-line="32" selection-start-column="73" selection-end-line="32" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1149,13 +1085,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Test/src/main/resources/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="61" lean-forward="true" selection-start-line="11" selection-start-column="61" selection-end-line="11" selection-end-column="61" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="425">
@@ -1187,7 +1116,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="8" column="52" lean-forward="false" selection-start-line="8" selection-start-column="52" selection-end-line="8" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1246,83 +1174,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/createproblem.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-775">
-          <caret line="200" column="99" lean-forward="false" selection-start-line="200" selection-start-column="92" selection-end-line="200" selection-end-column="99" />
-          <folding>
-            <marker date="1561446820557" expanded="true" signature="7564:7585" ph="..." />
-            <marker date="1561446820557" expanded="true" signature="7884:7925" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/entity/Pt_User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1025">
-          <caret line="71" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/problemInfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="173" column="33" lean-forward="true" selection-start-line="173" selection-start-column="33" selection-end-line="173" selection-end-column="33" />
-          <folding>
-            <marker date="1561446820980" expanded="true" signature="3830:3867" ph="..." />
-            <marker date="1561446820980" expanded="true" signature="4361:4398" ph="..." />
-            <marker date="1561446820980" expanded="true" signature="7600:7611" ph="..." />
-            <marker date="1561446820980" expanded="true" signature="7623:7629" ph="&amp;nbsp;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/statistics.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="51" column="79" lean-forward="false" selection-start-line="51" selection-start-column="79" selection-end-line="51" selection-end-column="79" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/updateproblem.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="200" column="69" lean-forward="false" selection-start-line="200" selection-start-column="56" selection-end-line="200" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/controller/Pt_ProblemController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="370">
-          <caret line="149" column="42" lean-forward="false" selection-start-line="149" selection-start-column="42" selection-end-line="149" selection-end-column="42" />
-          <folding>
-            <element signature="e#816#879#0" expanded="false" />
-            <element signature="e#3613#3683#0" expanded="false" />
-            <element signature="e#4330#4396#0" expanded="false" />
-            <element signature="e#5801#5869#0" expanded="false" />
-            <element signature="e#7647#7720#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/entity/Statistics.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
           <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding>
-            <element signature="e#297#298#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/IPt_UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="11" column="41" lean-forward="false" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1330,10 +1185,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="16" column="14" lean-forward="false" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
-          <folding>
-            <element signature="e#469#470#0" expanded="true" />
-            <element signature="e#499#500#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1341,15 +1192,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
           <caret line="6" column="28" lean-forward="false" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
-          <folding>
-            <element signature="e#152#153#0" expanded="false" />
-          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/mapper/IPt_UserDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="13" column="47" lean-forward="false" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/mapper/IPt_ProblemDAO.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6275">
+        <state relative-caret-position="5768">
           <caret line="251" column="0" lean-forward="false" selection-start-line="251" selection-start-column="0" selection-end-line="251" selection-end-column="0" />
           <folding>
             <marker date="1561446820452" expanded="true" signature="3886:3934" ph="SELECT * fro... pt_user" />
@@ -1373,69 +1228,204 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/mapper/IPt_UserDAO.xml">
+    <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/IPt_UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
-          <caret line="35" column="29" lean-forward="false" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="29" />
+        <state relative-caret-position="200">
+          <caret line="11" column="41" lean-forward="false" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/problemInfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1018">
+          <caret line="156" column="88" lean-forward="false" selection-start-line="156" selection-start-column="88" selection-end-line="156" selection-end-column="88" />
           <folding>
-            <marker date="1561452472023" expanded="true" signature="1195:1317" ph="SELECT r.* F... pt_user" />
-            <marker date="1561452472023" expanded="true" signature="1400:1458" ph="SELECT * FRO... pt_user" />
-            <marker date="1561452472023" expanded="true" signature="1537:1558" ph="SELECT * FRO... pt_user" />
-            <marker date="1561452472023" expanded="true" signature="1778:1894" ph="SELECT t.t_n... pt_problem" />
+            <marker date="1561526138043" expanded="true" signature="3844:3881" ph="..." />
+            <marker date="1561526138043" expanded="true" signature="4375:4412" ph="..." />
+            <marker date="1561526138043" expanded="true" signature="7645:7656" ph="..." />
+            <marker date="1561526138043" expanded="true" signature="7668:7674" ph="&amp;nbsp;" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/mapper/IPt_UserDAO.java">
+    <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/entity/Pt_dep.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="13" column="47" lean-forward="false" selection-start-line="13" selection-start-column="47" selection-end-line="13" selection-end-column="47" />
+        <state relative-caret-position="50">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/entity/Pt_User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1050">
+          <caret line="77" column="28" lean-forward="false" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
+          <folding>
+            <element signature="e#1511#1512#0" expanded="false" />
+            <element signature="e#1549#1550#0" expanded="false" />
+            <element signature="e#1579#1580#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/mapper/IPt_UserDAO.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="36" column="42" lean-forward="false" selection-start-line="36" selection-start-column="42" selection-end-line="36" selection-end-column="42" />
+          <folding>
+            <marker date="1561529098394" expanded="true" signature="1528:1650" ph="SELECT r.* F... pt_user" />
+            <marker date="1561529098394" expanded="true" signature="1724:1766" ph="SELECT * FRO... pt_dep" />
+            <marker date="1561529098394" expanded="true" signature="1849:1907" ph="SELECT * FRO... pt_user" />
+            <marker date="1561529098394" expanded="true" signature="1986:2007" ph="SELECT * FRO... pt_user" />
+            <marker date="1561529098394" expanded="true" signature="1986:2026" ph="SELECT * FRO... pt_user" />
+            <marker date="1561529098394" expanded="true" signature="2125:2241" ph="SELECT t.t_n... pt_problem" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/statistics.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="30" column="128" lean-forward="false" selection-start-line="30" selection-start-column="128" selection-end-line="30" selection-end-column="128" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="12375">
-          <caret line="495" column="41" lean-forward="false" selection-start-line="495" selection-start-column="41" selection-end-line="495" selection-end-column="41" />
+        <state relative-caret-position="3125">
+          <caret line="125" column="40" lean-forward="false" selection-start-line="125" selection-start-column="40" selection-end-line="130" selection-end-column="47" />
           <folding>
-            <marker date="1561453404734" expanded="true" signature="14059:14084" ph="..." />
-            <marker date="1561453404734" expanded="true" signature="14184:14197" ph="..." />
-            <marker date="1561453404734" expanded="true" signature="14702:14727" ph="..." />
-            <marker date="1561453404734" expanded="true" signature="14839:14852" ph="..." />
-            <marker date="1561453404734" expanded="true" signature="16319:16331" ph="..." />
-            <marker date="1561453404734" expanded="true" signature="17276:17288" ph="..." />
+            <marker date="1561594856116" expanded="true" signature="14116:14141" ph="..." />
+            <marker date="1561594856116" expanded="true" signature="14241:14254" ph="..." />
+            <marker date="1561594856116" expanded="true" signature="14759:14784" ph="..." />
+            <marker date="1561594856116" expanded="true" signature="14896:14909" ph="..." />
+            <marker date="1561594856116" expanded="true" signature="16376:16388" ph="..." />
+            <marker date="1561594856116" expanded="true" signature="17333:17345" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/problemlist.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="239" column="86" lean-forward="false" selection-start-line="239" selection-start-column="86" selection-end-line="239" selection-end-column="86" />
+        <state relative-caret-position="3100">
+          <caret line="124" column="43" lean-forward="false" selection-start-line="124" selection-start-column="43" selection-end-line="124" selection-end-column="43" />
           <folding>
-            <marker date="1561453456404" expanded="true" signature="13123:13148" ph="..." />
-            <marker date="1561453456404" expanded="true" signature="13248:13261" ph="..." />
-            <marker date="1561453456404" expanded="true" signature="13766:13791" ph="..." />
-            <marker date="1561453456404" expanded="true" signature="13903:13916" ph="..." />
-            <marker date="1561453456404" expanded="true" signature="15383:15395" ph="..." />
-            <marker date="1561453456404" expanded="true" signature="16340:16352" ph="..." />
+            <marker date="1561594955774" expanded="true" signature="13276:13301" ph="..." />
+            <marker date="1561594955774" expanded="true" signature="13401:13414" ph="..." />
+            <marker date="1561594955774" expanded="true" signature="13919:13944" ph="..." />
+            <marker date="1561594955774" expanded="true" signature="14056:14069" ph="..." />
+            <marker date="1561594955774" expanded="true" signature="15536:15548" ph="..." />
+            <marker date="1561594955774" expanded="true" signature="16493:16505" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/javax/mail/mail/1.4.7/mail-1.4.7.jar!/javax/mail/Message.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="14" column="22" lean-forward="false" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/javax/mail/mail/1.4.7/mail-1.4.7.jar!/javax/mail/internet/InternetAddress.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="23" column="18" lean-forward="false" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/javax/mail/mail/1.4.7/mail-1.4.7.jar!/javax/mail/internet/MimeMessage.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="244" column="16" lean-forward="false" selection-start-line="244" selection-start-column="16" selection-end-line="244" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.m2/repository/javax/mail/mail/1.4.7/mail-1.4.7.jar!/javax/mail/Session.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="31" column="19" lean-forward="false" selection-start-line="31" selection-start-column="19" selection-end-line="31" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Test/src/main/resources/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="21" column="40" lean-forward="false" selection-start-line="21" selection-start-column="40" selection-end-line="21" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/impl/MailSenderSrvServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-36">
+          <caret line="55" column="48" lean-forward="false" selection-start-line="55" selection-start-column="48" selection-end-line="55" selection-end-column="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1069#1070#0" expanded="true" />
+            <element signature="e#1113#1114#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/MailSenderSrvServices.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="18" column="69" lean-forward="false" selection-start-line="18" selection-start-column="69" selection-end-line="18" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/controller/Pt_UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="139" column="33" lean-forward="false" selection-start-line="139" selection-start-column="18" selection-end-line="139" selection-end-column="33" />
+        <state relative-caret-position="-816">
+          <caret line="92" column="0" lean-forward="false" selection-start-line="92" selection-start-column="0" selection-end-line="92" selection-end-column="0" />
           <folding>
             <element signature="method#Login#0;class#Pt_UserController#0" expanded="false" />
             <element signature="method#ProblemList#0;class#Pt_UserController#0" expanded="false" />
-            <element signature="method#myProblem#0;class#Pt_UserController#0" expanded="false" />
-            <element signature="method#pt_typeList#0;class#Pt_UserController#0" expanded="false" />
             <element signature="e#4713#4775#0" expanded="false" />
             <element signature="method#uploadImg#0;class#Pt_UserController#0" expanded="false" />
             <element signature="method#LoginOut#0;class#Pt_UserController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/updateproblem.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="283">
+          <caret line="202" column="32" lean-forward="false" selection-start-line="202" selection-start-column="32" selection-end-line="202" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/controller/Pt_ProblemController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="309">
+          <caret line="162" column="14" lean-forward="true" selection-start-line="162" selection-start-column="14" selection-end-line="162" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3682#3752#0" expanded="false" />
+            <element signature="e#4399#4465#0" expanded="false" />
+            <element signature="e#5870#5938#0" expanded="false" />
+            <element signature="e#7803#7876#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/createproblem.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="279" column="23" lean-forward="false" selection-start-line="279" selection-start-column="23" selection-end-line="279" selection-end-column="23" />
+          <folding>
+            <marker date="1562056575885" expanded="true" signature="7707:7728" ph="..." />
+            <marker date="1562056575885" expanded="true" signature="8027:8068" ph="..." />
           </folding>
         </state>
       </provider>

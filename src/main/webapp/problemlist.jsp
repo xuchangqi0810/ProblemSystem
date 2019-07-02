@@ -41,7 +41,7 @@
             <a class="navbar-brand" style="color: white" href="#">欢迎使用问题管理系统</a>
         </div>
         <ul class="nav navbar-nav navbar-right" >
-            <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span> ${pt_user.u_name}</a></li>
+            <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span>${pt_user.dep.d_name}&nbsp;&nbsp; ${pt_user.u_name}</a></li>
             <li><a href="${pageContext.request.contextPath}/loginOut" style="color: white"><span class="glyphicon glyphicon-log-in"></span> 退出</a></li>
         </ul>
     </div>
@@ -51,10 +51,8 @@
         <li class="dropdown active"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">问题<b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li><a href="${pageContext.request.contextPath}/myProblem">我的</a></li>
-                <c:if test="${pt_user.role.id != 3 }">
                     <li class="divider"></li>
                     <li><a href="${pageContext.request.contextPath}/problemList">全部</a></li>
-                </c:if>
             </ul>
         </li>
         <li><a href="${pageContext.request.contextPath}/pt_typeList">新建问题</a></li>
@@ -67,7 +65,7 @@
     <div class="content" style="text-align: center">
         <form class="layui-form" action="" style="">
             <table class="table table-hover" style="margin-left: 1%;width: 98%">
-                <caption>我的问题</caption>
+                <caption>全部问题</caption>
                 <thead>
                 <tr>
                     <div class="layui-form-item" pane="">
@@ -86,7 +84,6 @@
                     <th style="width: 30%">问题名称</th>
                     <th>反馈人</th>
                     <th>负责人</th>
-                    <th>录入时间</th>
                     <th>发生时间</th>
                     <th>要求时间</th>
                     <th>进度</th>
@@ -101,7 +98,6 @@
                         <th onclick="showPro(${item.pl_id})" style="cursor:pointer" title="${item.pl_name}"><span style="padding: 5px;border-radius: 10px;background-color: #007DDB;font-size:12px;color: white">${item.pt_type.t_name}</span>&nbsp;${item.pl_name}</th>
                         <th>${item.pl_feedback}</th>
                         <th>${item.pt_user.u_nickName}</th>
-                        <th>${item.pl_lrDate}</th>
                         <th>${item.pl_fsDate}</th>
                         <c:if test="${item.pl_yqDate == '0001-01-01'}"><th></th></c:if>
                         <c:if test="${item.pl_yqDate != '0001-01-01'}"><th>${item.pl_yqDate}</th></c:if>
@@ -122,7 +118,10 @@
                                         剩余${item.timeout}天
                                     </c:if>
                                     <c:if test="${item.timeout < 0}">
-                                        进行中<span style="color: #f95731;"> 延期${-item.timeout}天</span>
+                                        进行中<span style="color: #f95731;">
+                                        <c:if test="${item.pl_yqDate != '0001-01-01'}">
+                                            延期${-item.timeout}天</span>
+                                        </c:if>
                                     </c:if>
                                 </th>
                             </c:when>
@@ -152,7 +151,9 @@
                             <i class="layui-icon <c:if test="${item.pl_state != 1 || item.pl_yqDate == '0001-01-01'}">layui-disabled</c:if> layui-icon-play"  title="开始" style="font-size: 20px;cursor:pointer;" <c:if test="${item.pl_state == 1 && item.pl_yqDate != '0001-01-01'}">onclick="proStart(${item.pl_id})"</c:if> ></i>
                             <i class="layui-icon layui-icon-log"  title="工时" style="font-size: 20px;cursor:pointer" onclick="proInfos(${item.pl_id})"></i>
                             <i class="layui-icon <c:if test="${item.pl_state == 3 || item.pl_state == 4 || item.pl_yqDate == '0001-01-01'}">layui-disabled</c:if> layui-icon-ok" title="完成" style="font-size: 20px;cursor:pointer" <c:if test="${(item.pl_state == 1||item.pl_state == 2) && item.pl_yqDate != '0001-01-01'}">onclick="proComplete(${item.pl_id})"</c:if> ></i>
-                            <i class="layui-icon <c:if test="${item.pl_state != 3}">layui-disabled</c:if> layui-icon-survey" title="审批" style="font-size: 20px;cursor:pointer" <c:if test="${item.pl_state == 3}">onclick="proExamine(${item.pl_id},${item.pl_state})"</c:if> ></i>
+                            <c:if test="${pt_user.role.id <3}">
+                                <i class="layui-icon <c:if test="${item.pl_state != 3}">layui-disabled</c:if> layui-icon-survey" title="审批" style="font-size: 20px;cursor:pointer" <c:if test="${item.pl_state == 3}">onclick="proExamine(${item.pl_id},${item.pl_state})"</c:if> ></i>
+                            </c:if>
                         </th>
                     </tr>
                 </c:forEach>

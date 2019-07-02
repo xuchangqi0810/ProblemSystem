@@ -24,29 +24,32 @@ public class Pt_ProblemController {
     @Autowired
     private MailSenderSrvServices mailSend;
 
-    @RequestMapping(value = "sendEmail",method = RequestMethod.GET)
+    @RequestMapping(value = "sendEmail",method = RequestMethod.POST)
     @ResponseBody
-    public Object send(@RequestParam String toEmail,@RequestParam String pl_name,@RequestParam Integer state){
-        /*String from = "xuchangqi@g-linkwell.com";//发件人
+    public Object send(@RequestParam String toEmail,@RequestParam String pl_name,@RequestParam Integer state){//@RequestParam Integer num,
+        String from = "xuchangqi@g-linkwell.com";//发件人
         String to = toEmail;//收件人
         String subject = "“您有新的问题待查看”";
-        String text = "<html>登陆网页版网易云邮箱<a href='ym.163.com'>ym.163.com</a>点击或复制连接<a href='192.168.1.34:8080'>192.168.1.34:8080</a>，即可登陆系统查看</br>"+pl_name+"</html>";
+        String text = "<html><body>登陆QQ邮箱<a href='https://mail.qq.com'>mail.qq.com</a>点击或复制连接<a href='http://192.168.1.34:8080'>192.168.1.34:8080</a>，即可登陆系统查看</br>"+pl_name+"</body></html>";
         try {
             if(state == 100){//新建
                 if(!(to.equals(""))){
-                    mailSend.sendHtmlEmail(to, from, subject, text);
+                    mailSend.sendHtmlEmail(to,subject, text);
                 }
-                mailSend.sendHtmlEmail("xuchangqi@g-linkwell.com", from, subject, text);//新建问题后必通知人
-                mailSend.sendHtmlEmail("xuchangqi@g-linkwell.com", from, subject, text);//
+                mailSend.sendEmail("1099242331@qq.com",subject, text);//新建问题后必通知人
+               // mailSend.sendHtmlEmail("xuchangqi@g-linkwell.com", from, subject, text);//
             }else if(state == 200){//修改
                 if(!(to.equals(""))){
-                    mailSend.sendHtmlEmail(to, from, subject, text);
+                    mailSend.sendEmail(to,subject,text);
                 }
+                /*if(num == 1){
+
+                }*/
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }*/
+        }
         return "发送成功";
     }
 
@@ -155,7 +158,11 @@ public class Pt_ProblemController {
         Pt_problem problem = new Pt_problem();
         problem.setPl_id(pl_id);
         problem.setT_id(t_id);
-        problem.setU_id(u_id);
+        if(u_id == 0){
+            problem.setU_id(null);
+        }else{
+            problem.setU_id(u_id);
+        }
         problem.setPl_name(pl_name);
         problem.setPl_describe(pl_describe);
         try {

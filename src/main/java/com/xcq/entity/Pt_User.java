@@ -9,6 +9,7 @@ public class Pt_User {
     private Integer u_gender;
     private String u_email;
     private Pt_Role role;
+    private Pt_dep dep;
 
     public Integer getU_id() {
         return u_id;
@@ -72,5 +73,13 @@ public class Pt_User {
 
     public void setRole(Pt_Role role) {
         this.role = role;
+    }
+
+    public Pt_dep getDep() {
+        return dep;
+    }
+
+    public void setDep(Pt_dep dep) {
+        this.dep = dep;
     }
 }
