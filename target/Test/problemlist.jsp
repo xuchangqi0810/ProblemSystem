@@ -147,10 +147,13 @@
                             </c:otherwise>
                         </c:choose>
                         <th>
-                            <i class="layui-icon layui-icon-edit" title="编辑" style="font-size: 20px;cursor:pointer;" onclick="getByIdInUpdate(${item.pl_id})"></i>
-                            <i class="layui-icon <c:if test="${item.pl_state != 1 || item.pl_yqDate == '0001-01-01'}">layui-disabled</c:if> layui-icon-play"  title="开始" style="font-size: 20px;cursor:pointer;" <c:if test="${item.pl_state == 1 && item.pl_yqDate != '0001-01-01'}">onclick="proStart(${item.pl_id})"</c:if> ></i>
-                            <i class="layui-icon layui-icon-log"  title="工时" style="font-size: 20px;cursor:pointer" onclick="proInfos(${item.pl_id})"></i>
-                            <i class="layui-icon <c:if test="${item.pl_state == 3 || item.pl_state == 4 || item.pl_yqDate == '0001-01-01'}">layui-disabled</c:if> layui-icon-ok" title="完成" style="font-size: 20px;cursor:pointer" <c:if test="${(item.pl_state == 1||item.pl_state == 2) && item.pl_yqDate != '0001-01-01'}">onclick="proComplete(${item.pl_id})"</c:if> ></i>
+                            <c:if test="${item.u_id == pt_user.u_id || pt_user.role.id < 3}">
+                                <i class="layui-icon layui-icon-edit" title="编辑" style="font-size: 20px;cursor:pointer;" onclick="getByIdInUpdate(${item.pl_id})"></i>
+                                <i class="layui-icon <c:if test="${item.pl_state != 1 || item.pl_yqDate == '0001-01-01' || item.u_id == null }">layui-disabled</c:if> layui-icon-play"  title="开始" style="font-size: 20px;cursor:pointer;" <c:if test="${item.pl_state == 1 && item.pl_yqDate != '0001-01-01'}">onclick="proStart(${item.pl_id})"</c:if> ></i>
+                                <i class="layui-icon layui-icon-log"  title="工时" style="font-size: 20px;cursor:pointer" onclick="proInfos(${item.pl_id})"></i>
+                                <i class="layui-icon <c:if test="${item.pl_state == 3 || item.pl_state == 4 || item.pl_yqDate == '0001-01-01' || item.u_id == null }">layui-disabled</c:if> layui-icon-ok" title="完成" style="font-size: 20px;cursor:pointer" <c:if test="${(item.pl_state == 1||item.pl_state == 2) && item.pl_yqDate != '0001-01-01'}">onclick="proComplete(${item.pl_id})"</c:if> ></i>
+                            </c:if>
+
                             <c:if test="${pt_user.role.id <3}">
                                 <i class="layui-icon <c:if test="${item.pl_state != 3}">layui-disabled</c:if> layui-icon-survey" title="审批" style="font-size: 20px;cursor:pointer" <c:if test="${item.pl_state == 3}">onclick="proExamine(${item.pl_id},${item.pl_state})"</c:if> ></i>
                             </c:if>

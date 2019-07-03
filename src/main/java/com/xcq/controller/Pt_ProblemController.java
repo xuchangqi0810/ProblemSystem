@@ -26,7 +26,7 @@ public class Pt_ProblemController {
 
     @RequestMapping(value = "sendEmail",method = RequestMethod.POST)
     @ResponseBody
-    public Object send(@RequestParam String toEmail,@RequestParam String pl_name,@RequestParam Integer state){//@RequestParam Integer num,
+    public Object send(@RequestParam String toEmail,@RequestParam String pl_name,@RequestParam Integer state,@RequestParam Integer num){//@RequestParam Integer num,
         String from = "xuchangqi@g-linkwell.com";//发件人
         String to = toEmail;//收件人
         String subject = "“您有新的问题待查看”";
@@ -37,14 +37,10 @@ public class Pt_ProblemController {
                     mailSend.sendHtmlEmail(to,subject, text);
                 }
                 mailSend.sendEmail("1099242331@qq.com",subject, text);//新建问题后必通知人
-               // mailSend.sendHtmlEmail("xuchangqi@g-linkwell.com", from, subject, text);//
             }else if(state == 200){//修改
-                if(!(to.equals(""))){
+                if(num == 1){
                     mailSend.sendEmail(to,subject,text);
                 }
-                /*if(num == 1){
-
-                }*/
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block

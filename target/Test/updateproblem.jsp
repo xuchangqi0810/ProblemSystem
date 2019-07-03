@@ -67,10 +67,8 @@
         <li class="dropdown active"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">问题<b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li><a href="${pageContext.request.contextPath}/myProblem">我的</a></li>
-                <c:if test="${pt_user.role.id != 3 }">
-                    <li class="divider"></li>
-                    <li><a href="${pageContext.request.contextPath}/problemList">全部</a></li>
-                </c:if>
+                <li class="divider"></li>
+                <li><a href="${pageContext.request.contextPath}/problemList">全部</a></li>
             </ul>
         </li>
         <li><a href="${pageContext.request.contextPath}/pt_typeList">新建问题</a></li>
@@ -136,7 +134,7 @@
             <textarea class="form-control" rows="3" name="pl_programme">${problem.pl_programme}</textarea>
         </div>
         <div class="layui-btn-group col-sm-9" style="margin-left: 49%">
-            <input type="submit" id="sub" class="layui-btn" onclick="problemSave()" value="确定"/>
+            <input type="submit" id="sub" class="layui-btn" onclick="problemSave(${problem.u_id})" value="确定"/>
             <input type="button" id="back" class="layui-btn" onclick="javascript :history.back(-1);" value="返回"/>
         </div>
 
@@ -160,7 +158,7 @@
     });
 
 
-    function problemSave() {
+    function problemSave(prou_id) {
         layui.use('layer',function () {
             var t_id = $("[name=t_id]").val();
             var u_id = $("[name=u_id]").val();
@@ -170,6 +168,18 @@
             var pl_yqDate = $("[name=pl_yqDate]").val();
             var pl_serious = $("[name=pl_serious]").val();
             var pl_programme = $("[name=pl_programme]").val();
+            var num;//判断负责人是否变化，0不发，1发送邮件
+            if(prou_id != undefined){
+                if(prou_id == u_id){
+                    num = 0;
+                }else{
+                    num = 1;
+                }
+            }else{
+                num = 1;
+            }
+            alert(prou_id)
+            alert(u_id)
 
 
             if(pl_name == null || pl_name == undefined || pl_name == ""){
@@ -200,7 +210,7 @@
                 pl_yqDate = "0001-01-01";
             }
 
-            alert(parseInt(u_id))
+
             $.ajax({
                 url:"${pageContext.request.contextPath}/updateProblem",
                 method:"POST",
@@ -228,7 +238,7 @@
                             data:{
                                 "toEmail":toEmail,
                                 "pl_name":pl_name,
-                                //"num":num,//1发送  2不发送
+                                "num": num,//1发送  2不发送
                                 "state":200,
                             },
                             success:function (data) {

@@ -74,10 +74,8 @@
         <li class="dropdown active"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">问题<b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li><a href="${pageContext.request.contextPath}/myProblem">我的</a></li>
-                <c:if test="${pt_user.role.id != 3 }">
-                    <li class="divider"></li>
-                    <li><a href="${pageContext.request.contextPath}/problemList">全部</a></li>
-                </c:if>
+                <li class="divider"></li>
+                <li><a href="${pageContext.request.contextPath}/problemList">全部</a></li>
             </ul>
         </li>
         <li><a href="${pageContext.request.contextPath}/pt_typeList">新建问题</a></li>
