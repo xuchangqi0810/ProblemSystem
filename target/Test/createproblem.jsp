@@ -175,11 +175,9 @@
         });
     });
 
-
     layui.use("upload",function () {
         var $ = layui.jquery
             ,upload = layui.upload;
-        var length = 0;
         //多图片上传
         upload.render({
             elem: '#test2'
@@ -193,9 +191,6 @@
             bindAction:'#btn',
             choose:function (obj) {
                 var files = obj.pushFile();
-                for (var i in files){
-                    length++;
-                }
                 //预读本地文件示例，不支持ie8
                 obj.preview(function(index, file, result){
                     $('#ImgPreview').append('<div class="image-container" style="display: inline-block" id="container'+index+'">' +
@@ -274,8 +269,14 @@
             }
         }
 
+        var length = document.getElementsByClassName("image-container").length;
+        if(length == 0){
+            layer.msg("请选择上传图片");
+            return;
+        }
+
         if(length > 2){
-            layer.msg("最多只能上传两张图片");
+            layer.msg("最多上传2张图片");
             return;
         }
 

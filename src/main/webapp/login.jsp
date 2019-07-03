@@ -37,32 +37,44 @@
 	</div>
 </div>
  <script type="text/javascript">
+
+
+     document.onkeydown = function(e){
+         if(e.keyCode == 13){
+             login();
+         }
+     }
+
      $(function(){
          $("#btn").click(function(){
-             var name = $("#name").val();
-             var pwd = $("#password").val();
-             if(name == null || name == undefined){
-                 alert("请输入用户名");
-                 return;
-             }
-             if(pwd == null || pwd == undefined){
-                 alert("请输入密码");
-                 return;
-             }
-             $.ajax({
-                 url:'${pageContext.request.contextPath}/login',
-                 method:"POST",
-                 data:{"u_name":name,"password":pwd},
-                 success:function (data) {
-                     if(data == "back"){
-                         alert("用户名或密码错误")
-                         return;
-                     }
-                     window.location.href = "${pageContext.request.contextPath}/myProblem";
-                 }
-             })
+             login();
          })
      });
+
+     function login() {
+         var name = $("#name").val();
+         var pwd = $("#password").val();
+         if(name == null || name == undefined){
+             alert("请输入用户名");
+             return;
+         }
+         if(pwd == null || pwd == undefined){
+             alert("请输入密码");
+             return;
+         }
+         $.ajax({
+             url:'${pageContext.request.contextPath}/login',
+             method:"POST",
+             data:{"u_name":name,"password":pwd},
+             success:function (data) {
+                 if(data == "back"){
+                     alert("用户名或密码错误")
+                     return;
+                 }
+                 window.location.href = "${pageContext.request.contextPath}/myProblem";
+             }
+         })
+     }
  </script>
 </body>
 </html>
