@@ -162,6 +162,13 @@ public class Pt_UserController {
         return "login";
     }
 
+    @RequestMapping(value = "updatePwd",method = RequestMethod.POST)
+    @ResponseBody
+    public Object updatePwd(Integer u_id,String newPwd){
+        int i = userService.UpdatePwd(u_id, newPwd);
+        return i;
+    }
+
     public IPt_UserService getUserService() {
         return userService;
     }

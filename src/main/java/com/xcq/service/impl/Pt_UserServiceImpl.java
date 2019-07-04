@@ -36,4 +36,9 @@ public class Pt_UserServiceImpl implements IPt_UserService{
     public List<Statistics> getStatisticsList() {
         return userdao.getStatisticsList();
     }
+
+    @Override
+    public int UpdatePwd(Integer u_id, String newPwd) {
+        return userdao.UpdatePwd(u_id,newPwd);
+    }
 }

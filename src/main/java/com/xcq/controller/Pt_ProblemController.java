@@ -4,13 +4,20 @@ import com.xcq.entity.Pt_User;
 import com.xcq.entity.Pt_proInfo;
 import com.xcq.entity.Pt_problem;
 import com.xcq.service.IPt_ProblemService;
+import com.xcq.service.IPt_UserService;
 import com.xcq.service.MailSenderSrvServices;
+import com.xcq.util.ExcelUtils;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -20,6 +27,9 @@ import java.util.List;
 public class Pt_ProblemController {
     @Resource(name = "pt_Problemesrvice")
     private IPt_ProblemService problemService;
+
+    @Resource(name = "pt_Userservice")
+    private IPt_UserService userService;
 
     @Autowired
     private MailSenderSrvServices mailSend;
@@ -35,8 +45,9 @@ public class Pt_ProblemController {
             if(state == 100){//新建
                 if(!(to.equals(""))){
                     mailSend.sendHtmlEmail(to,subject, text);
+                }else{
+                    mailSend.sendEmail("1099242331@qq.com",subject, text);//新建问题后必通知人
                 }
-                mailSend.sendEmail("1099242331@qq.com",subject, text);//新建问题后必通知人
             }else if(state == 200){//修改
                 if(num == 1){
                     mailSend.sendEmail(to,subject,text);
@@ -211,12 +222,111 @@ public class Pt_ProblemController {
         return i;
     }
 
+    @RequestMapping("export")
+    public Object ExportFile(HttpServletResponse response){
+        List<Pt_problem> pt_problems = problemService.ProblemList(0);
+        String[] title = {"问题编号","问题名称","负责人","反馈人","问题分类","问题描述","发生日期","问题状态","完成日期","严重等级"};
+        String fileName = "问题信息表"+System.currentTimeMillis()+".xls";
+        String sheetName = "问题信息表";
+        String[][] content = new String[pt_problems.size()][];
+        for (int i = 0; i < pt_problems.size(); i++) {
+            content[i] = new String[title.length];
+            Pt_problem problem = pt_problems.get(i);
+            content[i][0] = problem.getPl_id().toString();
+            content[i][1] = problem.getPl_name();
+            if(problem.getU_id() == null){
+                content[i][2] = "";
+            }else{
+                content[i][2] = problem.getPt_user().getU_nickName();
+            }
+            content[i][3] = problem.getPl_feedback();
+            content[i][4] = problem.getPt_type().getT_name();
+            content[i][5] = problem.getPl_describe();
+            content[i][6] = problem.getPl_fsDate().toString();
+            switch (problem.getPl_state()){
+                case 1:
+                    content[i][7] = "未开始";
+                    break;
+                case 2:
+                    content[i][7] = "进行中";
+                    break;
+                case 3:
+                    content[i][7] = "审核中";
+                    break;
+                case 4:
+                    content[i][7] = "已完成";
+                    break;
+            }
+
+            if(problem.getPl_wcDate() == null || problem.getPl_wcDate().toString() == "0001-01-01"){
+                content[i][8] = "0000-00-00";
+            }else{
+                content[i][8] = problem.getPl_wcDate().toString();
+            }
+            switch (problem.getPl_serious()){
+                case 4:
+                    content[i][9] = "一般";
+                    break;
+                case 3:
+                    content[i][9] = "较重";
+                    break;
+                case 2:
+                    content[i][9] = "严重";
+                    break;
+                default:
+                    content[i][9] = "非常严重";
+                    break;
+            }
+        }
+        HSSFWorkbook workbook = ExcelUtils.getHSSFWorkbook(sheetName,title,content,null);
+
+
+        try {
+            this.setResponseHeader(response, fileName);
+            OutputStream os = response.getOutputStream();
+            workbook.write(os);
+            os.flush();
+            os.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        return "";
+    }
+
+    //发送响应流方法
+    public void setResponseHeader(HttpServletResponse response, String fileName) {
+        try {
+            try {
+                fileName = new String(fileName.getBytes(),"ISO8859-1");
+            } catch (UnsupportedEncodingException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            response.setContentType("application/octet-stream;charset=ISO8859-1");
+            response.setHeader("Content-Disposition", "attachment;filename="+ fileName);
+            response.addHeader("Pargam", "no-cache");
+            response.addHeader("Cache-Control", "no-cache");
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+    }
+
     public IPt_ProblemService getProblemService() {
         return problemService;
     }
 
     public void setProblemService(IPt_ProblemService problemService) {
         this.problemService = problemService;
+    }
+
+    public IPt_UserService getUserService() {
+        return userService;
+    }
+
+    public void setUserService(IPt_UserService userService) {
+        this.userService = userService;
     }
 
     public MailSenderSrvServices getMailSend() {

@@ -14,4 +14,6 @@ public interface IPt_UserDAO {
     List<Pt_User> getByDIDUserList(@Param("d_id") Integer d_id);
     //问题数据统计
     List<Statistics> getStatisticsList();
+    //修改密码
+    int UpdatePwd(Integer u_id,String newPwd);
 }

@@ -51,4 +51,8 @@
         SELECT t.t_name AS 'name',COUNT(p.t_id) AS 'count' FROM pt_problem p,pt_type t WHERE p.t_id = t.t_id GROUP BY p.t_id
     </select>
 
+    <update id="UpdatePwd">
+        UPDATE pt_user SET password = #{1} WHERE u_id = #{0}
+    </update>
+
 </mapper>

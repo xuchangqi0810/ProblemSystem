@@ -43,7 +43,7 @@
         </li>
         <li><a href="${pageContext.request.contextPath}/pt_typeList">新建问题</a></li>
         <li><a href="${pageContext.request.contextPath}/statistics.jsp">数据统计</a></li>
-        <li><a href="#">更改密码</a></li>
+        <li><a href="${pageContext.request.contextPath}/updatepassword.jsp">更改密码</a></li>
     </ul>
 </div>
 <div id="chartmain" style="width:700px; height: 500px;margin-left: 30%;"></div>

@@ -10,6 +10,7 @@
 <link href="${pageContext.request.contextPath}/css/style.css" rel='stylesheet' type='text/css' />
 <link href='http://fonts.useso.com/css?family=PT+Sans:400,700,400italic,700italic|Oswald:400,300,700' rel='stylesheet' type='text/css'>
 <link href='http://fonts.useso.com/css?family=Exo+2' rel='stylesheet' type='text/css'>
+	<script src="${pageContext.request.contextPath}/layui/layui.js"></script>
 	<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 </head>
 <body>
@@ -52,28 +53,30 @@
      });
 
      function login() {
-         var name = $("#name").val();
-         var pwd = $("#password").val();
-         if(name == null || name == undefined){
-             alert("请输入用户名");
-             return;
-         }
-         if(pwd == null || pwd == undefined){
-             alert("请输入密码");
-             return;
-         }
-         $.ajax({
-             url:'${pageContext.request.contextPath}/login',
-             method:"POST",
-             data:{"u_name":name,"password":pwd},
-             success:function (data) {
-                 if(data == "back"){
-                     alert("用户名或密码错误")
-                     return;
-                 }
-                 window.location.href = "${pageContext.request.contextPath}/myProblem";
-             }
-         })
+         layui.use('layer', function(){
+			 var name = $("#name").val();
+			 var pwd = $("#password").val();
+			 if(name == null || name == undefined || name == ""){
+				 layer.msg("请输入用户名");
+				 return;
+			 }
+			 if(pwd == null || pwd == undefined || pwd == ""){
+				 layer.msg("请输入密码");
+				 return;
+			 }
+			 $.ajax({
+				 url:'${pageContext.request.contextPath}/login',
+				 method:"POST",
+				 data:{"u_name":name,"password":pwd},
+				 success:function (data) {
+					 if(data == "back"){
+						 layer.msg("用户名或密码错误",{icon:2})
+						 return;
+					 }
+					 window.location.href = "${pageContext.request.contextPath}/myProblem";
+				 }
+			 })
+         });
      }
  </script>
 </body>

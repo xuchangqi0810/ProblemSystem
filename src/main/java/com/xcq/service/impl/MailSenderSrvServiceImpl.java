@@ -62,6 +62,7 @@ public class MailSenderSrvServiceImpl implements MailSenderSrvServices {
 
     }
 
+
     @Override
     public void sendHtmlEmail(String recipient,String subject,String content) throws Exception {
         MimeMessage mimeMessage = mailSender.createMimeMessage();
@@ -71,7 +72,7 @@ public class MailSenderSrvServiceImpl implements MailSenderSrvServices {
             messageHelper.setTo(recipient);
             messageHelper.setSubject(subject);
             messageHelper.setText(content,true);
-            mimeMessage.setRecipients(Message.RecipientType.CC,"1448398813@qq.com");
+            mimeMessage.setRecipients(Message.RecipientType.CC,"1099242331@qq.com");//抄送人
             mailSender.send(mimeMessage);
         } catch (MessagingException e) {
             e.printStackTrace();

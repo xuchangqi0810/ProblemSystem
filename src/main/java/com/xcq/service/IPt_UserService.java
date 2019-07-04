@@ -10,4 +10,6 @@ public interface IPt_UserService {
     //本部门所有成员
     List<Pt_User> getByDIDUserList(Integer d_id);
     List<Statistics> getStatisticsList();
+    //修改密码
+    int UpdatePwd(Integer u_id,String newPwd);
 }
