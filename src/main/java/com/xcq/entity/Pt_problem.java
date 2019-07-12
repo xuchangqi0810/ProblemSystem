@@ -23,6 +23,7 @@ public class Pt_problem {
     private Integer pl_yjhours;
     private Integer pl_surplustime;
     private Date pl_starttime;
+    private Integer d_id;
     private Integer timeout;
     private Pt_User pt_user;
     private  Pt_type pt_type;
@@ -121,6 +122,14 @@ public class Pt_problem {
         this.pl_yqDate = pl_yqDate;
     }
 
+    public Integer getD_id() {
+        return d_id;
+    }
+
+    public void setD_id(Integer d_id) {
+        this.d_id = d_id;
+    }
+
     public List<Pt_proInfo> getProInfos() {
         return proInfos;
     }
@@ -140,7 +149,7 @@ public class Pt_problem {
     public Pt_problem() {
     }
 
-    public Pt_problem(Integer pl_id, Integer t_id, Integer u_id, String pl_name, String pl_feedback, String pl_describe, Date pl_lrDate, Date pl_fsDate, Date pl_yqDate, Date pl_wcDate, Integer pl_state, Integer pl_serious, String pl_programme, Integer pl_yjhours, Integer pl_surplustime, Date pl_starttime, Integer timeout, Pt_User pt_user, Pt_type pt_type, List<Pt_img> lists, List<Pt_proInfo> proInfos) {
+    public Pt_problem(Integer pl_id, Integer t_id, Integer u_id, String pl_name, String pl_feedback, String pl_describe, Date pl_lrDate, Date pl_fsDate, Date pl_yqDate, Date pl_wcDate, Integer pl_state, Integer pl_serious, String pl_programme, Integer pl_yjhours, Integer pl_surplustime, Date pl_starttime, Integer d_id, Integer timeout, Pt_User pt_user, Pt_type pt_type, List<Pt_img> lists, List<Pt_proInfo> proInfos) {
         this.pl_id = pl_id;
         this.t_id = t_id;
         this.u_id = u_id;
@@ -157,6 +166,7 @@ public class Pt_problem {
         this.pl_yjhours = pl_yjhours;
         this.pl_surplustime = pl_surplustime;
         this.pl_starttime = pl_starttime;
+        this.d_id = d_id;
         this.timeout = timeout;
         this.pt_user = pt_user;
         this.pt_type = pt_type;

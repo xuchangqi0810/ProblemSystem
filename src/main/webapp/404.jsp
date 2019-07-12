@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>网站404模板|网页404模板|404模板下载|404界面 - 代码库</title>		
+		<title>404</title>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/404.css">
 	</head>
 <body class="error-404">

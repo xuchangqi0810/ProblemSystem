@@ -53,16 +53,18 @@
     //指定图标的配置和数据
     var option = {
         title:{
-            text:'问题数据统计'
+            text:'问题数据统计',
+            subtext: '部门统计',
+            left:'center'
         },
         tooltip : {
             trigger: 'item',
             formatter: "{b} <br/>{c} : {d} %"      //a 系列名称，b 数据项名称，c 数值，d 百分比
         },
         legend: {
-            orient : 'vertical',
-            x : 'left',
-            data:list
+            bottom:10,
+            x : 'center',
+            data:[]
         },
         toolbox: {
             show : true,
@@ -88,10 +90,10 @@
         calculable : true,
         series:[{
             name:'问题数据统计',
+            center: ['50%', '50%'],
             type:'pie',
-            radius:'80%',
+            radius:'65%',
             data:[],
-
         }]
     };
     window.onload = function () {
@@ -101,7 +103,7 @@
             method:'GET',
             success:function (data) {
                 list = data;
-                console.log(list)
+                option.legend.data = data;
                 $.each(data,function (i,item) {
                     option.series[0].data.push({value:item.count,name:item.name})
                 })

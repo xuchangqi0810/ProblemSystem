@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.List;
 
 public interface IPt_ProblemService {
-    List<Pt_problem> ProblemList(@Param("state") Integer state);
+    List<Pt_problem> ProblemList(@Param("state") Integer state,@Param("d_id") Integer d_id);
     //查询我的所有问题
     List<Pt_problem> MyProblem(Integer u_id,Integer pl_state);
     //问题分类

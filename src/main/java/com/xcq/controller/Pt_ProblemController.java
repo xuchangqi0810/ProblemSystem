@@ -36,8 +36,8 @@ public class Pt_ProblemController {
 
     @RequestMapping(value = "sendEmail",method = RequestMethod.POST)
     @ResponseBody
-    public Object send(@RequestParam String toEmail,@RequestParam String pl_name,@RequestParam Integer state,@RequestParam Integer num){//@RequestParam Integer num,
-        String from = "xuchangqi@g-linkwell.com";//发件人
+    public Object send(@RequestParam String toEmail,@RequestParam String pl_name,@RequestParam Integer state,@RequestParam Integer num){
+        /*String from = "xuchangqi@g-linkwell.com";//发件人
         String to = toEmail;//收件人
         String subject = "“您有新的问题待查看”";
         String text = "<html><body>登陆QQ邮箱<a href='https://mail.qq.com'>mail.qq.com</a>点击或复制连接<a href='http://192.168.1.34:8080'>192.168.1.34:8080</a>，即可登陆系统查看</br>"+pl_name+"</body></html>";
@@ -56,7 +56,7 @@ public class Pt_ProblemController {
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }
+        }*/
         return "发送成功";
     }
 
@@ -65,7 +65,7 @@ public class Pt_ProblemController {
     @ResponseBody
     public Object CreateProblem(@RequestParam Integer t_id, @RequestParam Integer u_id,@RequestParam String pl_name, @RequestParam String pl_feedback,
                                 @RequestParam String pl_describe, @RequestParam Integer pl_serious, @RequestParam String pl_programme, @RequestParam Integer pl_state,
-                                @RequestParam String pl_fsDate, @RequestParam String pl_yqDate,HttpSession session) throws ParseException {
+                                @RequestParam String pl_fsDate, @RequestParam String pl_yqDate,@RequestParam Integer d_id, HttpSession session) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Pt_problem problem = new Pt_problem();
         problem.setT_id(t_id);
@@ -74,7 +74,6 @@ public class Pt_ProblemController {
         }else{
             problem.setU_id(u_id);
         }
-
         problem.setPl_name(pl_name);
         problem.setPl_lrDate(new Date());
         problem.setPl_feedback(pl_feedback);
@@ -84,6 +83,7 @@ public class Pt_ProblemController {
         problem.setPl_state(pl_state);
         problem.setPl_fsDate(sdf.parse(pl_fsDate));
         problem.setPl_yqDate(sdf.parse(pl_yqDate));
+        problem.setD_id(d_id);
 
         int i = problemService.CreateProblem(problem);
         String success = "";
@@ -223,8 +223,9 @@ public class Pt_ProblemController {
     }
 
     @RequestMapping("export")
-    public Object ExportFile(HttpServletResponse response){
-        List<Pt_problem> pt_problems = problemService.ProblemList(0);
+    public Object ExportFile(HttpServletResponse response,HttpSession session){
+        Pt_User user = (Pt_User) session.getAttribute("pt_user");
+        List<Pt_problem> pt_problems = problemService.ProblemList(0,user.getD_id());
         String[] title = {"问题编号","问题名称","负责人","反馈人","问题分类","问题描述","发生日期","问题状态","完成日期","严重等级"};
         String fileName = "问题信息表"+System.currentTimeMillis()+".xls";
         String sheetName = "问题信息表";

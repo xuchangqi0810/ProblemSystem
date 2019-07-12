@@ -243,6 +243,7 @@
         var pl_yqDate = $("[name=pl_yqDate]").val();
         var pl_serious = $("[name=pl_serious]").val();
         var pl_programme = $("[name=pl_programme]").val();
+        var d_id=${pt_user.d_id};
 
         if(pl_name == null || pl_name == undefined || pl_name == ""){
             layer.msg("请输入问题名称");
@@ -282,6 +283,7 @@
         if(pl_yqDate == null || pl_yqDate == undefined || pl_yqDate == ""){
             pl_yqDate = "0001-01-01";
         }
+
         $.ajax({
             url:"${pageContext.request.contextPath}/createProblem",
             method:"POST",
@@ -294,7 +296,8 @@
                 "pl_yqDate":pl_yqDate,
                 "pl_serious":parseInt(pl_serious),
                 "pl_programme":pl_programme,
-                "pl_state":1
+                "pl_state":1,
+                "d_id":d_id,
             },
             success:function (data) {
                 if(toEmail == undefined){

@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface IPt_ProblemDAO {
 
-    List<Pt_problem> ProblemList(@Param("state") Integer state);
+    List<Pt_problem> ProblemList(@Param("state") Integer state,@Param("d_id") Integer d_id);
 
     List<Pt_problem> MyProblem(@Param("u_id") Integer u_id,@Param("pl_state") Integer pl_state);//查询我的所有问题
 

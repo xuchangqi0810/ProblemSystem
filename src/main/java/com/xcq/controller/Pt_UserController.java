@@ -55,7 +55,7 @@ public class Pt_UserController {
         }
         Pt_User pt_user = (Pt_User) session.getAttribute("pt_user");
         Page<?> page = PageHelper.startPage(pager.getPageNum(), pager.getPageSize());
-        List<Pt_problem> pt_problems = problemService.ProblemList((Integer) session.getAttribute("state"));
+        List<Pt_problem> pt_problems = problemService.ProblemList((Integer) session.getAttribute("state"),pt_user.getD_id());
         for (Pt_problem item: pt_problems) {
             if(item.getPl_state() == 1 || item.getPl_state() == 2){
                 try {

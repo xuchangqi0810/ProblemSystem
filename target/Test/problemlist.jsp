@@ -64,7 +64,7 @@
 
     <div class="content" style="text-align: center">
         <form class="layui-form" action="" style="">
-            <table class="table table-hover" style="margin-left: 1%;width: 98%">
+            <table class="table table-hover" style="margin-left: 1%;width: 98%;border: 1px solid;border-color: #e2e2e2">
                 <caption>全部问题</caption>
                 <thead>
                 <tr>
@@ -115,7 +115,7 @@
                             <c:when test="${item.pl_state == 2}">
                                 <th>
                                     <c:if test="${item.timeout >= 0}">
-                                        剩余${item.timeout}天
+                                        进行中
                                     </c:if>
                                     <c:if test="${item.timeout < 0}">
                                         进行中<span style="color: #f95731;">

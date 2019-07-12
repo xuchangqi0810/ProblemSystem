@@ -15,7 +15,7 @@
 </head>
 <body>
  <!--SIGN UP-->
- <h1>问题管理系统</h1>
+ <h1 style="color: white">问题管理系统<p>ProblemTrackingSystem</p></h1>
 <div class="login-form">
 	<div class="close"> </div>
 		<div class="head-info">

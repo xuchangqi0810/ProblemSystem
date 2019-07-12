@@ -21,6 +21,7 @@
         <result property="pl_yjhours" javaType="int" column="pl_yjhours"/>
         <result property="pl_surplustime" javaType="int" column="pl_surplustime"/>
         <result property="pl_starttime" javaType="Date" column="pl_starttime"/>
+        <result property="d_id" javaType="int" column="d_id"/>
 
         <association property="pt_user" javaType="com.xcq.entity.Pt_User" select="selectMultSQL" column="u_id">
         </association>
@@ -88,12 +89,11 @@
 
     <!--查询所有问题-->
     <select id="ProblemList" resultMap="pt_problem">
-        SELECT * FROM pt_problem p
-        <where>
+        SELECT p.* FROM pt_problem p
+        WHERE p.d_id = #{d_id}
         <if test='state != 0'>
             AND p.pl_state = #{state}
         </if >
-        </where>
         ORDER BY p.pl_id DESC
     </select>
     <!--查询所有我的问题-->
@@ -209,7 +209,7 @@
     <!--CreateProblem-stop-->
     <!--新建问题-->
     <insert id="CreateProblem" useGeneratedKeys="true" keyProperty="pl_id" keyColumn="pl_id">
-        INSERT INTO pt_problem(<include refid="key"/>,pl_starttime)VALUES (<include refid="value"/>,'0001-01-01')
+        INSERT INTO pt_problem(<include refid="key"/>,pl_starttime,d_id)VALUES (<include refid="value"/>,'0001-01-01',#{d_id})
     </insert>
     <!--CreateProblem-start-->
     <!--图片上传-->

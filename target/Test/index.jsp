@@ -121,7 +121,7 @@
                                 <c:when test="${item.pl_state == 2}">
                                     <th>
                                         <c:if test="${item.timeout >= 0}">
-                                            剩余${item.timeout}天
+                                            进行中
                                         </c:if>
                                         <c:if test="${item.timeout < 0}">
                                             进行中<span style="color: #f95731;">

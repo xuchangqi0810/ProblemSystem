@@ -5,12 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-
-import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 @Service("MailSenderSrvService")
@@ -50,10 +46,10 @@ public class MailSenderSrvServiceImpl implements MailSenderSrvServices {
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         try {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage,true,"UTF-8");
-            messageHelper.setFrom("1099242331@qq.com");
+            messageHelper.setFrom("1099242331@qq.com");//发件人
             messageHelper.setTo(recipient);
             messageHelper.setSubject(subject);
-            messageHelper.setText(content,true);
+            messageHelper.setText(content,true);//true代表支持html格式
             mailSender.send(mimeMessage);
         } catch (MessagingException e) {
                 e.printStackTrace();
@@ -68,7 +64,7 @@ public class MailSenderSrvServiceImpl implements MailSenderSrvServices {
         MimeMessage mimeMessage = mailSender.createMimeMessage();
         try {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage,true,"UTF-8");
-            messageHelper.setFrom("1099242331@qq.com");
+            messageHelper.setFrom("1099242331@qq.com");//发件人
             messageHelper.setTo(recipient);
             messageHelper.setSubject(subject);
             messageHelper.setText(content,true);

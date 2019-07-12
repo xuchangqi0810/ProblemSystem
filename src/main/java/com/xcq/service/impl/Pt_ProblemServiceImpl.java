@@ -6,6 +6,7 @@ import com.xcq.entity.Pt_type;
 import com.xcq.mapper.IPt_ProblemDAO;
 import com.xcq.service.IPt_ProblemService;
 import org.apache.ibatis.annotations.Param;
+import org.omg.CORBA.INTERNAL;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -15,8 +16,8 @@ import java.util.List;
 @Service("pt_Problemesrvice")
 public class Pt_ProblemServiceImpl implements IPt_ProblemService{
     @Override
-    public List<Pt_problem> ProblemList(@Param("state") Integer state) {
-        return problemDAO.ProblemList(state);
+    public List<Pt_problem> ProblemList(@Param("state") Integer state, @Param("d_id")Integer d_id) {
+        return problemDAO.ProblemList(state,d_id);
     }
 
     @Override
