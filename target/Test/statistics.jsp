@@ -46,9 +46,9 @@
         <li><a href="${pageContext.request.contextPath}/updatepassword.jsp">更改密码</a></li>
     </ul>
 </div>
-<div id="chartmain" style="width:700px; height: 500px;margin-left: 30%;"></div>
+<div id="chartmain" style="width:900px; height: 700px;margin-left: 26%;"></div>
 </body>
-<script type="text/javascript">
+<%--<script type="text/javascript">
     var list=[];
     //指定图标的配置和数据
     var option = {
@@ -114,5 +114,117 @@
     }
 
 
+</script>--%>
+<script type="text/javascript">
+
+    var myChart = echarts.init(document.getElementById('chartmain'));
+    var monthOfYear = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+    // 先取到当前日期对象
+    var date = new Date();
+    // 月份数组
+    var nearThree = [];
+    // 当月
+    var month = date.getMonth();
+    // 现将本月推入数组
+    nearThree.push(monthOfYear[month]);
+    // 最近一月逆推5个月
+    for (var i = 1; i <= 5; i++) {
+        date.setMonth(month - i);
+        nearThree.unshift(monthOfYear[date.getMonth()]);
+    }
+
+    var option ;
+    setTimeout(function () {
+        option = {
+            legend: {
+                show:true,
+                data:[]
+            },
+            tooltip: {
+                trigger: 'axis',
+                showContent: false
+            },
+            dataset: {
+                source: [
+                    ['product', nearThree[0] + "月", nearThree[1] + "月", nearThree[2] + "月", nearThree[3] + "月", nearThree[4] + "月", nearThree[5] + "月"],
+                ]
+            },
+            xAxis: {type: 'category'},
+            yAxis: {
+                gridIndex: 0,
+                min:0,
+                max:50
+            },
+            grid: {top: '55%'},
+            series: [
+                {
+                    type: 'pie',
+                    id: 'pie',
+                    radius: '35%',
+                    center: ['50%', '25%'],
+                    label: {
+                        formatter: '{b}: {@7月} ({d}%)'
+                    },
+                    encode: {
+                        itemName: 'product',
+                        value: '7月',
+                        tooltip: '7月'
+                    }
+                }
+            ]
+        };
+
+        myChart.on('updateAxisPointer', function (event) {
+            var xAxisInfo = event.axesInfo[0];
+            if (xAxisInfo) {
+                var dimension = xAxisInfo.value + 1;
+                myChart.setOption({
+                    series: {
+                        id: 'pie',
+                        label: {
+                            formatter: '{b}: {@[' + dimension + ']} ({d}%)'
+                        },
+                        encode: {
+                            value: dimension,
+                            tooltip: dimension
+                        }
+                    }
+                });
+            }
+        });
+        myChart.on('legendselectchanged', function(obj) {
+           console.log(obj)
+        });
+
+
+    });
+
+
+    window.onload = function () {
+        $.ajax({
+            url:'${pageContext.request.contextPath}/getStatisticsList',
+            data:{
+                "day":nearThree,
+            },
+            method:'GET',
+            traditional: true,
+            success:function (data) {
+                option.legend.data = data;
+                var arr = [];
+                $.each(data,function (i,item) {
+                    if(item.t_name != null && item.t_name != undefined && item.t_name != ""){
+                        option.series.push({type: 'line', smooth: true, seriesLayoutBy: 'row'});
+                    }
+                    arr = [item.t_name, item.day1, item.day2, item.day3, item.day4, item.day5, item.day6];
+                    option.dataset.source.push(arr);
+                    option.legend.data.push(item.t_name);
+                    arr = [];
+
+                });
+                //使用制定的配置项和数据显示图表
+                myChart.setOption(option);
+            }
+        });
+    }
 </script>
 </html>

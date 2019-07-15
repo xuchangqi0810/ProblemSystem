@@ -1,5 +1,6 @@
 package com.xcq.service;
 
+import com.xcq.entity.Dictionary;
 import com.xcq.entity.Pt_proInfo;
 import com.xcq.entity.Pt_problem;
 import com.xcq.entity.Pt_type;
@@ -33,4 +34,6 @@ public interface IPt_ProblemService {
     int UpdateProblem(Pt_problem problem);
     @Transactional
     int UpdateStateExamine(Integer pl_id, Integer state);//审核
+    @Transactional
+    List<Dictionary> StatisticsList(Integer day1,Integer day2,Integer day3,Integer day4,Integer day5,Integer day6);
 }

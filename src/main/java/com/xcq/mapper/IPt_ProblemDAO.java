@@ -1,5 +1,6 @@
 package com.xcq.mapper;
 
+import com.xcq.entity.Dictionary;
 import com.xcq.entity.Pt_proInfo;
 import com.xcq.entity.Pt_problem;
 import com.xcq.entity.Pt_type;
@@ -7,6 +8,7 @@ import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public interface IPt_ProblemDAO {
 
@@ -35,4 +37,7 @@ public interface IPt_ProblemDAO {
     int UpdateStateExamine(Integer pl_id, Integer state);//审核
 
     int UpdateProblem(Pt_problem problem);
+
+    List<Dictionary> StatisticsList(Map<String,Object> map);
+
 }

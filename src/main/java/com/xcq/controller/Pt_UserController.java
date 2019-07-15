@@ -2,13 +2,11 @@ package com.xcq.controller;
 
 import com.github.pagehelper.Page;
 import com.github.pagehelper.PageHelper;
-import com.xcq.entity.Pt_User;
-import com.xcq.entity.Pt_problem;
-import com.xcq.entity.Pt_type;
-import com.xcq.entity.Statistics;
+import com.xcq.entity.*;
 import com.xcq.service.IPt_ProblemService;
 import com.xcq.service.IPt_UserService;
 import com.xcq.util.Pager;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -150,8 +148,8 @@ public class Pt_UserController {
 
     @RequestMapping(value = "getStatisticsList",method = RequestMethod.GET)
     @ResponseBody
-    public Object getStatisticsList(HttpServletRequest request){
-        List<Statistics> statisticsList = userService.getStatisticsList();
+    public Object getStatisticsList(@RequestParam("day") String[] day, HttpServletRequest request){
+        List<Dictionary> statisticsList = problemService.StatisticsList(Integer.parseInt(day[0]),Integer.parseInt(day[1]),Integer.parseInt(day[2]),Integer.parseInt(day[3]),Integer.parseInt(day[4]),Integer.parseInt(day[5]));
         return statisticsList;
     }
 

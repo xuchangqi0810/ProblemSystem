@@ -1,5 +1,6 @@
 package com.xcq.service.impl;
 
+import com.xcq.entity.Dictionary;
 import com.xcq.entity.Pt_proInfo;
 import com.xcq.entity.Pt_problem;
 import com.xcq.entity.Pt_type;
@@ -11,7 +12,9 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service("pt_Problemesrvice")
 public class Pt_ProblemServiceImpl implements IPt_ProblemService{
@@ -78,6 +81,18 @@ public class Pt_ProblemServiceImpl implements IPt_ProblemService{
     @Override
     public int UpdateStateExamine(Integer pl_id, Integer state) {
         return problemDAO.UpdateStateExamine(pl_id,state);
+    }
+
+    @Override
+    public List<Dictionary> StatisticsList(Integer day1,Integer day2,Integer day3,Integer day4,Integer day5,Integer day6) {
+        Map<String,Object> map = new HashMap<>();
+        map.put("day1",day1);
+        map.put("day2",day2);
+        map.put("day3",day3);
+        map.put("day4",day4);
+        map.put("day5",day5);
+        map.put("day6",day6);
+        return problemDAO.StatisticsList(map);
     }
 
     @Resource(name = "IPt_ProblemDAO")

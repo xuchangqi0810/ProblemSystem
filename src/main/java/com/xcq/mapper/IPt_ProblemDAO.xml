@@ -70,6 +70,16 @@
         </association>
     </resultMap>
 
+    <resultMap id="dictionary" type="com.xcq.entity.Dictionary">
+        <result property="t_name" javaType="String" column="t_name"/>
+        <result property="day1" javaType="int" column="day1"/>
+        <result property="day2" javaType="int" column="day2"/>
+        <result property="day3" javaType="int" column="day3"/>
+        <result property="day4" javaType="int" column="day4"/>
+        <result property="day5" javaType="int" column="day5"/>
+        <result property="day6" javaType="int" column="day6"/>
+    </resultMap>
+
 
     <select id="selectMultSQL" resultMap="pt_user">
         SELECT * from pt_user
@@ -259,4 +269,17 @@
     <update id="UpdateStateExamine">
         UPDATE pt_problem SET pl_state = #{1} WHERE pl_id = #{0}
     </update>
+
+    <select id="StatisticsList" resultMap="dictionary">
+        SELECT t.t_name,
+            SUM(CASE WHEN MONTH(pl_lrDate) =#{day1} THEN 1 ELSE 0 END) 'day1',
+            SUM(CASE WHEN MONTH(pl_lrDate) =#{day2} THEN 1 ELSE 0 END) 'day2',
+            SUM(CASE WHEN MONTH(pl_lrDate) =#{day3} THEN 1 ELSE 0 END) 'day3',
+            SUM(CASE WHEN MONTH(pl_lrDate) =#{day4} THEN 1 ELSE 0 END) 'day4',
+            SUM(CASE WHEN MONTH(pl_lrDate) =#{day5} THEN 1 ELSE 0 END) 'day5',
+            SUM(CASE WHEN MONTH(pl_lrDate) =#{day6} THEN 1 ELSE 0 END) 'day6'
+            FROM pt_problem p,pt_type t
+            WHERE t.t_id = p.t_id
+            GROUP BY t.t_name
+    </select>
 </mapper>
