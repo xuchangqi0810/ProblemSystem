@@ -1,5 +1,6 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" isELIgnored="false" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="com.xcq.util.MD5Utils" %>
 <html>
 <head>
     <title>修改密码</title>
@@ -85,7 +86,7 @@
         </div>
         <label class="col-sm-3 control-label">新密码:<span class="required">*</span></label>
         <div class="col-sm-7">
-            <input type="password" name="newPwdA" lay-verify="title" autocomplete="off" placeholder="请输入新密码" class="layui-input">
+            <input type="password" name="newPwdA" lay-verify="title" autocomplete="off" placeholder="请输入新密码" class="layui-input"><span style="color: #9199aa;font-size: 12px">由数字、大写字母、小写字母、特殊字符至少两种字符组成</span>
         </div>
         <label class="col-sm-3 control-label">确认密码:<span class="required">*</span></label>
         <div class="col-sm-7">
@@ -102,7 +103,7 @@
 <script type="text/javascript">
     function updatePwd(pwd){
         layui.use('layer', function(){
-            var usedPwd = $("[name=usedPwd]").val();
+            var usedPwd = hex_md5($("[name=usedPwd]").val());
             var newPwdA = $("[name=newPwdA]").val();
             var newPwdB = $("[name=newPwdB]").val();
 
@@ -121,6 +122,17 @@
 
             if(usedPwd != pwd){
                 layer.msg("密码输入错误，请重新输入", {icon: 2});
+                return;
+            }
+
+            if(newPwdA.length < 6 || newPwdA.length > 18){
+                layer.msg("密码最小长度6位，最大长度18位",{icon:2});
+                return;
+            }
+
+            var flag = check(newPwdA);
+            if(!flag){
+                layer.msg("密码至少包含两种及以上字符组成",{icon:2});
                 return;
             }
 
@@ -150,4 +162,17 @@
             })
         });
     }
+    function check(pwd){
+        //6-18位 ，由数字、大写字母、小写字母、特殊字符
+        var r = /^[0-9a-zA-Z!@#$^]{6,18}$/;//特殊字符可以补充，与后续校验同步即可
+        if(r.test(pwd)){
+            var a = /[0-9]/.exec(pwd)!=null ? 1:0;
+            var b = /[a-z]/.exec(pwd)!=null ? 1:0;
+            var c = /[A-Z]/.exec(pwd)!=null ? 1:0;
+            var d = /[!@#$^]/.exec(pwd)!=null ? 1:0;
+            return a + b + c + d >= 2;//至少2种
+        }
+        return false;
+    }
 </script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/md5.js"></script>

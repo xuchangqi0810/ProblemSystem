@@ -80,6 +80,8 @@
                                 <input type="radio" value="2" name="like1" lay-filter="primary" title="进行中" <c:if test="${pl_state == 2}">checked="checked"</c:if>>
                                 <input type="radio" value="3" name="like1" lay-filter="primary" title="审核中" <c:if test="${pl_state == 3}">checked="checked"</c:if>>
                                 <input type="radio" value="4" name="like1" lay-filter="primary" title="已完成" <c:if test="${pl_state == 4}">checked="checked"</c:if>>
+                                <input type="button" id="sub" class="layui-btn" style="float:right;" onclick="excelpExport()" value="导出"/>
+                            </th>
                         </div>
                     </div>
                 </tr>
@@ -528,6 +530,21 @@
             layer.msg("请在开始问题后重试")
             return;
         }
+    }
+    
+    function excelpExport() {
+        layui.use('layer', function(){
+            var layer = layui.layer;
+            layer.confirm( "<input type='radio' value='0' name='exp' lay-filter='primary' checked='checked' title='我的问题'/>我的问题" +
+                            "<input type='radio' value='1' name='exp' lay-filter='primary' title='全部问题'/>全部问题", {
+                btn: ['确定','取消'] //按钮
+            }, function(){//确定
+                location.href = "${pageContext.request.contextPath}/export?num="+$("[name=exp]:checked").val();
+            }, function(){//取消
+
+            });
+
+        });
     }
 </script>
 </html>

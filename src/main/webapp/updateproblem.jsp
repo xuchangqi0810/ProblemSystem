@@ -162,7 +162,7 @@
     function problemSave(prou_id) {
         layui.use('layer',function () {
             var t_id = $("[name=t_id]").val();
-            var u_id = $("[name=u_id]").val();
+            var u_id = ${problem.u_id};
             var pl_name = $("[name=pl_name]").val();
             var pl_describe = $("[name=pl_describe]").val();
             var pl_fsDate = $("[name=pl_fsDate]").val();
@@ -209,7 +209,7 @@
                 pl_yqDate = "0001-01-01";
             }
 
-
+            console.log(parseInt(u_id))
             $.ajax({
                 url:"${pageContext.request.contextPath}/updateProblem",
                 method:"POST",

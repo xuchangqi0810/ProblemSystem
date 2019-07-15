@@ -5,6 +5,7 @@ import com.github.pagehelper.PageHelper;
 import com.xcq.entity.*;
 import com.xcq.service.IPt_ProblemService;
 import com.xcq.service.IPt_UserService;
+import com.xcq.util.MD5Utils;
 import com.xcq.util.Pager;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
@@ -32,7 +33,7 @@ public class Pt_UserController {
     @RequestMapping(value = "/login")
     @ResponseBody//登录
     public String Login(String u_name,String password, HttpSession session){
-        Pt_User ptUser = userService.Login(u_name, password);
+        Pt_User ptUser = userService.Login(u_name, MD5Utils.string2MD5(password));
         if (ptUser == null){
             return "back";
         }
@@ -163,7 +164,7 @@ public class Pt_UserController {
     @RequestMapping(value = "updatePwd",method = RequestMethod.POST)
     @ResponseBody
     public Object updatePwd(Integer u_id,String newPwd){
-        int i = userService.UpdatePwd(u_id, newPwd);
+        int i = userService.UpdatePwd(u_id, MD5Utils.string2MD5(newPwd));
         return i;
     }
 
