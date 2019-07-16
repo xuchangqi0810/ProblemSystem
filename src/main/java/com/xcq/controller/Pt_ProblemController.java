@@ -37,15 +37,15 @@ public class Pt_ProblemController {
     @RequestMapping(value = "sendEmail",method = RequestMethod.POST)
     @ResponseBody
     public Object send(@RequestParam String toEmail,@RequestParam String pl_name,@RequestParam Integer state,@RequestParam Integer num){
-        String to = toEmail;//收件人
+        /*String to = toEmail;//收件人
         String subject = "“您有新的问题待查看”";
-        String text = "<html><body>登陆邮箱<a href='https://mail.qq.com'>mail.qq.com</a>点击或复制连接<a href='http://192.168.1.34:8080'>192.168.1.34:8080</a>，即可登陆系统查看</br>"+pl_name+"</body></html>";
+        String text = "<html><body>点击或复制连接<a href='http://192.168.20.168:8080/Test'>问题管理系统</a>，即可登陆系统查看</br>"+pl_name+"</body></html>";
         try {
             if(state == 100){//新建
                 if(!(to.equals(""))){
                     mailSend.sendHtmlEmail(to,subject, text);
                 }else{
-                    mailSend.sendEmail("1099242331@qq.com",subject, text);//新建问题后必通知人
+                    mailSend.sendEmail("tianlei1121@dingtalk.com",subject, text);//新建问题后必通知人
                 }
             }else if(state == 200){//修改
                 if(num == 1){
@@ -55,7 +55,7 @@ public class Pt_ProblemController {
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }
+        }*/
         return "发送成功";
     }
 
@@ -230,7 +230,7 @@ public class Pt_ProblemController {
         }else{
             pt_problems = problemService.ProblemList(0,user.getD_id());
         }
-        String[] title = {"问题编号","问题名称","负责人","反馈人","问题分类","问题描述","发生日期","问题状态","完成日期","严重等级"};
+        String[] title = {"问题编号","问题名称","负责人","反馈人","问题分类","问题描述","发生日期","问题状态","完成日期","严重等级","解决方案"};
         String fileName = "问题信息表"+System.currentTimeMillis()+".xls";
         String sheetName = "问题信息表";
         String[][] content = new String[pt_problems.size()][];
@@ -282,6 +282,7 @@ public class Pt_ProblemController {
                     content[i][9] = "非常严重";
                     break;
             }
+            content[i][10] = problem.getPl_programme();
         }
         HSSFWorkbook workbook = ExcelUtils.getHSSFWorkbook(sheetName,title,content,null);
 

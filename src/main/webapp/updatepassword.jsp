@@ -4,6 +4,7 @@
 <html>
 <head>
     <title>修改密码</title>
+    <link rel="icon" href="${pageContext.request.contextPath}/images/avtar.png" type="image/x-icon"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/layui/css/layui.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
@@ -44,7 +45,7 @@
         }
         .required{
             color: red;
-            font-size: 18px;
+            font-size: 1em;
         }
     </style>
 </head>
@@ -86,7 +87,7 @@
         </div>
         <label class="col-sm-3 control-label">新密码:<span class="required">*</span></label>
         <div class="col-sm-7">
-            <input type="password" name="newPwdA" lay-verify="title" autocomplete="off" placeholder="请输入新密码" class="layui-input"><span style="color: #9199aa;font-size: 12px">由数字、大写字母、小写字母、特殊字符至少两种字符组成</span>
+            <input type="password" name="newPwdA" lay-verify="title" autocomplete="off" placeholder="请输入新密码" class="layui-input"><span style="color: #9199aa;font-size: 0.6em">由数字、大写字母、小写字母、特殊字符至少两种字符组成</span>
         </div>
         <label class="col-sm-3 control-label">确认密码:<span class="required">*</span></label>
         <div class="col-sm-7">

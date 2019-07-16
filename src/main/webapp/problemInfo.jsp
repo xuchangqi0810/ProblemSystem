@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: GY06
-  Date: 2019/5/31
-  Time: 10:55
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <html>
@@ -17,14 +10,14 @@
 <style type="text/css">
     fieldset{
         display: inline-block;
-        font-size: 0.7rem;
+        font-size: 0.7em;
     }
     .actionbox{
         width: 60%;
         margin-bottom: 2%;
     }
     table{
-        font-size: 0.8rem;
+        font-size: 0.8em;
         margin-left: 10%;
     }
     table th{
@@ -52,7 +45,7 @@
     <legend>
         基本信息
     </legend>
-    <table style="font-size: 0.7rem" class="table table-data table-condensed table-borderless">
+    <table style="font-size: 0.7em" class="table table-data table-condensed table-borderless">
         <tr>
             <th class="td-right">反馈人&nbsp;&nbsp;&nbsp;</th>
             <td id="fkr"></td>
@@ -95,7 +88,7 @@
     <legend>
         问题的一生
     </legend>
-    <table style="font-size: 0.7rem" class="table table-data table-condensed table-borderless">
+    <table style="font-size: 0.7em" class="table table-data table-condensed table-borderless">
         <tbody><tr>
             <th class="w-80px">录入时间&nbsp;&nbsp;&nbsp;</th>
             <td id="lr"></td>

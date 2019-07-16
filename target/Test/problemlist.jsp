@@ -3,6 +3,7 @@
 <html>
 <meta charset="utf-8">
 <head>
+    <link rel="icon" href="${pageContext.request.contextPath}/images/avtar.png" type="image/x-icon"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/layui/css/layui.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
@@ -76,6 +77,8 @@
                                 <input type="radio" value="2" name="like1" lay-filter="primary" title="进行中" <c:if test="${state == 2}">checked="checked"</c:if>>
                                 <input type="radio" value="3" name="like1" lay-filter="primary" title="审核中" <c:if test="${state == 3}">checked="checked"</c:if>>
                                 <input type="radio" value="4" name="like1" lay-filter="primary" title="已完成" <c:if test="${state == 4}">checked="checked"</c:if>>
+                                <input type="button" id="sub" class="layui-btn" style="float:right;" onclick="excelExport()" value="导出"/>
+                            </th>
                         </div>
                     </div>
                 </tr>
@@ -91,75 +94,83 @@
                     <th>操作</th>
                 </tr>
                 </thead>
-                <tbody style="font-size: 14px">
-                <c:forEach var="item"   items="${problem}">
-                    <tr>
-                        <th>${item.pl_id}</th>
-                        <th onclick="showPro(${item.pl_id})" style="cursor:pointer" title="${item.pl_name}"><span style="padding: 5px;border-radius: 10px;background-color: #007DDB;font-size:12px;color: white">${item.pt_type.t_name}</span>&nbsp;${item.pl_name}</th>
-                        <th>${item.pl_feedback}</th>
-                        <th>${item.pt_user.u_nickName}</th>
-                        <th>${item.pl_fsDate}</th>
-                        <c:if test="${item.pl_yqDate == '0001-01-01'}"><th></th></c:if>
-                        <c:if test="${item.pl_yqDate != '0001-01-01'}"><th>${item.pl_yqDate}</th></c:if>
-                        <c:choose>
-                            <c:when test="${item.pl_state == 1}">
+                <tbody style="font-size: 0.8em">
+                <c:choose>
+                    <c:when test="${not empty problem}">
+                        <c:forEach var="item"   items="${problem}">
+                            <tr>
+                                <th>${item.pl_id}</th>
+                                <th onclick="showPro(${item.pl_id})" style="cursor:pointer" title="${item.pl_name}"><span style="padding: 5px;border-radius: 10px;background-color: #007DDB;font-size:0.6em;color: white">${item.pt_type.t_name}</span>&nbsp;${item.pl_name}</th>
+                                <th>${item.pl_feedback}</th>
+                                <th>${item.pt_user.u_nickName}</th>
+                                <th>${item.pl_fsDate}</th>
+                                <c:if test="${item.pl_yqDate == '0001-01-01'}"><th></th></c:if>
+                                <c:if test="${item.pl_yqDate != '0001-01-01'}"><th>${item.pl_yqDate}</th></c:if>
+                                <c:choose>
+                                    <c:when test="${item.pl_state == 1}">
+                                        <th>
+                                            未开始
+                                            <c:if test="${item.pl_yqDate != '0001-01-01'}">
+                                                <c:if test="${item.timeout < 0}">
+                                                    <span style="color: #f95731;"> 延期${-item.timeout}天</span>
+                                                </c:if>
+                                            </c:if>
+                                        </th>
+                                    </c:when>
+                                    <c:when test="${item.pl_state == 2}">
+                                        <th>
+                                            <c:if test="${item.timeout >= 0}">
+                                                进行中
+                                            </c:if>
+                                            <c:if test="${item.timeout < 0}">
+                                                进行中<span style="color: #f95731;">
+                                                <c:if test="${item.pl_yqDate != '0001-01-01'}">
+                                                    延期${-item.timeout}天</span>
+                                                </c:if>
+                                            </c:if>
+                                        </th>
+                                    </c:when>
+                                    <c:when test="${item.pl_state == 3}">
+                                        <th>审核中</th>
+                                    </c:when>
+                                    <c:when test="${item.pl_state == 4}">
+                                        <th>已完成</th>
+                                    </c:when>
+                                </c:choose>
+                                <c:choose>
+                                    <c:when test="${item.pl_serious == 4}">
+                                        <th style="color: red">一般</th>
+                                    </c:when>
+                                    <c:when test="${item.pl_serious == 3}">
+                                        <th style="color: red">较重</th>
+                                    </c:when>
+                                    <c:when test="${item.pl_serious == 2}">
+                                        <th style="color: red">严重</th>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <th style="color: red">非常严重</th>
+                                    </c:otherwise>
+                                </c:choose>
                                 <th>
-                                    未开始
-                                    <c:if test="${item.pl_yqDate != '0001-01-01'}">
-                                        <c:if test="${item.timeout < 0}">
-                                            <span style="color: #f95731;"> 延期${-item.timeout}天</span>
-                                        </c:if>
+                                    <c:if test="${item.u_id == pt_user.u_id || pt_user.role.id < 3}">
+                                        <i class="layui-icon layui-icon-edit" title="编辑" style="font-size: 1.4em;cursor:pointer;" onclick="getByIdInUpdate(${item.pl_id})"></i>
+                                        <i class="layui-icon <c:if test="${item.pl_state != 1 || item.pl_yqDate == '0001-01-01' || item.u_id == null }">layui-disabled</c:if> layui-icon-play"  title="开始" style="font-size: 1.4em;cursor:pointer;" <c:if test="${item.pl_state == 1 && item.pl_yqDate != '0001-01-01'}">onclick="proStart(${item.pl_id})"</c:if> ></i>
+                                        <i class="layui-icon layui-icon-log"  title="工时" style="font-size: 1.4em;cursor:pointer" onclick="proInfos(${item.pl_id})"></i>
+                                        <i class="layui-icon <c:if test="${item.pl_state == 3 || item.pl_state == 4 || item.pl_yqDate == '0001-01-01' || item.u_id == null }">layui-disabled</c:if> layui-icon-ok" title="完成" style="font-size: 1.4em;cursor:pointer" <c:if test="${(item.pl_state == 1||item.pl_state == 2) && item.pl_yqDate != '0001-01-01'}">onclick="proComplete(${item.pl_id})"</c:if> ></i>
+                                    </c:if>
+                                    <c:if test="${pt_user.role.id <3}">
+                                        <i class="layui-icon <c:if test="${item.pl_state != 3}">layui-disabled</c:if> layui-icon-survey" title="审批" style="font-size: 1.4em;cursor:pointer" <c:if test="${item.pl_state == 3}">onclick="proExamine(${item.pl_id},${item.pl_state})"</c:if> ></i>
                                     </c:if>
                                 </th>
-                            </c:when>
-                            <c:when test="${item.pl_state == 2}">
-                                <th>
-                                    <c:if test="${item.timeout >= 0}">
-                                        进行中
-                                    </c:if>
-                                    <c:if test="${item.timeout < 0}">
-                                        进行中<span style="color: #f95731;">
-                                        <c:if test="${item.pl_yqDate != '0001-01-01'}">
-                                            延期${-item.timeout}天</span>
-                                        </c:if>
-                                    </c:if>
-                                </th>
-                            </c:when>
-                            <c:when test="${item.pl_state == 3}">
-                                <th>审核中</th>
-                            </c:when>
-                            <c:when test="${item.pl_state == 4}">
-                                <th>已完成</th>
-                            </c:when>
-                        </c:choose>
-                        <c:choose>
-                            <c:when test="${item.pl_serious == 4}">
-                                <th style="color: red">一般</th>
-                            </c:when>
-                            <c:when test="${item.pl_serious == 3}">
-                                <th style="color: red">较重</th>
-                            </c:when>
-                            <c:when test="${item.pl_serious == 2}">
-                                <th style="color: red">严重</th>
-                            </c:when>
-                            <c:otherwise>
-                                <th style="color: red">非常严重</th>
-                            </c:otherwise>
-                        </c:choose>
-                        <th>
-                            <c:if test="${item.u_id == pt_user.u_id || pt_user.role.id < 3}">
-                                <i class="layui-icon layui-icon-edit" title="编辑" style="font-size: 20px;cursor:pointer;" onclick="getByIdInUpdate(${item.pl_id})"></i>
-                                <i class="layui-icon <c:if test="${item.pl_state != 1 || item.pl_yqDate == '0001-01-01' || item.u_id == null }">layui-disabled</c:if> layui-icon-play"  title="开始" style="font-size: 20px;cursor:pointer;" <c:if test="${item.pl_state == 1 && item.pl_yqDate != '0001-01-01'}">onclick="proStart(${item.pl_id})"</c:if> ></i>
-                                <i class="layui-icon layui-icon-log"  title="工时" style="font-size: 20px;cursor:pointer" onclick="proInfos(${item.pl_id})"></i>
-                                <i class="layui-icon <c:if test="${item.pl_state == 3 || item.pl_state == 4 || item.pl_yqDate == '0001-01-01' || item.u_id == null }">layui-disabled</c:if> layui-icon-ok" title="完成" style="font-size: 20px;cursor:pointer" <c:if test="${(item.pl_state == 1||item.pl_state == 2) && item.pl_yqDate != '0001-01-01'}">onclick="proComplete(${item.pl_id})"</c:if> ></i>
-                            </c:if>
-
-                            <c:if test="${pt_user.role.id <3}">
-                                <i class="layui-icon <c:if test="${item.pl_state != 3}">layui-disabled</c:if> layui-icon-survey" title="审批" style="font-size: 20px;cursor:pointer" <c:if test="${item.pl_state == 3}">onclick="proExamine(${item.pl_id},${item.pl_state})"</c:if> ></i>
-                            </c:if>
-                        </th>
-                    </tr>
-                </c:forEach>
+                            </tr>
+                        </c:forEach>
+                    </c:when>
+                    <c:otherwise>
+                        <tr>
+                            <th style="text-align: center;font-size: 2em" colspan="10">暂无数据</th>
+                        </tr>
+                    </c:otherwise>
+                </c:choose>
                 </tbody>
             </table>
         </form>
@@ -518,6 +529,21 @@
             layer.msg("请在开始问题后重试")
             return;
         }
+    }
+
+    function excelExport() {
+        layui.use('layer', function(){
+            var layer = layui.layer;
+            layer.confirm( "<input type='radio' value='0' name='exp' lay-filter='primary' checked='checked' title='我的问题'/>我的问题&nbsp;&nbsp;" +
+                "<input type='radio' value='1' name='exp' lay-filter='primary' title='全部问题'/>全部问题", {
+                btn: ['确定','取消'] //按钮
+            }, function(){//确定
+                location.href = "${pageContext.request.contextPath}/export?num="+$("[name=exp]:checked").val();
+            }, function(){//取消
+
+            });
+
+        });
     }
 
 </script>

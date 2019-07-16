@@ -7,6 +7,7 @@
 <html>
 <meta charset="utf-8">
 <head>
+    <link rel="icon" href="${pageContext.request.contextPath}/images/avtar.png" type="image/x-icon"/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/layui/css/layui.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.min.css">
     <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
@@ -80,7 +81,7 @@
                                 <input type="radio" value="2" name="like1" lay-filter="primary" title="进行中" <c:if test="${pl_state == 2}">checked="checked"</c:if>>
                                 <input type="radio" value="3" name="like1" lay-filter="primary" title="审核中" <c:if test="${pl_state == 3}">checked="checked"</c:if>>
                                 <input type="radio" value="4" name="like1" lay-filter="primary" title="已完成" <c:if test="${pl_state == 4}">checked="checked"</c:if>>
-                                <input type="button" id="sub" class="layui-btn" style="float:right;" onclick="excelpExport()" value="导出"/>
+                                <input type="button" id="sub" class="layui-btn" style="float:right;" onclick="excelExport()" value="导出"/>
                             </th>
                         </div>
                     </div>
@@ -97,13 +98,13 @@
                     <th>操作</th>
                 </tr>
             </thead>
-            <tbody style="font-size: 14px">
+            <tbody style="font-size: 0.8em">
             <c:choose>
                 <c:when test="${not empty pt_problem}">
                     <c:forEach var="item"   items="${pt_problem}">
                         <tr>
                             <th>${item.pl_id}</th>
-                            <th onclick="showPro(${item.pl_id})" style="cursor:pointer" title="${item.pl_name}"><span style="padding: 5px;border-radius: 10px;background-color: #007DDB;font-size:12px;color: white">${item.pt_type.t_name}</span>&nbsp;${item.pl_name}</th>
+                            <th onclick="showPro(${item.pl_id})" style="cursor:pointer" title="${item.pl_name}"><span style="padding: 5px;border-radius: 10px;background-color: #007DDB;font-size: 0.6em;color: white">${item.pt_type.t_name}</span>&nbsp;${item.pl_name}</th>
                             <th>${item.pl_feedback}</th>
                             <th><c:if test="${item.u_id != null}">${item.pt_user.u_nickName}</c:if></th>
                             <th>${item.pl_fsDate}</th>
@@ -155,12 +156,12 @@
                                 </c:otherwise>
                             </c:choose>
                             <th>
-                                <i class="layui-icon layui-icon-edit" title="编辑" style="font-size: 20px;cursor:pointer;" onclick="getByIdInUpdate(${item.pl_id})"></i>
-                                <i class="layui-icon <c:if test="${item.pl_state != 1 || item.pl_yqDate == '0001-01-01'}">layui-disabled</c:if> layui-icon-play"  title="开始" style="font-size: 20px;cursor:pointer;" <c:if test="${item.pl_state == 1 && item.pl_yqDate != '0001-01-01'}">onclick="proStart(${item.pl_id})"</c:if> ></i>
-                                <i class="layui-icon layui-icon-log"  title="工时" style="font-size: 20px;cursor:pointer" onclick="proInfos(${item.pl_id})"></i>
-                                <i class="layui-icon <c:if test="${item.pl_state == 1 || item.pl_state == 3 || item.pl_state == 4 || item.pl_yqDate == '0001-01-01'}">layui-disabled</c:if> layui-icon-ok" title="完成" style="font-size: 20px;cursor:pointer" <c:if test="${(item.pl_state != 1 && item.pl_state != 3) && item.pl_yqDate != '0001-01-01'}">onclick="proComplete(${item.pl_id})"</c:if> ></i>
+                                <i class="layui-icon layui-icon-edit" title="编辑" style="font-size: 1.4em;cursor:pointer;" onclick="getByIdInUpdate(${item.pl_id})"></i>
+                                <i class="layui-icon <c:if test="${item.pl_state != 1 || item.pl_yqDate == '0001-01-01'}">layui-disabled</c:if> layui-icon-play"  title="开始" style="font-size: 1.4em;cursor:pointer;" <c:if test="${item.pl_state == 1 && item.pl_yqDate != '0001-01-01'}">onclick="proStart(${item.pl_id})"</c:if> ></i>
+                                <i class="layui-icon layui-icon-log"  title="工时" style="font-size: 1.4em;cursor:pointer" onclick="proInfos(${item.pl_id})"></i>
+                                <i class="layui-icon <c:if test="${item.pl_state == 1 || item.pl_state == 3 || item.pl_state == 4 || item.pl_yqDate == '0001-01-01'}">layui-disabled</c:if> layui-icon-ok" title="完成" style="font-size: 1.4em;cursor:pointer" <c:if test="${(item.pl_state != 1 && item.pl_state != 3) && item.pl_yqDate != '0001-01-01'}">onclick="proComplete(${item.pl_id})"</c:if> ></i>
                                 <c:if test="${pt_user.role.id != 3}">
-                                    <i class="layui-icon <c:if test="${item.pl_state != 3}">layui-disabled</c:if> layui-icon-survey" title="审批" style="font-size: 20px;cursor:pointer" <c:if test="${item.pl_state == 3}">onclick="proExamine(${item.pl_id},${item.pl_state})"</c:if> ></i>
+                                    <i class="layui-icon <c:if test="${item.pl_state != 3}">layui-disabled</c:if> layui-icon-survey" title="审批" style="font-size: 1.4em;cursor:pointer" <c:if test="${item.pl_state == 3}">onclick="proExamine(${item.pl_id},${item.pl_state})"</c:if> ></i>
                                 </c:if>
                             </th>
                         </tr>
@@ -168,7 +169,7 @@
                 </c:when>
                 <c:otherwise>
                     <tr>
-                        <th style="text-align: center;font-size: 1.5rem" colspan="10">暂无数据</th>
+                        <th style="text-align: center;font-size: 2em" colspan="10">暂无数据</th>
                     </tr>
                 </c:otherwise>
             </c:choose>
@@ -532,13 +533,16 @@
         }
     }
     
-    function excelpExport() {
+    function excelExport() {
         layui.use('layer', function(){
             var layer = layui.layer;
-            layer.confirm( "<input type='radio' value='0' name='exp' lay-filter='primary' checked='checked' title='我的问题'/>我的问题" +
-                            "<input type='radio' value='1' name='exp' lay-filter='primary' title='全部问题'/>全部问题", {
+
+            layer.confirm(
+                "导出类型：<input type='radio' value='0' name='exp' lay-filter='primary' style='margin-left: 10%;' checked='checked' title='我的问题'/>我的问题" +
+                            "<input type='radio' value='1' name='exp' lay-filter='primary' style='margin-left: 10%;' title='全部问题'/>全部问题", {
                 btn: ['确定','取消'] //按钮
             }, function(){//确定
+
                 location.href = "${pageContext.request.contextPath}/export?num="+$("[name=exp]:checked").val();
             }, function(){//取消
 

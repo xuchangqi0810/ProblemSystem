@@ -4,6 +4,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>404</title>
+		<link rel="icon" href="${pageContext.request.contextPath}/images/avtar.png" type="image/x-icon"/>
 		<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/404.css">
 	</head>
 <body class="error-404">
