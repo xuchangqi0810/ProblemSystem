@@ -185,7 +185,7 @@ public class Pt_ProblemController {
 
     @RequestMapping(value = "ProComplete",method = RequestMethod.POST)//完成问题
     @ResponseBody
-    public Object ProComplete(Integer pl_id,Integer state){
+    public Object ProComplete(Integer pl_id,Integer state,HttpSession session){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         int i = 0;
         try {
@@ -200,6 +200,12 @@ public class Pt_ProblemController {
     @ResponseBody
     public Object UpdateStateExamine(Integer pl_id,Integer pl_state){
         int i = problemService.UpdateStateExamine(pl_id, pl_state);
+        if(i > 0){
+            Pt_problem problem = problemService.getByIdInProblem(pl_id);
+            String subject = "“您有新的问题有已被审批，请注意查收！”";
+            String text = "<html><body>点击或复制连接<a href='http://192.168.20.168:8080/Test'>问题管理系统</a>，即可登陆系统查看</br>"+problem.getPl_name()+" 已审批通过。</body></html>";
+            mailSend.sendEmail(problem.getPt_user().getU_email(),subject,text);
+        }
         return i;
     }
 
@@ -218,21 +224,28 @@ public class Pt_ProblemController {
         proInfo.setRemarks(remarks);
         proInfo.setU_id(user.getU_id());
         i += problemService.AddProInfo(proInfo);
+        if(i > 0){
+            Pt_problem problem = problemService.getByIdInProblem(pl_id);
+            String subject = "“您有新的问题有已被审批，请注意查收！”";
+            String text = "<html><body>点击或复制连接<a href='http://192.168.20.168:8080/Test'>问题管理系统</a>，即可登陆系统查看</br>"+problem.getPl_name()+" 未通过审批，具体信息请登录网站查看。</body></html>";
+            mailSend.sendEmail(problem.getPt_user().getU_email(),subject,text);
+        }
         return i;
     }
 
     @RequestMapping("export")
     public Object ExportFile(@RequestParam Integer num,HttpServletResponse response,HttpSession session){
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
         Pt_User user = (Pt_User) session.getAttribute("pt_user");
         List<Pt_problem> pt_problems = null;
         if(num == 0){
-            pt_problems = problemService.MyProblem(user.getU_id(),0);
+            pt_problems = problemService.MyProblem(user.getU_id(),0,"0001-01-01","0001-01-01");
         }else{
-            pt_problems = problemService.ProblemList(0,user.getD_id());
+            pt_problems = problemService.ProblemList(0,user.getD_id(),"0001-01-01","0001-01-01");
         }
         String[] title = {"问题编号","问题名称","负责人","反馈人","问题分类","问题描述","发生日期","问题状态","完成日期","严重等级","解决方案"};
-        String fileName = "问题信息表"+System.currentTimeMillis()+".xls";
-        String sheetName = "问题信息表";
+        String fileName = "问题信息表"+sdf.format(new Date())+".xls";
+        String sheetName = "问题信息表-"+sdf.format(new Date());
         String[][] content = new String[pt_problems.size()][];
         for (int i = 0; i < pt_problems.size(); i++) {
             content[i] = new String[title.length];

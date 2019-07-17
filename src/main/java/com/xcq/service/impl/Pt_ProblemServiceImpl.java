@@ -18,15 +18,18 @@ import java.util.Map;
 
 @Service("pt_Problemesrvice")
 public class Pt_ProblemServiceImpl implements IPt_ProblemService{
+
+
     @Override
-    public List<Pt_problem> ProblemList(@Param("state") Integer state, @Param("d_id")Integer d_id) {
-        return problemDAO.ProblemList(state,d_id);
+    public List<Pt_problem> ProblemList(Integer state, Integer d_id, String startDate, String stopDate) {
+        return problemDAO.ProblemList(state,d_id,startDate,stopDate);
     }
 
     @Override
-    public List<Pt_problem> MyProblem(Integer u_id,Integer pl_state) {
-        return problemDAO.MyProblem(u_id,pl_state);
+    public List<Pt_problem> MyProblem(Integer u_id, Integer pl_state, String startDate, String stopDate) {
+        return problemDAO.MyProblem(u_id,pl_state,startDate,stopDate);
     }
+
 
     @Override
     public List<Pt_type> Pt_typeList() {

@@ -30,6 +30,7 @@ public class Pt_UserController {
     private IPt_ProblemService problemService;
 
 
+
     @RequestMapping(value = "/login")
     @ResponseBody//登录
     public String Login(String u_name,String password, HttpSession session){
@@ -43,7 +44,10 @@ public class Pt_UserController {
 
     @RequestMapping(value = "/problemList")//全部问题
     public String ProblemList(@RequestParam(defaultValue="1",required=true,value="pageNo") Integer pageNo,
-                            @RequestParam(defaultValue="0",required=true,value="state") Integer state,Pager pager,
+                              @RequestParam(defaultValue="0",required=true,value="state") Integer state,
+                              @RequestParam(defaultValue = "0001-01-01",required = false,value = "startDate")String startDate,
+                              @RequestParam(defaultValue = "0001-01-01",required = false,value = "stopDate")String stopDate,
+                              Pager pager,
                             HttpServletRequest request, HttpSession session){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         if(session.getAttribute("state") == null){
@@ -52,9 +56,16 @@ public class Pt_UserController {
         if(state != session.getAttribute("state")){
             session.setAttribute("state",state);
         }
+        //存储选中的日期
+        if(!startDate.equals("0001-01-01") && !stopDate.equals("0001-01-01")){
+            if(request.getAttribute("startDateList") == null){
+                request.setAttribute("startDateList",startDate);
+                request.setAttribute("stopDateList",stopDate);
+            }
+        }
         Pt_User pt_user = (Pt_User) session.getAttribute("pt_user");
         Page<?> page = PageHelper.startPage(pager.getPageNum(), pager.getPageSize());
-        List<Pt_problem> pt_problems = problemService.ProblemList((Integer) session.getAttribute("state"),pt_user.getD_id());
+        List<Pt_problem> pt_problems = problemService.ProblemList((Integer) session.getAttribute("state"),pt_user.getD_id(),startDate,stopDate);
         for (Pt_problem item: pt_problems) {
             if(item.getPl_state() == 1 || item.getPl_state() == 2){
                 try {
@@ -72,18 +83,29 @@ public class Pt_UserController {
 
     @RequestMapping(value = "/myProblem")//我的问题
     public String myProblem(@RequestParam(defaultValue="1",required=true,value="pageNo") Integer pageNo,
-                            @RequestParam(defaultValue="0",required=true,value="pl_state") Integer pl_state,Pager pager,
+                            @RequestParam(defaultValue="0",required=true,value="pl_state") Integer pl_state,
+                            @RequestParam(defaultValue = "0001-01-01",required = false,value = "startDate")String startDate,
+                            @RequestParam(defaultValue = "0001-01-01",required = false,value = "stopDate")String stopDate,
+                            Pager pager,
                             HttpServletRequest request, HttpSession session) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        //存储选中的类型
         if(session.getAttribute("pt_state") == null){
             session.setAttribute("pl_state",pl_state);
         }
         if(pl_state != session.getAttribute("pl_state")){
             session.setAttribute("pt_state",pl_state);
         }
+        //存储选中的日期
+        if(!startDate.equals("0001-01-01") && !stopDate.equals("0001-01-01")){
+            if(request.getAttribute("startDate") == null){
+                request.setAttribute("startDate",startDate);
+                request.setAttribute("stopDate",stopDate);
+            }
+        }
         Pt_User pt_user = (Pt_User) session.getAttribute("pt_user");
         Page<?> page = PageHelper.startPage(pager.getPageNum(), pager.getPageSize());
-        List<Pt_problem> pt_problems = problemService.MyProblem(pt_user.getU_id(), (Integer) session.getAttribute("pl_state"));
+        List<Pt_problem> pt_problems = problemService.MyProblem(pt_user.getU_id(), (Integer) session.getAttribute("pl_state"),startDate,stopDate);
         for (Pt_problem item: pt_problems) {
             if(item.getPl_state() == 1 || item.getPl_state() == 2){
                 item.setTimeout((int) ((sdf.parse(item.getPl_yqDate()).getTime() - sdf.parse(sdf.format(new Date())).getTime()) / 1000 / 60 / 60 / 24));
@@ -158,6 +180,7 @@ public class Pt_UserController {
     @RequestMapping(value = "loginOut")
     public String LoginOut(HttpSession session){
         session.removeAttribute("pt_user");
+        session.invalidate();//清空所有session信息
         return "login";
     }
 

@@ -79,8 +79,13 @@
                                 <input type="radio" value="0" name="like1" lay-filter="primary" title="全部" <c:if test="${pl_state == 0}">checked="checked"</c:if>>
                                 <input type="radio" value="1" name="like1" lay-filter="primary" title="未开始" <c:if test="${pl_state == 1}">checked="checked"</c:if>>
                                 <input type="radio" value="2" name="like1" lay-filter="primary" title="进行中" <c:if test="${pl_state == 2}">checked="checked"</c:if>>
-                                <input type="radio" value="3" name="like1" lay-filter="primary" title="审核中" <c:if test="${pl_state == 3}">checked="checked"</c:if>>
+                                <input type="radio" value="3" name="like1" lay-filter="primary" title="审批中" <c:if test="${pl_state == 3}">checked="checked"</c:if>>
                                 <input type="radio" value="4" name="like1" lay-filter="primary" title="已完成" <c:if test="${pl_state == 4}">checked="checked"</c:if>>
+                                <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6.5em;font-size: 0.8em">起始时间:</label>
+                                <input type="text" class="layui-input col-sm-1" name="startDate" id="fsdate" value="${startDate}" placeholder="yyyy-MM-dd">
+                                <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6.5em;font-size: 0.8em">结束时间:</label>
+                                <input type="text" class="layui-input col-sm-1" name="stopDate" id="yqdate" value="${stopDate}" placeholder="yyyy-MM-dd">
+                                <input type="button" class="layui-btn" style="" onclick="selectProblem()" value="查询"/>
                                 <input type="button" id="sub" class="layui-btn" style="float:right;" onclick="excelExport()" value="导出"/>
                             </th>
                         </div>
@@ -181,14 +186,49 @@
 </div>
 </body>
 <script type="text/javascript">
+    layui.use('laydate', function() {
+        var laydate = layui.laydate;
+        //日期时间选择器
+        laydate.render({
+            elem: '#fsdate'
+            ,type: 'date'
+        });
+        laydate.render({
+            elem: '#yqdate'
+            ,type: 'date'
+        });
+    });
     layui.use('form',function () {
         var form = layui.form;
-        form.on('radio(primary)', function (data) {
-            location.href = "${pageContext.request.contextPath}/myProblem?pl_state="+$(this).val();
-            layer.load(0, {shade: false});
-            form.render();
-        });
+
     })
+
+    function selectProblem() {
+        layui.use('layer', function() {
+            var start = $("[name=like1]:checked").val();
+            var startDate = $("[name=startDate]").val();
+            var stopDate = $("[name=stopDate]").val();
+            if ((startDate == "" || startDate == null)&&(stopDate =="" || stopDate ==null)) {
+                location.href = "${pageContext.request.contextPath}/myProblem?pl_state="+start;
+            }
+            if(startDate != "" && startDate != null){
+                if(stopDate == "" || stopDate == null){
+                    layer.msg("请选择结束时间");
+                    return;
+                }
+            }
+            if(stopDate != "" && stopDate != null){
+                if(startDate == "" || startDate == null){
+                    layer.msg("请选择起始时间");
+                    return;
+                }
+            }
+            if((stopDate != "" && stopDate != null) && ((startDate != "" && startDate != null))){
+                location.href = "${pageContext.request.contextPath}/myProblem?pl_state="+start+"&startDate="+startDate+"&stopDate="+stopDate;
+            }
+
+        });
+    }
     layui.use('element', function(){
         var element = layui.element;
     });
@@ -203,8 +243,13 @@
             layout: ['prev', 'page','limit','next'],
             jump: function(obj, first){
                 if(first){ return ; }//如果是第一次不执行
+                var startDate = $("[name=startDate]").val();
+                var stopDate = $("[name=stopDate]").val();
                 layer.load(0, {shade: false});
                 var url = '${pageContext.request.contextPath}/myProblem?pageNum='+obj.curr+'&pageSize='+obj.limit+'&pl_state='+${pl_state};
+                if((stopDate != "" && stopDate != null) && ((startDate != "" && startDate != null))){
+                    url = "${pageContext.request.contextPath}/myProblem?pageNum="+obj.curr+"&pageSize="+obj.limit+"&pl_state=${pl_state}&startDate="+startDate+"&stopDate="+stopDate;
+                }
                 layer.load(0, {shade: false});//加载框
                 window.location.href = url;
             }
@@ -538,7 +583,7 @@
             var layer = layui.layer;
 
             layer.confirm(
-                "导出类型：<input type='radio' value='0' name='exp' lay-filter='primary' style='margin-left: 10%;' checked='checked' title='我的问题'/>我的问题" +
+                "<input type='radio' value='0' name='exp' lay-filter='primary' style='margin-left: 10%;' checked='checked' title='我的问题'/>我的问题" +
                             "<input type='radio' value='1' name='exp' lay-filter='primary' style='margin-left: 10%;' title='全部问题'/>全部问题", {
                 btn: ['确定','取消'] //按钮
             }, function(){//确定

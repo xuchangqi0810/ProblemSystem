@@ -12,9 +12,9 @@ import java.util.Map;
 
 public interface IPt_ProblemDAO {
 
-    List<Pt_problem> ProblemList(@Param("state") Integer state,@Param("d_id") Integer d_id);
+    List<Pt_problem> ProblemList(@Param("state") Integer state,@Param("d_id") Integer d_id,@Param("startDate") String startDate,@Param("stopDate") String stopDate);
 
-    List<Pt_problem> MyProblem(@Param("u_id") Integer u_id,@Param("pl_state") Integer pl_state);//查询我的所有问题
+    List<Pt_problem> MyProblem(@Param("u_id") Integer u_id,@Param("pl_state") Integer pl_state,@Param("startDate") String startDate,@Param("stopDate") String stopDate);//查询我的所有问题
 
     List<Pt_type> Pt_typeList();//问题分类
 

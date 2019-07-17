@@ -104,6 +104,9 @@
         <if test='state != 0'>
             AND p.pl_state = #{state}
         </if >
+        <if test="startDate != '0001-01-01' and startDate !='0001-01-01'">
+            AND p.pl_lrDate BETWEEN #{startDate} AND #{stopDate}
+        </if>
         ORDER BY p.pl_id DESC
     </select>
     <!--查询所有我的问题-->
@@ -112,6 +115,9 @@
             <if test='pl_state != 0'>
                     AND p.pl_state = #{pl_state}
             </if >
+            <if test="startDate != '0001-01-01' and startDate !='0001-01-01'">
+                AND p.pl_lrDate BETWEEN #{startDate} AND #{stopDate}
+            </if>
         ORDER BY p.pl_id DESC
     </select>
     <!--问题分类-->
