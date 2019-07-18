@@ -94,17 +94,17 @@
                 </c:forEach>
             </select>
         </div>
-        <c:if test="${pt_user.role.id != 3}">
+
             <label class="col-sm-3 control-label">负责人：</label>
             <div class="col-sm-7">
-                <select id="fzr" class="form-control" name="u_id">
+                <select id="fzr" class="form-control" name="u_id" <c:if test="${pt_user.role.id == 3}"> disabled="disabled" </c:if>>
                     <option value="0">请选择负责人</option>
                     <c:forEach var="item" items="${Users}">
                         <option name="${item.u_email}" value="${item.u_id}" <c:if test="${item.u_id == problem.u_id}">selected="selected"</c:if>>${item.u_nickName}</option>
                     </c:forEach>
                 </select>
             </div>
-        </c:if>
+
         <label class="col-sm-3 control-label">问题描述：</label>
         <div class="col-sm-9">
             <textarea class="form-control" rows="3" name="pl_describe">${problem.pl_describe}</textarea>
@@ -163,7 +163,7 @@
     function problemSave(prou_id) {
         layui.use('layer',function () {
             var t_id = $("[name=t_id]").val();
-            var u_id = ${problem.u_id};
+            var u_id = $("[name=u_id]").val();
             var pl_name = $("[name=pl_name]").val();
             var pl_describe = $("[name=pl_describe]").val();
             var pl_fsDate = $("[name=pl_fsDate]").val();
@@ -180,7 +180,6 @@
             }else{
                 num = 1;
             }
-
 
             if(pl_name == null || pl_name == undefined || pl_name == ""){
                 layer.msg("请输入问题名称");

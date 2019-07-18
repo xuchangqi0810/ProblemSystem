@@ -37,7 +37,7 @@ public class Pt_ProblemController {
     @RequestMapping(value = "sendEmail",method = RequestMethod.POST)
     @ResponseBody
     public Object send(@RequestParam String toEmail,@RequestParam String pl_name,@RequestParam Integer state,@RequestParam Integer num){
-        /*String to = toEmail;//收件人
+        String to = toEmail;//收件人
         String subject = "“您有新的问题待查看”";
         String text = "<html><body>点击或复制连接<a href='http://192.168.20.168:8080/Test'>问题管理系统</a>，即可登陆系统查看</br>"+pl_name+"</body></html>";
         try {
@@ -45,7 +45,7 @@ public class Pt_ProblemController {
                 if(!(to.equals(""))){
                     mailSend.sendHtmlEmail(to,subject, text);
                 }else{
-                    mailSend.sendEmail("tianlei1121@dingtalk.com",subject, text);//新建问题后必通知人
+                    mailSend.sendEmail("xuchangqi0810@dingtalk.com",subject, text);//新建问题后必通知人
                 }
             }else if(state == 200){//修改
                 if(num == 1){
@@ -55,7 +55,7 @@ public class Pt_ProblemController {
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }*/
+        }
         return "发送成功";
     }
 
@@ -187,9 +187,22 @@ public class Pt_ProblemController {
     @ResponseBody
     public Object ProComplete(Integer pl_id,Integer state,HttpSession session){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Pt_User user = (Pt_User) session.getAttribute("pt_user");
+        List<Pt_User> byDIDUserList = userService.getByDIDUserList(user.getD_id());
+        String email = "";
+        for (Pt_User item: byDIDUserList) {
+            if(item.getRole().getId() == 2){
+                email = item.getU_email();
+            }
+        }
         int i = 0;
         try {
             i = problemService.UpdateState(pl_id, state, sdf.parse(sdf.format(new Date())));
+            if(i > 0){
+                String subject = "“您有新的问题待审批，请注意查看！”";
+                String text = "<html><body>点击或复制连接<a href='http://192.168.20.168:8080/Test'>问题管理系统</a>，即可登陆系统查看</br>具体信息请登录网站查看。</body></html>";
+                //mailSend.sendEmail(email,subject,text);
+            }
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -202,7 +215,7 @@ public class Pt_ProblemController {
         int i = problemService.UpdateStateExamine(pl_id, pl_state);
         if(i > 0){
             Pt_problem problem = problemService.getByIdInProblem(pl_id);
-            String subject = "“您有新的问题有已被审批，请注意查收！”";
+            String subject = "“您有新的问题已被审批，请注意查收！”";
             String text = "<html><body>点击或复制连接<a href='http://192.168.20.168:8080/Test'>问题管理系统</a>，即可登陆系统查看</br>"+problem.getPl_name()+" 已审批通过。</body></html>";
             mailSend.sendEmail(problem.getPt_user().getU_email(),subject,text);
         }
@@ -226,7 +239,7 @@ public class Pt_ProblemController {
         i += problemService.AddProInfo(proInfo);
         if(i > 0){
             Pt_problem problem = problemService.getByIdInProblem(pl_id);
-            String subject = "“您有新的问题有已被审批，请注意查收！”";
+            String subject = "“您有新的问题已被审批，请注意查收！”";
             String text = "<html><body>点击或复制连接<a href='http://192.168.20.168:8080/Test'>问题管理系统</a>，即可登陆系统查看</br>"+problem.getPl_name()+" 未通过审批，具体信息请登录网站查看。</body></html>";
             mailSend.sendEmail(problem.getPt_user().getU_email(),subject,text);
         }

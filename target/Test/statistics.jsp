@@ -88,7 +88,7 @@
             yAxis: {
                 gridIndex: 0,
                 min:0,
-                max:50
+                max:25
             },
             grid: {top: '55%'},
             series: [
