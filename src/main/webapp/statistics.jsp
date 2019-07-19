@@ -127,11 +127,6 @@
                 });
             }
         });
-        myChart.on('legendselectchanged', function(obj) {
-           console.log(obj)
-        });
-
-
     });
 
 

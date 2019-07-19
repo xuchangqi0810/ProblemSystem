@@ -1,5 +1,6 @@
 package com.xcq.service;
 
+import com.xcq.entity.ApplicationEmail;
 import org.springframework.transaction.annotation.Transactional;
 import javax.mail.MessagingException;
 
@@ -10,10 +11,14 @@ public interface MailSenderSrvServices {
     * @content 正文
     * */
     @Transactional
-    void sendEmail(String recipient,String subject,String content);
+    void sendEmail(ApplicationEmail email);
 
     /*带抄送
     * */
-    void sendHtmlEmail(String recipient,String subject,String content) throws MessagingException, Exception;
+    void sendHtmlEmail(ApplicationEmail email) throws MessagingException, Exception;
+
+    void sendHtmlEmailByAsynchronousMode(final ApplicationEmail email) throws MessagingException, Exception;
+
+    void sendMailByAsynchronousMode(final ApplicationEmail email);
 
 }

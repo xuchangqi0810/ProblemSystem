@@ -30,6 +30,10 @@
             </props>
         </property>
     </bean>
+    <bean id="taskExecutor" class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+        <property name="corePoolSize" value="10"/>
+        <property name="maxPoolSize" value="30"/>
+    </bean>
     <!--开启注解-->
     <context:annotation-config/>
     <mvc:annotation-driven/>

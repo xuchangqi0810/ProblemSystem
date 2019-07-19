@@ -86,7 +86,7 @@
                                 <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6.5em;font-size: 0.8em">结束时间:</label>
                                 <input type="text" class="layui-input col-sm-1" name="stopDate" id="yqdate" value="${stopDate}" placeholder="yyyy-MM-dd">
                                 <input type="button" class="layui-btn" style="" onclick="selectProblem()" value="查询"/>
-                                <input type="button" id="sub" class="layui-btn" style="float:right;" onclick="excelExport()" value="导出"/>
+                                <i class="layui-icon layui-icon-download-circle" title="导出" style="font-size: 1em;cursor:pointer;float:right;padding-top: 0.35em" onclick="excelExport()">导出</i>
                             </th>
                         </div>
                     </div>

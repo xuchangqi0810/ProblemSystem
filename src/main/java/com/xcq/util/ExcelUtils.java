@@ -39,7 +39,7 @@ public class ExcelUtils {
         sheet.setColumnWidth(1,30*256);
         sheet.setColumnWidth(2,15*256);
         sheet.setColumnWidth(3,15*256);
-        sheet.setColumnWidth(4,18*256);
+        sheet.setColumnWidth(4,20*256);
         sheet.setColumnWidth(5,35*256);
         sheet.setColumnWidth(6,20*256);
         sheet.setColumnWidth(7,15*256);
