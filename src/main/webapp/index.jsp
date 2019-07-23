@@ -66,7 +66,6 @@
     </ul>
 </div>
 <div class="zy">
-
     <div class="content" style="text-align: center">
         <form class="layui-form" action="" style="">
         <table class="table table-hover" style="margin-left: 1%;width: 98%;border: 1px solid;border-color: #e2e2e2">
@@ -79,12 +78,12 @@
                                 <input type="radio" value="0" name="like1" lay-filter="primary" title="全部" <c:if test="${pl_state == 0}">checked="checked"</c:if>>
                                 <input type="radio" value="1" name="like1" lay-filter="primary" title="未开始" <c:if test="${pl_state == 1}">checked="checked"</c:if>>
                                 <input type="radio" value="2" name="like1" lay-filter="primary" title="进行中" <c:if test="${pl_state == 2}">checked="checked"</c:if>>
-                                <input type="radio" value="3" name="like1" lay-filter="primary" title="审批中" <c:if test="${pl_state == 3}">checked="checked"</c:if>>
+                                <input type="radio" value="3" name="like1" lay-filter="primary" title="审核中" <c:if test="${pl_state == 3}">checked="checked"</c:if>>
                                 <input type="radio" value="4" name="like1" lay-filter="primary" title="已完成" <c:if test="${pl_state == 4}">checked="checked"</c:if>>
                                 <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6.5em;font-size: 0.8em">起始时间:</label>
                                 <input type="text" class="layui-input col-sm-1" name="startDate" id="fsdate" value="${startDate}" placeholder="yyyy-MM-dd">
-                                <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6.5em;font-size: 0.8em">结束时间:</label>
-                                <input type="text" class="layui-input col-sm-1" name="stopDate" id="yqdate" value="${stopDate}" placeholder="yyyy-MM-dd">
+                                <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6.5em;font-size: 0.8em;">结束时间:</label>
+                                <input type="text" class="layui-input col-sm-1" name="stopDate" id="yqdate" value="${stopDate}" placeholder="yyyy-MM-dd" style="margin-right: 2.5em">
                                 <input type="button" class="layui-btn" style="" onclick="selectProblem()" value="查询"/>
                                 <i class="layui-icon layui-icon-download-circle" title="导出" style="font-size: 1em;cursor:pointer;float:right;padding-top: 0.35em" onclick="excelExport()">导出</i>
                             </th>
@@ -200,9 +199,7 @@
     });
     layui.use('form',function () {
         var form = layui.form;
-
     })
-
     function selectProblem() {
         layui.use('layer', function() {
             var start = $("[name=like1]:checked").val();
@@ -226,13 +223,11 @@
             if((stopDate != "" && stopDate != null) && ((startDate != "" && startDate != null))){
                 location.href = "${pageContext.request.contextPath}/myProblem?pl_state="+start+"&startDate="+startDate+"&stopDate="+stopDate;
             }
-
         });
     }
     layui.use('element', function(){
         var element = layui.element;
     });
-
     layui.use('laypage', function(){
         layui.laypage.render({
             elem: 'laypage',//元素ID 不要加# 并且只能是ID
@@ -512,7 +507,10 @@
                 cache:false,
                 async:false,
                 success:function (data) {
-                    location.href = "${pageContext.request.contextPath}/myProblem";
+                    layer.msg('保存成功', {icon: 1});
+                    window.setTimeout(function(){
+                        history.go(0);
+                    }, 1000);
                 }
             });
     }
@@ -539,7 +537,7 @@
                             if(data == 1){
                                 layer.msg('审批成功', {icon: 1});
                                 window.setTimeout(function(){
-                                    location.href = "${pageContext.request.contextPath}/myProblem";
+                                    history.go(0);
                                 }, 2000);
                             }
                         }
@@ -564,7 +562,9 @@
                             async:false,
                             success:function (data) {
                                 layer.msg('反馈成功', {icon: 1});
-                                history.go(0);
+                                window.setTimeout(function(){
+                                    history.go(0);
+                                }, 2000);
                             }
                         })
                     }, function() {

@@ -45,7 +45,7 @@ public class Pt_ProblemController {
         try {
             if(state == 100){//新建
                 if(!(to.equals(""))){
-                    mailSend.sendHtmlEmailByAsynchronousMode(email);
+                    //mailSend.sendHtmlEmailByAsynchronousMode(email);
                 }else{//新建问题后必通知人
                     //新建后发送邮件到部门负责人
                     /*Pt_User user = (Pt_User) session.getAttribute("pt_user");
@@ -57,12 +57,11 @@ public class Pt_ProblemController {
                         }
                     }
                     email.setRecipient(address);*/
-                    email.setRecipient("xuchangqi0810@dingtalk.com");
-                    mailSend.sendMailByAsynchronousMode(email);
+                    //mailSend.sendMailByAsynchronousMode(email);
                 }
             }else if(state == 200){//修改
                 if(num == 1){
-                    mailSend.sendMailByAsynchronousMode(email);
+                    //mailSend.sendMailByAsynchronousMode(email);
                 }
             }
         } catch (Exception e) {
@@ -189,7 +188,7 @@ public class Pt_ProblemController {
             problem.setPl_yqDate(sdf.parse(pl_yqDate));
             problem.setPl_serious(pl_serious);
             problem.setPl_programme(pl_programme);
-            int state = problemService.UpdateProblem(problem);
+            problemService.UpdateProblem(problem);
         } catch (ParseException e) {
             e.printStackTrace();
         }
@@ -215,7 +214,7 @@ public class Pt_ProblemController {
                 String subject = "“您有新的问题待审批，请注意查看！”";
                 String text = "<html><body>点击或复制连接<a href='http://192.168.20.168:8080/Test'>问题管理系统</a>，即可登陆系统查看</br>具体信息请登录网站查看。</body></html>";
                 ApplicationEmail email = new ApplicationEmail(address,subject,text);
-                mailSend.sendMailByAsynchronousMode(email);
+                //mailSend.sendMailByAsynchronousMode(email);
             }
         } catch (ParseException e) {
             e.printStackTrace();
@@ -232,7 +231,7 @@ public class Pt_ProblemController {
             String subject = "“您有新的问题已被审批，请注意查收！”";
             String text = "<html><body>点击或复制连接<a href='http://192.168.20.168:8080/Test'>问题管理系统</a>，即可登陆系统查看</br>"+problem.getPl_name()+" 已审批通过。</body></html>";
             ApplicationEmail email = new ApplicationEmail(problem.getPt_user().getU_email(),subject,text);
-            mailSend.sendMailByAsynchronousMode(email);
+            //mailSend.sendMailByAsynchronousMode(email);
         }
         return i;
     }
@@ -254,10 +253,10 @@ public class Pt_ProblemController {
         i += problemService.AddProInfo(proInfo);
         if(i > 0){
             Pt_problem problem = problemService.getByIdInProblem(pl_id);
-            String subject = "“您有新的问题已被审批，请注意查收！”";
+            String subject = "“您的问题有新进展，请注意查收！”";
             String text = "<html><body>点击或复制连接<a href='http://192.168.20.168:8080/Test'>问题管理系统</a>，即可登陆系统查看</br>"+problem.getPl_name()+" 未通过审批，具体信息请登录网站查看。</body></html>";
             ApplicationEmail email = new ApplicationEmail(problem.getPt_user().getU_email(),subject,text);
-            mailSend.sendMailByAsynchronousMode(email);
+            //mailSend.sendMailByAsynchronousMode(email);
         }
         return i;
     }

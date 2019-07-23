@@ -75,12 +75,12 @@
                                 <input type="radio" value="0" name="like1" lay-filter="primary" title="全部" <c:if test="${state == 0}">checked="checked"</c:if>>
                                 <input type="radio" value="1" name="like1" lay-filter="primary" title="未开始" <c:if test="${state == 1}">checked="checked"</c:if>>
                                 <input type="radio" value="2" name="like1" lay-filter="primary" title="进行中" <c:if test="${state == 2}">checked="checked"</c:if>>
-                                <input type="radio" value="3" name="like1" lay-filter="primary" title="审批中" <c:if test="${state == 3}">checked="checked"</c:if>>
+                                <input type="radio" value="3" name="like1" lay-filter="primary" title="审核中" <c:if test="${state == 3}">checked="checked"</c:if>>
                                 <input type="radio" value="4" name="like1" lay-filter="primary" title="已完成" <c:if test="${state == 4}">checked="checked"</c:if>>
                                 <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6.5em;font-size: 0.8em">起始时间:</label>
                                 <input type="text" class="layui-input col-sm-1" name="startDate" id="fsdate" value="${startDateList}" placeholder="yyyy-MM-dd">
                                 <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6.5em;font-size: 0.8em">结束时间:</label>
-                                <input type="text" class="layui-input col-sm-1" name="stopDate" id="yqdate" value="${stopDateList}" placeholder="yyyy-MM-dd">
+                                <input type="text" class="layui-input col-sm-1" name="stopDate" id="yqdate" value="${stopDateList}" placeholder="yyyy-MM-dd" style="margin-right: 2.5em">
                                 <input type="button" class="layui-btn" style="" onclick="selectProblem()" value="查询"/>
                                 <i class="layui-icon layui-icon-download-circle" title="导出" style="font-size: 1em;cursor:pointer;float:right;padding-top: 0.35em" onclick="excelExport()">导出</i>
                             </th>
@@ -511,7 +511,10 @@
             cache:false,
             async:false,
             success:function (data) {
-                location.href = "${pageContext.request.contextPath}/myProblem";
+                layer.msg('保存成功', {icon: 1});
+                window.setTimeout(function(){
+                    history.go(0);
+                }, 1000);
             }
         });
     }
@@ -538,7 +541,7 @@
                             if(data == 1){
                                 layer.msg('审批成功', {icon: 1});
                                 window.setTimeout(function(){
-                                    location.href = "${pageContext.request.contextPath}/problemList";
+                                    history.go(0);
                                 }, 2000);
                             }
                         }
@@ -563,7 +566,9 @@
                             async:false,
                             success:function (data) {
                                 layer.msg('反馈成功', {icon: 1});
-                                history.go(0);
+                                window.setTimeout(function(){
+                                    history.go(0);
+                                }, 2000);
                             }
                         })
                     }, function() {
@@ -572,7 +577,7 @@
                 });
             })
         }else if(pl_state == 1){
-            layer.msg("请在开始问题后重试")
+            layer.msg("请在开始问题后重试");
             return;
         }
     }
