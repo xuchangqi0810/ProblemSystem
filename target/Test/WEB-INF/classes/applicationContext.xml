@@ -59,14 +59,6 @@
         <property name="configLocation" value="classpath:mybatis.xml"/>
     </bean>
 
-    <!--事物管理器-->
-    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
-
-    <!--方案二：使用注解管理事物-->
-    <tx:annotation-driven transaction-manager="transactionManager"></tx:annotation-driven>
-
 
     <!-- 配置mapper扫描器 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

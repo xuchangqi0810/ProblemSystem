@@ -11,6 +11,7 @@
     <title>新建问题</title>
 </head>
 <style type="text/css">
+    .body::-webkit-scrollbar {display:none}
     body{
         width: 100%;
         height: 100%;
@@ -51,7 +52,7 @@
         font-size: 1em;
     }
 </style>
-<body>
+<body class="body">
 <nav class="navbar navbar-default" role="navigation" style="background-color: #007DDB;">
     <div class="container-fluid">
         <div class="navbar-header">

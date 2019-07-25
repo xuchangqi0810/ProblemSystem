@@ -14,7 +14,12 @@
 	<script src="${pageContext.request.contextPath}/layui/layui.js"></script>
 	<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 </head>
-<body>
+<style>
+	.body::-webkit-scrollbar {
+		display:none
+	}
+</style>
+<body class="body">
  <!--SIGN UP-->
  <h1 style="color: white">问题管理系统<p>ProblemTrackingSystem</p></h1>
 <div class="login-form">
@@ -28,32 +33,30 @@
 	<div class="avtar">
 		<img src="${pageContext.request.contextPath}/images/avtar.png" />
 	</div>
-			<form>
-					<input type="text" class="text" id="name">
-						<div class="key">
-					<input type="password" id="password">
-						</div>
-			</form>
+		<form>
+			<input type="text" class="text" id="name">
+			<div class="key">
+				<input type="password" id="password">
+			</div>
+		</form>
 	<div class="signin">
 		<input type="submit" id="btn" value="登录" >
 	</div>
 </div>
  <script type="text/javascript">
-
-
-     document.onkeydown = function(e){
+     document.onkeydown = function(e){//回车触发事件
          if(e.keyCode == 13){
              login();
          }
      }
 
-     $(function(){
+     $(function(){//点击登录按钮触发事件
          $("#btn").click(function(){
              login();
          })
      });
 
-     function login() {
+     function login() {//登录方法
          layui.use('layer', function(){
 			 var name = $("#name").val();
 			 var pwd = $("#password").val();

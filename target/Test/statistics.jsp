@@ -48,7 +48,7 @@
         <li><a href="${pageContext.request.contextPath}/updatepassword.jsp">更改密码</a></li>
     </ul>
 </div>
-<div id="chartmain" style="width:80rem; height: 60rem;margin-left: 45rem;"></div>
+<div id="chartmain" style="width:80rem; height: 60rem;margin-left: 25%"></div>
 </body>
 <script type="text/javascript">
 

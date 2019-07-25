@@ -5,6 +5,7 @@
     http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          id="WebApp_ID" version="3.1">
 
+
   <servlet-mapping>
     <servlet-name>default</servlet-name>
     <url-pattern>*.jpg</url-pattern>
@@ -54,11 +55,13 @@
   <listener>
     <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
   </listener>
-
   <!-- 为避免项目间冲突，定义唯一的 webAppRootKey -->
   <context-param>
+
     <param-name>webAppRootKey</param-name>
-    <param-value>scheduleProject</param-value>
+
+    <param-value> app.root </param-value>
+
   </context-param>
   <!-- 1、启动spring的容器 -->
 

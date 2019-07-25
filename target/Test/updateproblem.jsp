@@ -115,12 +115,12 @@
         <div class="layui-input-inline col-sm-7">
             <input type="text" class="layui-input" name="pl_fsDate" value="${problem.pl_fsDate}" id="fsdate" placeholder="yyyy-MM-dd">
         </div>
-        <c:if test="${pt_user.role.id != 3}">
+
             <label class="col-sm-3 control-label">要求时间：</label>
-            <div class="layui-input-inline col-sm-7">
-                <input type="text" class="layui-input" name="pl_yqDate" <c:if test="${problem.pl_yqDate== '0001-01-01'}">value=""</c:if> <c:if test="${problem.pl_yqDate!= '0001-01-01'}">value="${problem.pl_yqDate}"</c:if>   id="yqdate" placeholder="yyyy-MM-dd">
+            <div class="layui-input-inline col-sm-7" disabled="disabled">
+                <input type="text" class="layui-input" name="pl_yqDate" <c:if test="${pt_user.role.id == 3}">disabled="disabled"</c:if> <c:if test="${problem.pl_yqDate== '0001-01-01'}">value=""</c:if> <c:if test="${problem.pl_yqDate!= '0001-01-01'}">value="${problem.pl_yqDate}"</c:if>   id="yqdate" placeholder="yyyy-MM-dd">
             </div>
-        </c:if>
+
         <label class="col-sm-3 control-label">严重等级:<span class="required">*</span></label>
         <div class="col-sm-7">
             <select class="form-control" name="pl_serious">
@@ -203,13 +203,18 @@
                     return;
                 }
             }
+
+            if(u_id != 0){
+                if(pl_yqDate == null || pl_yqDate == undefined || pl_yqDate == ""){
+                    layer.msg("请选择完成时间");
+                    return;
+                }
+            }
             var toEmail = $("#fzr").find("option:selected").attr("name");//获取选中用户的邮箱
 
             if(pl_yqDate == null || pl_yqDate == undefined || pl_yqDate == ""){
                 pl_yqDate = "0001-01-01";
             }
-
-            console.log(parseInt(u_id))
             $.ajax({
                 url:"${pageContext.request.contextPath}/updateProblem",
                 method:"POST",

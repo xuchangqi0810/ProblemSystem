@@ -10,7 +10,6 @@ public interface MailSenderSrvServices {
     * @subject 主题
     * @content 正文
     * */
-    @Transactional
     void sendEmail(ApplicationEmail email);
 
     /*带抄送

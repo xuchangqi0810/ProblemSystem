@@ -14,6 +14,5 @@ public interface IPt_UserService {
     List<Pt_User> getByDIDUserList(Integer d_id);
     List<Statistics> getStatisticsList();
     //修改密码
-    @Transactional(isolation = Isolation.DEFAULT,propagation = Propagation.REQUIRED,rollbackFor = Exception.class)
     int UpdatePwd(Integer u_id,String newPwd);
 }

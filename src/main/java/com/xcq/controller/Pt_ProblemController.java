@@ -122,9 +122,10 @@ public class Pt_ProblemController {
     }
 
     @RequestMapping(value = "ProStart",method = RequestMethod.POST)//开始
-    public String ProStart(Integer pl_id){
+    @ResponseBody
+    public Object ProStart(Integer pl_id){
         int i = problemService.UpdateStart(pl_id,new Date());
-        return "forward:myProblem";
+        return i;
     }
 
     @RequestMapping(value = "AddProInfos",method = RequestMethod.POST)//添加问题信息

@@ -11,6 +11,7 @@
     <script src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
     <title>全部问题</title>
     <style type="text/css">
+        .body::-webkit-scrollbar {display:none}
         #Navigation{
             margin-left: 15%;
             width: 70%;
@@ -35,7 +36,7 @@
 
     </style>
 </head>
-<body>
+<body class="body">
 <nav class="navbar navbar-default" role="navigation" style="background-color: #007DDB;">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -77,9 +78,9 @@
                                 <input type="radio" value="2" name="like1" lay-filter="primary" title="进行中" <c:if test="${state == 2}">checked="checked"</c:if>>
                                 <input type="radio" value="3" name="like1" lay-filter="primary" title="审核中" <c:if test="${state == 3}">checked="checked"</c:if>>
                                 <input type="radio" value="4" name="like1" lay-filter="primary" title="已完成" <c:if test="${state == 4}">checked="checked"</c:if>>
-                                <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6.5em;font-size: 0.8em">起始时间:</label>
+                                <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6%;width:10.5%;white-space:nowrap;font-size: 0.8rem">起始时间:</label>
                                 <input type="text" class="layui-input col-sm-1" name="startDate" id="fsdate" value="${startDateList}" placeholder="yyyy-MM-dd">
-                                <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6.5em;font-size: 0.8em">结束时间:</label>
+                                <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6%;width:10.5%;white-space:nowrap;font-size: 0.8rem">结束时间:</label>
                                 <input type="text" class="layui-input col-sm-1" name="stopDate" id="yqdate" value="${stopDateList}" placeholder="yyyy-MM-dd" style="margin-right: 2.5em">
                                 <input type="button" class="layui-btn" style="" onclick="selectProblem()" value="查询"/>
                                 <i class="layui-icon layui-icon-download-circle" title="导出" style="font-size: 1em;cursor:pointer;float:right;padding-top: 0.35em" onclick="excelExport()">导出</i>
@@ -297,10 +298,17 @@
             layer.confirm('问题将标记为"进行中"，您确定吗？', {
                 btn: ['确定','取消'] //按钮
             }, function(){//确定
-                document.write("<form action='${pageContext.request.contextPath}/ProStart' class='proform' method='post'>")
-                document.write("<input type='hidden' value="+pl_id+" name='pl_id'/>");
-                document.write("</form>")
-                $(".proform").submit();
+                $.ajax({
+                    url:"${pageContext.request.contextPath}/ProStart",
+                    method:"POST",
+                    data:{"pl_id":pl_id},
+                    success:function (data) {
+                        layer.msg("修改成功",{icon:1});
+                        window.setTimeout(function(){
+                            location.reload();
+                        }, 2000);
+                    }
+                })
             }, function(){//取消
 
             });
@@ -372,7 +380,7 @@
                                     '</td>\n' +
                                     '        <td class="col-sm-2"><input type="date" name="proDate" value="" class="form-control" autocomplete="off">\n' +
                                     '</td>\n' +
-                                    '        <td class="col-sm-1"><input type="text" name="hours" value="" class="form-control text-center" autocomplete="off">\n' +
+                                    '        <td class="col-sm-1"><input type="number" name="hours" value="" class="form-control text-center" autocomplete="off">\n' +
                                     '</td>\n' +
                                     '        <td class="text-left"><textarea name="remarks" class="form-control" style="height:50px;"></textarea>\n' +
                                     '</td>\n' +
@@ -383,7 +391,7 @@
                                     '</td>\n' +
                                     '        <td class="col-sm-2"><input type="date" name="proDate" value="" class="form-control" autocomplete="off">\n' +
                                     '</td>\n' +
-                                    '        <td class="col-sm-1"><input type="text" name="hours" value="" class="form-control text-center" autocomplete="off">\n' +
+                                    '        <td class="col-sm-1"><input type="number" name="hours" value="" class="form-control text-center" autocomplete="off">\n' +
                                     '</td>\n' +
                                     '        <td class="text-left"><textarea name="remarks" class="form-control" style="height:50px;"></textarea>\n' +
                                     '</td>\n' +

@@ -8,9 +8,12 @@
     <title>Title</title>
 </head>
 <style type="text/css">
+    .body::-webkit-scrollbar {display:none}
     fieldset{
         display: inline-block;
         font-size: 0.7em;
+        background-color: #FFFFFF;
+        border-radius: 5px;
     }
     .actionbox{
         width: 60%;
@@ -33,7 +36,7 @@
         border-radius:5px;
     }
 </style>
-<body style="margin: 2% 2% 0 2%">
+<body style="margin: 2% 2% 0 2%;background-color: #CCCCCC" class="body">
 <fieldset class='actionbox'>
     <legend>
         问题描述
@@ -66,9 +69,7 @@
             <th class="td-right">严重等级&nbsp;&nbsp;&nbsp;</th>
             <td id="serious"></td>
         </tr>
-
     </table>
-
 </fieldset>
 <fieldset class='actionbox'>
     <legend>
@@ -137,12 +138,12 @@
             if(data.proInfos[i].state == 2){
                 hours +=data.proInfos[i].hours;
                 content += "<li value='"+j+"'>"+j+"."+data.proInfos[i].proDate+"，由<strong>"+data.pt_user.u_nickName+"</strong>记录工时，消耗<strong>"+data.proInfos[i].hours+"</strong>小时。</li>" +
-                    "<div class=\"history\" style='background-color: #cac19d;padding: 1%'>        <div class=\"changes hide alert\" id=\"changeBox4\"></div>\n" +
-                    "                <div class=\"article-content comment276\">"+data.proInfos[i].remarks+"</div>        \n" +
+                    "<div class=\"history\" style='background-color: #0099CC;padding: 1%'>        <div class=\"changes hide alert\" id=\"changeBox4\"></div>\n" +
+                    "                <div class=\"article-content comment276\" style='color: #FFFFFF'>"+data.proInfos[i].remarks+"</div>        \n" +
                     "        </div>";
             }else if(data.proInfos[i].state == 3){
                 content += "<li value='"+j+"'>"+j+"."+data.proInfos[i].proDate+"，由<strong>"+data.proInfos[i].user.u_nickName+"</strong>驳回，反馈意见如下</li>" +
-                    "<div class=\"history\" style='background-color: #cac19d;padding: 1%'>        <div class=\"changes hide alert\" id=\"changeBox4\"></div>\n" +
+                    "<div class=\"history\" style='background-color: #0099CC;padding: 1%'>        <div class=\"changes hide alert\" id=\"changeBox4\"></div>\n" +
                     "                <div class=\"article-content comment276\">"+data.proInfos[i].remarks+"</div>        \n" +
                     "        </div>";
             }
