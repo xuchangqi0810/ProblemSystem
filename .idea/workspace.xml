@@ -12,81 +12,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f0fb2891-59af-4f26-bd7d-29e418479aa7" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test.war" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/logs/schedule.log" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190711103936989.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190711103937038.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190711104018164.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190711104018210.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190711104108018.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190711104108062.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190711144053154.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190711144053155.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190712161235876.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190712161250730.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190712161304667.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190712161326767.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190712161335237.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190715112127584.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190715112127586.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190715113642318.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190715113642363.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190715113706866.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190715113706905.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190715152204075.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190715152232509.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190715152251528.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190715152721920.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190715152746904.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190715152746929.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190715172450853.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190715173327132.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190715173634414.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190715173800897.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190716084507108.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190716101919411.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190717155116485.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190717162057334.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190717163420500.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190719090838252.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190719094357916.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190719100239283.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190719100420675.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190719100520871.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Test/target/Test/upload/20190719101805377.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/controller/Pt_ProblemController.class" afterPath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/controller/Pt_ProblemController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/interceptor/LoginInterceptor.class" afterPath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/interceptor/LoginInterceptor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/service/IPt_ProblemService.class" afterPath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/service/IPt_ProblemService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/service/IPt_UserService.class" afterPath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/service/IPt_UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/service/MailSenderSrvServices.class" afterPath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/com/xcq/service/MailSenderSrvServices.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/classes/com/xcq/controller/Pt_ProblemController.class" afterPath="$PROJECT_DIR$/../Test/target/classes/com/xcq/controller/Pt_ProblemController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/classes/com/xcq/interceptor/LoginInterceptor.class" afterPath="$PROJECT_DIR$/../Test/target/classes/com/xcq/interceptor/LoginInterceptor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/classes/com/xcq/service/IPt_ProblemService.class" afterPath="$PROJECT_DIR$/../Test/target/classes/com/xcq/service/IPt_ProblemService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/classes/com/xcq/service/IPt_UserService.class" afterPath="$PROJECT_DIR$/../Test/target/classes/com/xcq/service/IPt_UserService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/classes/com/xcq/service/MailSenderSrvServices.class" afterPath="$PROJECT_DIR$/../Test/target/classes/com/xcq/service/MailSenderSrvServices.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../Test/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/1.sql" afterPath="$PROJECT_DIR$/../Test/1.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/controller/Pt_ProblemController.java" afterPath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/controller/Pt_ProblemController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/interceptor/LoginInterceptor.java" afterPath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/interceptor/LoginInterceptor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/IPt_ProblemService.java" afterPath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/IPt_ProblemService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/IPt_UserService.java" afterPath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/IPt_UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/MailSenderSrvServices.java" afterPath="$PROJECT_DIR$/../Test/src/main/java/com/xcq/service/MailSenderSrvServices.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/resources/applicationContext.xml" afterPath="$PROJECT_DIR$/../Test/src/main/resources/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/../Test/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/webapp/createproblem.jsp" afterPath="$PROJECT_DIR$/../Test/src/main/webapp/createproblem.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/../Test/src/main/webapp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/webapp/login.jsp" afterPath="$PROJECT_DIR$/../Test/src/main/webapp/login.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/webapp/problemInfo.jsp" afterPath="$PROJECT_DIR$/../Test/src/main/webapp/problemInfo.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/webapp/problemlist.jsp" afterPath="$PROJECT_DIR$/../Test/src/main/webapp/problemlist.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/webapp/statistics.jsp" afterPath="$PROJECT_DIR$/../Test/src/main/webapp/statistics.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/src/main/webapp/updateproblem.jsp" afterPath="$PROJECT_DIR$/../Test/src/main/webapp/updateproblem.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/applicationContext.xml" afterPath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/classes/applicationContext.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/../Test/target/Test/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/index.jsp" afterPath="$PROJECT_DIR$/../Test/target/Test/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/problemInfo.jsp" afterPath="$PROJECT_DIR$/../Test/target/Test/problemInfo.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/problemlist.jsp" afterPath="$PROJECT_DIR$/../Test/target/Test/problemlist.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/Test/updateproblem.jsp" afterPath="$PROJECT_DIR$/../Test/target/Test/updateproblem.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Test/target/classes/applicationContext.xml" afterPath="$PROJECT_DIR$/../Test/target/classes/applicationContext.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/../Test/out/" />
     <ignored path="$PROJECT_DIR$/../Test/target/" />
@@ -116,7 +42,7 @@
       <file leaf-file-name="Pt_ProblemController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/controller/Pt_ProblemController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="591">
+            <state relative-caret-position="5450">
               <caret line="244" column="52" lean-forward="false" selection-start-line="244" selection-start-column="52" selection-end-line="244" selection-end-column="52" />
               <folding>
                 <element signature="e#4517#4587#0" expanded="false" />
@@ -132,13 +58,9 @@
       <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2050">
+            <state relative-caret-position="425">
               <caret line="17" column="4" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="43" />
               <folding>
-                <element signature="n#style#0;n#table#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#0;n#th#0;n#div#0;n#div#0;n#tr#0;n#thead#0;n#table#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#1;n#th#0;n#div#0;n#div#0;n#tr#0;n#thead#0;n#table#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#input#6;n#th#0;n#div#0;n#div#0;n#tr#0;n#thead#0;n#table#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <marker date="1564025698568" expanded="true" signature="17126:17151" ph="..." />
                 <marker date="1564025698568" expanded="true" signature="17251:17264" ph="..." />
                 <marker date="1564025698568" expanded="true" signature="17769:17794" ph="..." />
@@ -155,11 +77,9 @@
       <file leaf-file-name="problemlist.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/problemlist.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="33" column="23" lean-forward="true" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+            <state relative-caret-position="825">
+              <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
               <folding>
-                <element signature="n#style#0;n#label#0;n#th#0;n#div#0;n#div#0;n#tr#0;n#thead#0;n#table#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#label#1;n#th#0;n#div#0;n#div#0;n#tr#0;n#thead#0;n#table#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <marker date="1564026002743" expanded="true" signature="17417:17442" ph="..." />
                 <marker date="1564026002743" expanded="true" signature="17542:17555" ph="..." />
                 <marker date="1564026002743" expanded="true" signature="18060:18085" ph="..." />
@@ -178,8 +98,8 @@
       <file leaf-file-name="createproblem.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/createproblem.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-75">
-              <caret line="93" column="25" lean-forward="true" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
+            <state relative-caret-position="-1400">
+              <caret line="93" column="25" lean-forward="false" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
               <folding>
                 <marker date="1564026033961" expanded="true" signature="7569:7590" ph="..." />
                 <marker date="1564026033961" expanded="true" signature="7889:7930" ph="..." />
@@ -191,7 +111,7 @@
       <file leaf-file-name="problemInfo.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/problemInfo.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="125">
+            <state relative-caret-position="950">
               <caret line="38" column="70" lean-forward="false" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
               <folding>
                 <marker date="1564026079071" expanded="true" signature="3837:3874" ph="..." />
@@ -208,11 +128,9 @@
       <file leaf-file-name="statistics.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/statistics.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1550">
+            <state relative-caret-position="1000">
               <caret line="40" column="73" lean-forward="false" selection-start-line="40" selection-start-column="64" selection-end-line="40" selection-end-column="73" />
-              <folding>
-                <element signature="n#style#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -388,7 +306,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -584,8 +502,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1047,6 +965,7 @@
       <workItem from="1563927542145" duration="3069000" />
       <workItem from="1563930683077" duration="19072000" />
       <workItem from="1564014659816" duration="13437000" />
+      <workItem from="1564101290409" duration="577000" />
     </task>
     <task id="LOCAL-00001" summary="提交代码">
       <created>1561445883219</created>
@@ -1126,7 +1045,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="727436000" />
+    <option name="totallyTimeSpent" value="728013000" />
   </component>
   <component name="TodoView" selected-index="1">
     <todo-panel id="selected-file">
@@ -1141,34 +1060,34 @@
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1632209" sideWeight="0.5117271" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.48946515" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21653971" sideWeight="0.4936034" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1773667" sideWeight="0.4936034" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1632209" sideWeight="0.5117271" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32826087" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24809575" sideWeight="0.48827294" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297062" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2228145" sideWeight="0.74285716" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2249467" sideWeight="0.74285716" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20682302" sideWeight="0.23993559" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.48946515" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21653971" sideWeight="0.4936034" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2185501" sideWeight="0.25714287" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1773667" sideWeight="0.4936034" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1570,17 +1489,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/statistics.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1550">
+        <state relative-caret-position="1000">
           <caret line="40" column="73" lean-forward="false" selection-start-line="40" selection-start-column="64" selection-end-line="40" selection-end-column="73" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#body#0;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../Test/src/main/java/com/xcq/controller/Pt_ProblemController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
+        <state relative-caret-position="5450">
           <caret line="244" column="52" lean-forward="false" selection-start-line="244" selection-start-column="52" selection-end-line="244" selection-end-column="52" />
           <folding>
             <element signature="e#4517#4587#0" expanded="false" />
@@ -1594,13 +1511,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2050">
+        <state relative-caret-position="425">
           <caret line="17" column="4" lean-forward="false" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="43" />
           <folding>
-            <element signature="n#style#0;n#table#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#0;n#th#0;n#div#0;n#div#0;n#tr#0;n#thead#0;n#table#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#th#0;n#div#0;n#div#0;n#tr#0;n#thead#0;n#table#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#6;n#th#0;n#div#0;n#div#0;n#tr#0;n#thead#0;n#table#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <marker date="1564025698568" expanded="true" signature="17126:17151" ph="..." />
             <marker date="1564025698568" expanded="true" signature="17251:17264" ph="..." />
             <marker date="1564025698568" expanded="true" signature="17769:17794" ph="..." />
@@ -1615,11 +1528,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/problemlist.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="33" column="23" lean-forward="true" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
+        <state relative-caret-position="825">
+          <caret line="33" column="23" lean-forward="false" selection-start-line="33" selection-start-column="23" selection-end-line="33" selection-end-column="23" />
           <folding>
-            <element signature="n#style#0;n#label#0;n#th#0;n#div#0;n#div#0;n#tr#0;n#thead#0;n#table#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#label#1;n#th#0;n#div#0;n#div#0;n#tr#0;n#thead#0;n#table#0;n#form#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
             <marker date="1564026002743" expanded="true" signature="17417:17442" ph="..." />
             <marker date="1564026002743" expanded="true" signature="17542:17555" ph="..." />
             <marker date="1564026002743" expanded="true" signature="18060:18085" ph="..." />
@@ -1636,7 +1547,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/problemInfo.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
+        <state relative-caret-position="950">
           <caret line="38" column="70" lean-forward="false" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
           <folding>
             <marker date="1564026079071" expanded="true" signature="3837:3874" ph="..." />
@@ -1651,8 +1562,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../Test/src/main/webapp/createproblem.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-75">
-          <caret line="93" column="25" lean-forward="true" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
+        <state relative-caret-position="-1400">
+          <caret line="93" column="25" lean-forward="false" selection-start-line="93" selection-start-column="25" selection-end-line="93" selection-end-column="25" />
           <folding>
             <marker date="1564026033961" expanded="true" signature="7569:7590" ph="..." />
             <marker date="1564026033961" expanded="true" signature="7889:7930" ph="..." />
