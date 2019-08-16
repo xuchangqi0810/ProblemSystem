@@ -80,6 +80,17 @@
         <result property="day6" javaType="int" column="day6"/>
     </resultMap>
 
+    <resultMap id="duty" type="com.xcq.entity.Pt_Duty">
+        <id property="id" javaType="int" column="id"/>
+        <result property="details" javaType="String" column="details" />
+        <result property="u_id" javaType="int" column="u_id"/>
+        <result property="pr_id" javaType="int" column="pr_id"/>
+        <association property="user" javaType="com.xcq.entity.Pt_User" select="selectMultSQL" column="u_id">
+        </association>
+        <association property="pro" javaType="com.xcq.entity.Pt_problem" select="selectProById" column="pr_id">
+        </association>
+    </resultMap>
+
 
     <select id="selectMultSQL" resultMap="pt_user">
         SELECT * from pt_user
@@ -288,4 +299,9 @@
             WHERE t.t_id = p.t_id
             GROUP BY t.t_name
     </select>
+
+    <!--添加问题关联人员-->
+    <insert id="AddProUsers" >
+        INSERT INTO pt_duty(id,u_id,pr_id,details)VALUES(DEFAULT,#{u_id},#{pr_id},#{details})
+    </insert>
 </mapper>

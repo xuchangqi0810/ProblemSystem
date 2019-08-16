@@ -81,7 +81,7 @@ public class MailSenderSrvServiceImpl implements MailSenderSrvServices {
     }
 
     /**
-     * 单发：异步发送
+     * 带抄送：异步发送
      *
      */
     @Override
@@ -97,7 +97,7 @@ public class MailSenderSrvServiceImpl implements MailSenderSrvServices {
     }
 
     /**
-     * 带抄送：异步发送
+     * 单发：异步发送
      *
      */
     public void sendMailByAsynchronousMode(final ApplicationEmail email){

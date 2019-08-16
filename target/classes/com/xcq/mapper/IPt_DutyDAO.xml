@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace:接口绝对路径-->
+<mapper namespace="com.xcq.mapper.IPt_DutyDAO">
+    <resultMap id="pt_problem" type="com.xcq.entity.Pt_problem">
+        <id property="pl_id" javaType="int" column="pl_id"/>
+        <result property="t_id" javaType="int" column="t_id"/>
+        <result property="u_id" javaType="int" column="u_id"/>
+        <result property="pl_name" javaType="String" column="pl_name"/>
+        <result property="pl_feedback" javaType="String" column="pl_feedback"/>
+        <result property="pl_describe" javaType="String" column="pl_describe"/>
+        <result property="pl_lrDate" javaType="Date" column="pl_lrDate"/>
+        <result property="pl_fsDate" javaType="Date" column="pl_fsDate"/>
+        <result property="pl_yqDate" javaType="Date" column="pl_yqDate"/>
+        <result property="pl_wcDate" javaType="Date" column="pl_wcDate"/>
+        <result property="pl_state" javaType="int" column="pl_state"/>
+        <result property="pl_serious" javaType="int" column="pl_serious"/>
+        <result property="pl_programme" javaType="String" column="pl_programme"/>
+        <result property="pl_yjhours" javaType="int" column="pl_yjhours"/>
+        <result property="pl_surplustime" javaType="int" column="pl_surplustime"/>
+        <result property="pl_starttime" javaType="Date" column="pl_starttime"/>
+        <result property="d_id" javaType="int" column="d_id"/>
+
+    </resultMap>
+
+    <resultMap id="pt_user" type="com.xcq.entity.Pt_User">
+        <id property="u_id" javaType="int" column="u_id"/>
+        <result property="d_id" javaType="int" column="d_id"/>
+        <result property="u_name" javaType="String" column="u_name"/>
+        <result property="u_nickName" javaType="String" column="u_nickName"/>
+        <result property="password" javaType="String" column="password"/>
+        <result property="u_gender" javaType="int" column="u_gender"/>
+        <result property="u_email" javaType="String" column="u_email"/>
+    </resultMap>
+
+
+    <resultMap id="duty" type="com.xcq.entity.Pt_Duty">
+        <id property="id" javaType="int" column="id"/>
+        <result property="details" javaType="String" column="details" />
+        <result property="u_id" javaType="int" column="u_id"/>
+        <result property="pr_id" javaType="int" column="pr_id"/>
+        <association property="user" javaType="com.xcq.entity.Pt_User" select="selectMultSQL" column="u_id">
+        </association>
+
+    </resultMap>
+
+
+    <select id="selectMultSQL" resultMap="pt_user">
+        SELECT * from pt_user
+        where u_id=#{u_id}
+    </select>
+
+
+
+    <!--查询所有问题相关人员-->
+    <select id="getAllDuty" resultMap="duty">
+        SELECT * FROM pt_duty WHERE pr_id = #{pr_id}
+    </select>
+
+</mapper>

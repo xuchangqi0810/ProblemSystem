@@ -7,6 +7,7 @@ import com.xcq.service.IPt_ProblemService;
 import com.xcq.service.IPt_UserService;
 import com.xcq.util.MD5Utils;
 import com.xcq.util.Pager;
+import com.xcq.util.SessionListener;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ import java.io.File;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -35,6 +37,7 @@ public class Pt_UserController {
     @ResponseBody//登录
     public String Login(String u_name,String password, HttpSession session){
         Pt_User ptUser = userService.Login(u_name, MD5Utils.string2MD5(password));
+
         if (ptUser == null){
             return "back";
         }
@@ -111,6 +114,8 @@ public class Pt_UserController {
                 item.setTimeout((int) ((sdf.parse(item.getPl_yqDate()).getTime() - sdf.parse(sdf.format(new Date())).getTime()) / 1000 / 60 / 60 / 24));
             }
         }
+
+        UserInof(request);
         request.setAttribute("pt_problem",pt_problems);
         request.setAttribute("pager",pager.getPage(page));
         return "index";
@@ -125,9 +130,30 @@ public class Pt_UserController {
 
         request.setAttribute("pt_typeList",pt_types);
 
-        List<Pt_User> byDIDUserList = userService.getByDIDUserList(pt_user.getD_id());
-        request.setAttribute("byDIDUsers",byDIDUserList);
+        //List<Pt_User> byDIDUserList = userService.getByDIDUserList(pt_user.getD_id());
+        UserInof(request);
         return "createproblem";
+    }
+
+    //查询所有用户信息并根据部门分组
+    public void UserInof(HttpServletRequest request){
+        List<Pt_User> userList = userService.getUserList();
+        List<Pt_User> gylist = new ArrayList<>();
+        List<Pt_User> sclist = new ArrayList<>();
+        List<Pt_User> zjlist = new ArrayList<>();
+        for (int i = 0; i < userList.size(); i++) {
+            if(userList.get(i).getD_id() == 1){
+                zjlist.add(userList.get(i));
+            }else if(userList.get(i).getD_id() == 2){
+                gylist.add(userList.get(i));
+            }else if (userList.get(i).getD_id() == 3){
+                sclist.add(userList.get(i));
+            }
+        }
+
+        request.setAttribute("gylist",gylist);
+        request.setAttribute("sclist",sclist);
+        request.setAttribute("zjlist",zjlist);
     }
 
     @RequestMapping(value = "/upload",method = RequestMethod.POST)

@@ -99,9 +99,21 @@
             <div class="col-sm-7">
                 <select id="fzr" class="form-control" name="u_id">
                     <option value="0">请选择负责人</option>
-                    <c:forEach var="item" items="${byDIDUsers}">
+                    <optgroup label="工艺部">
+                    <c:forEach var="item" items="${gylist}">
                         <option value="${item.u_id}" name="${item.u_email}">${item.u_nickName}</option>
                     </c:forEach>
+                    </optgroup>
+                    <optgroup label="生产部">
+                        <c:forEach var="item" items="${sclist}">
+                            <option value="${item.u_id}" name="${item.u_email}">${item.u_nickName}</option>
+                        </c:forEach>
+                    </optgroup>
+                    <optgroup label="质检部">
+                        <c:forEach var="item" items="${zjlist}">
+                            <option value="${item.u_id}" name="${item.u_email}">${item.u_nickName}</option>
+                        </c:forEach>
+                    </optgroup>
                 </select>
             </div>
 
@@ -155,7 +167,8 @@
 <script type="text/javascript">
 
     var pl_id = 0;
-    layui.use('laydate', function() {
+    layui.use(['laydate','form'], function() {
+        var form = layui.form;
         var laydate = layui.laydate;
         //日期时间选择器
         laydate.render({
@@ -229,6 +242,7 @@
     });
 
     function problemSave() {
+
         var t_id = $("[name=t_id]").val();
         var u_id = $("[name=u_id]").val();
         var pl_name = $("[name=pl_name]").val();

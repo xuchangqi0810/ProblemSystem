@@ -1,6 +1,7 @@
 package com.xcq.service.impl;
 
 import com.xcq.entity.Statistics;
+import com.xcq.entity.UserDirctionary;
 import com.xcq.mapper.IPt_UserDAO;
 import com.xcq.entity.Pt_User;
 import com.xcq.service.IPt_UserService;
@@ -30,6 +31,11 @@ public class Pt_UserServiceImpl implements IPt_UserService{
     @Override
     public List<Pt_User> getByDIDUserList(Integer d_id) {
         return userdao.getByDIDUserList(d_id);
+    }
+
+    @Override
+    public List<Pt_User> getUserList() {
+        return userdao.getUserList();
     }
 
     @Override

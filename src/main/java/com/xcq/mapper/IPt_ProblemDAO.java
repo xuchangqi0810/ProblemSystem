@@ -1,9 +1,6 @@
 package com.xcq.mapper;
 
-import com.xcq.entity.Dictionary;
-import com.xcq.entity.Pt_proInfo;
-import com.xcq.entity.Pt_problem;
-import com.xcq.entity.Pt_type;
+import com.xcq.entity.*;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Date;
@@ -39,5 +36,7 @@ public interface IPt_ProblemDAO {
     int UpdateProblem(Pt_problem problem);
 
     List<Dictionary> StatisticsList(Map<String,Object> map);
+
+    int AddProUsers(Pt_Duty duty);//添加关联人员
 
 }

@@ -1,9 +1,6 @@
 package com.xcq.service.impl;
 
-import com.xcq.entity.Dictionary;
-import com.xcq.entity.Pt_proInfo;
-import com.xcq.entity.Pt_problem;
-import com.xcq.entity.Pt_type;
+import com.xcq.entity.*;
 import com.xcq.mapper.IPt_ProblemDAO;
 import com.xcq.service.IPt_ProblemService;
 import org.apache.ibatis.annotations.Param;
@@ -96,6 +93,11 @@ public class Pt_ProblemServiceImpl implements IPt_ProblemService{
         map.put("day5",day5);
         map.put("day6",day6);
         return problemDAO.StatisticsList(map);
+    }
+
+    @Override
+    public int AddProUsers(Pt_Duty duty) {
+        return problemDAO.AddProUsers(duty);
     }
 
     @Resource(name = "IPt_ProblemDAO")

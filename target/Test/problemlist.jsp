@@ -78,9 +78,9 @@
                                 <input type="radio" value="2" name="like1" lay-filter="primary" title="进行中" <c:if test="${state == 2}">checked="checked"</c:if>>
                                 <input type="radio" value="3" name="like1" lay-filter="primary" title="审核中" <c:if test="${state == 3}">checked="checked"</c:if>>
                                 <input type="radio" value="4" name="like1" lay-filter="primary" title="已完成" <c:if test="${state == 4}">checked="checked"</c:if>>
-                                <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6%;width:10.5%;white-space:nowrap;font-size: 0.8rem">起始时间:</label>
+                                <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6%;width:10.5%;white-space:nowrap;font-size: 1.4rem">起始时间:</label>
                                 <input type="text" class="layui-input col-sm-1" name="startDate" id="fsdate" value="${startDateList}" placeholder="yyyy-MM-dd">
-                                <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6%;width:10.5%;white-space:nowrap;font-size: 0.8rem">结束时间:</label>
+                                <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6%;width:10.5%;white-space:nowrap;font-size: 1.4rem">结束时间:</label>
                                 <input type="text" class="layui-input col-sm-1" name="stopDate" id="yqdate" value="${stopDateList}" placeholder="yyyy-MM-dd" style="margin-right: 2.5em">
                                 <input type="button" class="layui-btn" style="" onclick="selectProblem()" value="查询"/>
                                 <i class="layui-icon layui-icon-download-circle" title="导出" style="font-size: 1em;cursor:pointer;float:right;padding-top: 0.35em" onclick="excelExport()">导出</i>

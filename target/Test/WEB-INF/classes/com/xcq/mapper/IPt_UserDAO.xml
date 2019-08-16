@@ -47,6 +47,11 @@
         SELECT * FROM pt_user WHERE d_id=#{d_id}
     </select>
 
+    <select id="getUserList" resultMap="pt_user">
+        SELECT u.u_id,u.u_email,u.u_nickname,d.d_id FROM pt_user u,pt_dep d
+        WHERE u.d_id = d.d_id
+    </select>
+
     <select id="getStatisticsList" resultType="com.xcq.entity.Statistics">
         SELECT t.t_name AS 'name',COUNT(p.t_id) AS 'count' FROM pt_problem p,pt_type t WHERE p.t_id = t.t_id GROUP BY p.t_id
     </select>

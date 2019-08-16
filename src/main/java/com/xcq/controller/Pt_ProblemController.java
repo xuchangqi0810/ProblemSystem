@@ -1,9 +1,6 @@
 package com.xcq.controller;
 
-import com.xcq.entity.ApplicationEmail;
-import com.xcq.entity.Pt_User;
-import com.xcq.entity.Pt_proInfo;
-import com.xcq.entity.Pt_problem;
+import com.xcq.entity.*;
 import com.xcq.service.IPt_ProblemService;
 import com.xcq.service.IPt_UserService;
 import com.xcq.service.MailSenderSrvServices;
@@ -359,6 +356,28 @@ public class Pt_ProblemController {
         } catch (Exception ex) {
             ex.printStackTrace();
         }
+    }
+
+    @RequestMapping(value = "addProUsers",method = RequestMethod.POST)
+    @ResponseBody
+    public Object addProUsers(@RequestParam("u_id[]") Integer[] u_id,@RequestParam("email[]") String[] email,@RequestParam("details[]") String[] details,Integer pl_id,String pl_name,HttpServletRequest request){
+        Pt_Duty duty = new Pt_Duty();
+        duty.setPr_id(pl_id);
+        int state = 500;
+        ApplicationEmail emails = null;
+        String subject = "“您有新的问题，请注意查收”";
+        String text = "<html><body>点击或复制连接<a href='http://192.168.20.168:8080/Test'>问题管理系统</a>，即可登陆系统查看</br>"+pl_name+" </body></html>";
+        for (int i = 0; i < u_id.length; i++) {
+            duty.setU_id(u_id[i]);
+            duty.setDetails(details[i]);
+            problemService.AddProUsers(duty);
+            /*emails = new ApplicationEmail(email[i],subject,text);
+            mailSend.sendMailByAsynchronousMode(emails);*/
+            if(i == u_id.length -1){
+                state = 200;
+            }
+        }
+        return state;
     }
 
     public IPt_ProblemService getProblemService() {

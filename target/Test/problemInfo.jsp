@@ -11,7 +11,7 @@
     .body::-webkit-scrollbar {display:none}
     fieldset{
         display: inline-block;
-        font-size: 0.7em;
+        font-size: 1em;
         background-color: #FFFFFF;
         border-radius: 5px;
     }
@@ -20,7 +20,7 @@
         margin-bottom: 2%;
     }
     table{
-        font-size: 0.8em;
+        font-size: 1em;
         margin-left: 10%;
     }
     table th{
@@ -44,11 +44,11 @@
     <span id="describe"></span>
 
 </fieldset>
-<fieldset  class='action' style="width: 26%;float: right">
+<fieldset  class='action' style="width: 25%;float: right;position: absolute;margin: 0 0 0 9.1%">
     <legend>
         基本信息
     </legend>
-    <table style="font-size: 0.7em" class="table table-data table-condensed table-borderless">
+    <table style="font-size: 0.9em" class="table table-data table-condensed table-borderless">
         <tr>
             <th class="td-right">反馈人&nbsp;&nbsp;&nbsp;</th>
             <td id="fkr"></td>
@@ -85,11 +85,11 @@
     <div id="imgs"></div>
 
 </fieldset>
-<fieldset  style="width: 26%;float: right">
+<fieldset  style="width: 25%;float: right;position: absolute;margin: 2% 0 0 9.1%">
     <legend>
         问题的一生
     </legend>
-    <table style="font-size: 0.7em" class="table table-data table-condensed table-borderless">
+    <table style="font-size: 0.9em" class="table table-data table-condensed table-borderless">
         <tbody><tr>
             <th class="w-80px">录入时间&nbsp;&nbsp;&nbsp;</th>
             <td id="lr"></td>
@@ -112,6 +112,7 @@
         </tr>
         </tbody></table>
 </fieldset>
+
 <fieldset class='actionbox'>
     <legend>
         历史
@@ -122,6 +123,33 @@
         </ol>
     </div>
 
+</fieldset>
+<fieldset  style="width: 25%;float: right;position: absolute;margin: 6% 0 0 9.2%">
+    <legend>
+        相关人员
+    </legend>
+    <table style="font-size: 0.9em" class="table table-data table-condensed table-borderless">
+        <tbody><tr>
+            <th class="w-80px">录入时间&nbsp;&nbsp;&nbsp;</th>
+            <td id=""></td>
+        </tr>
+        <tr>
+            <th>实际开始&nbsp;&nbsp;&nbsp;</th>
+            <td id=""></td>
+        </tr>
+        <tr>
+            <th>截止日期&nbsp;&nbsp;&nbsp;</th>
+            <td id=""></td>
+        </tr>
+        <tr>
+            <th>完成时间&nbsp;&nbsp;&nbsp;</th>
+            <td id=""></td>
+        </tr>
+        <tr>
+            <th>总消耗&nbsp;&nbsp;&nbsp;</th>
+            <td id=""></td>
+        </tr>
+        </tbody></table>
 </fieldset>
 
 
