@@ -68,7 +68,7 @@ public class Pt_UserController {
         }
         Pt_User pt_user = (Pt_User) session.getAttribute("pt_user");
         Page<?> page = PageHelper.startPage(pager.getPageNum(), pager.getPageSize());
-        List<Pt_problem> pt_problems = problemService.ProblemList((Integer) session.getAttribute("state"),pt_user.getD_id(),startDate,stopDate);
+        List<Pt_problem> pt_problems = problemService.ProblemList((Integer) session.getAttribute("state"),null,startDate,stopDate);
         for (Pt_problem item: pt_problems) {
             if(item.getPl_state() == 1 || item.getPl_state() == 2){
                 try {
@@ -191,7 +191,7 @@ public class Pt_UserController {
         List<Pt_type> pt_types = problemService.Pt_typeList();
         request.setAttribute("problem",byIdInProblem);
         request.setAttribute("typeList",pt_types);
-        request.setAttribute("Users",byDIDUserList);
+        UserInof(request);
         return "updateproblem";
     }
 

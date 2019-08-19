@@ -119,38 +119,20 @@
     </legend>
     <div id="proInfos">
         <ol id="content">
-
         </ol>
     </div>
 
 </fieldset>
-<fieldset  style="width: 25%;float: right;position: absolute;margin: 6% 0 0 9.2%">
+<%--<fieldset  style="width: 25%;float: right;position: absolute;margin: 6% 0 0 9.2%">
     <legend>
         相关人员
     </legend>
     <table style="font-size: 0.9em" class="table table-data table-condensed table-borderless">
-        <tbody><tr>
-            <th class="w-80px">录入时间&nbsp;&nbsp;&nbsp;</th>
-            <td id=""></td>
-        </tr>
-        <tr>
-            <th>实际开始&nbsp;&nbsp;&nbsp;</th>
-            <td id=""></td>
-        </tr>
-        <tr>
-            <th>截止日期&nbsp;&nbsp;&nbsp;</th>
-            <td id=""></td>
-        </tr>
-        <tr>
-            <th>完成时间&nbsp;&nbsp;&nbsp;</th>
-            <td id=""></td>
-        </tr>
-        <tr>
-            <th>总消耗&nbsp;&nbsp;&nbsp;</th>
-            <td id=""></td>
-        </tr>
-        </tbody></table>
-</fieldset>
+        <tbody class="xiangguan">
+
+        </tbody>
+    </table>
+</fieldset>--%>
 
 
 </body>
@@ -176,7 +158,7 @@
                     "        </div>";
             }
             j++;
-            if(i == data.proInfos.length -1 && (data.pl_state == 3 || data.pl_state ==4 )){
+            if(i == data.proInfos.length -1 && (data.pl_state == 3 || data.pl_state ==4 ||data.pl_state == 5 )){
                 content += "<li value='"+j+"'>"+j+"."+data.proInfos[i].proDate+"，由<strong>"+data.pt_user.u_nickName+"</strong>完成。</li>"
             }
         }
@@ -205,9 +187,6 @@
         }else{
             $("#count").html(data.pl_wcDate);
         }
-
-
-
 
         if(data.pl_state == 1){
             $("#state").html("未开始");
@@ -257,7 +236,16 @@
         }else{
             $("#imgs").html("<div style='height: 20%'>&nbsp&nbsp&nbsp;</div>")
         }
-
+        if(data.dutyList == null || data.dutyList == "" || data.dutyList == undefined){
+            $(".xiangguan").append("<tr><td>暂无相关人员</td></tr>");
+        }else{
+            $.each(data.dutyList,function (i,item) {
+                $(".xiangguan").append("<tr>\n" +
+                    "            <th class=\"w-80px\">"+item.user.u_nickName+"&nbsp;&nbsp;&nbsp;</th>\n" +
+                    "            <td>"+item.details+"</td>\n" +
+                    "        </tr>");
+            })
+        }
     }
 </script>
 </html>

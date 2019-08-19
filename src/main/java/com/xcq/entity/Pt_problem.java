@@ -29,6 +29,7 @@ public class Pt_problem {
     private  Pt_type pt_type;
     private List<Pt_img> lists;
     private List<Pt_proInfo> proInfos;
+    private List<Pt_Duty> dutyList;
 
     public Integer getPl_id() {
         return pl_id;
@@ -149,7 +150,7 @@ public class Pt_problem {
     public Pt_problem() {
     }
 
-    public Pt_problem(Integer pl_id, Integer t_id, Integer u_id, String pl_name, String pl_feedback, String pl_describe, Date pl_lrDate, Date pl_fsDate, Date pl_yqDate, Date pl_wcDate, Integer pl_state, Integer pl_serious, String pl_programme, Integer pl_yjhours, Integer pl_surplustime, Date pl_starttime, Integer d_id, Integer timeout, Pt_User pt_user, Pt_type pt_type, List<Pt_img> lists, List<Pt_proInfo> proInfos) {
+    public Pt_problem(Integer pl_id, Integer t_id, Integer u_id, String pl_name, String pl_feedback, String pl_describe, Date pl_lrDate, Date pl_fsDate, Date pl_yqDate, Date pl_wcDate, Integer pl_state, Integer pl_serious, String pl_programme, Integer pl_yjhours, Integer pl_surplustime, Date pl_starttime, Integer d_id, Integer timeout, Pt_User pt_user, Pt_type pt_type, List<Pt_img> lists, List<Pt_proInfo> proInfos, List<Pt_Duty> dutyList) {
         this.pl_id = pl_id;
         this.t_id = t_id;
         this.u_id = u_id;
@@ -172,6 +173,15 @@ public class Pt_problem {
         this.pt_type = pt_type;
         this.lists = lists;
         this.proInfos = proInfos;
+        this.dutyList = dutyList;
+    }
+
+    public List<Pt_Duty> getDutyList() {
+        return dutyList;
+    }
+
+    public void setDutyList(List<Pt_Duty> dutyList) {
+        this.dutyList = dutyList;
     }
 
     public Integer getPl_yjhours() {

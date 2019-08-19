@@ -83,7 +83,7 @@ public class Pt_ProblemController {
             problem.setU_id(u_id);
         }
         problem.setPl_name(pl_name);
-        problem.setPl_lrDate(new Date());
+        problem.setPl_lrDate(sdf.parse(sdf.format(new Date())));
         problem.setPl_feedback(pl_feedback);
         problem.setPl_describe(pl_describe);
         problem.setPl_serious(pl_serious);
@@ -260,14 +260,15 @@ public class Pt_ProblemController {
     }
 
     @RequestMapping("export")
-    public Object ExportFile(@RequestParam Integer num,HttpServletResponse response,HttpSession session){
+    public Object ExportFile(@RequestParam Integer num,@RequestParam String start,@RequestParam String stop,HttpServletResponse response,HttpSession session){
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+        SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
         Pt_User user = (Pt_User) session.getAttribute("pt_user");
         List<Pt_problem> pt_problems = null;
         if(num == 0){
-            pt_problems = problemService.MyProblem(user.getU_id(),0,"0001-01-01","0001-01-01");
+            pt_problems = problemService.MyProblem(user.getU_id(),0,start,stop);
         }else{
-            pt_problems = problemService.ProblemList(0,user.getD_id(),"0001-01-01","0001-01-01");
+            pt_problems = problemService.ProblemList(0,user.getD_id(),start,stop);
         }
         String[] title = {"问题编号","问题名称","反馈人","负责人","问题分类","问题描述","发生日期","问题状态","完成日期","严重等级","解决方案"};
         String fileName = "问题信息表"+sdf.format(new Date())+".xls";
@@ -358,7 +359,15 @@ public class Pt_ProblemController {
         }
     }
 
-    @RequestMapping(value = "addProUsers",method = RequestMethod.POST)
+    @RequestMapping(value = "cloProblem")
+    @ResponseBody
+    public Object cloProblem(Integer pl_id,Integer state,HttpServletRequest request){
+        int i = problemService.UpdateState(pl_id, state, null);
+        return i != 0 ? "200":"500";
+    }
+
+
+    @RequestMapping(value = "addProUsers",method = RequestMethod.POST)//添加相关人员
     @ResponseBody
     public Object addProUsers(@RequestParam("u_id[]") Integer[] u_id,@RequestParam("email[]") String[] email,@RequestParam("details[]") String[] details,Integer pl_id,String pl_name,HttpServletRequest request){
         Pt_Duty duty = new Pt_Duty();

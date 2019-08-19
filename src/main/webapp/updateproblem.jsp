@@ -58,7 +58,7 @@
             <a class="navbar-brand" style="color: white" href="#">欢迎使用问题管理系统</a>
         </div>
         <ul class="nav navbar-nav navbar-right" >
-            <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span>${pt_user.dep.d_name}&nbsp;&nbsp; ${pt_user.u_name}</a></li>
+            <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span>${pt_user.dep.d_name}&nbsp;&nbsp; ${pt_user.u_nickName}</a></li>
             <li><a href="${pageContext.request.contextPath}/loginOut" style="color: white"><span class="glyphicon glyphicon-log-in"></span> 退出</a></li>
         </ul>
     </div>
@@ -99,9 +99,16 @@
             <div class="col-sm-7">
                 <select id="fzr" class="form-control" name="u_id" <c:if test="${pt_user.role.id == 3}"> disabled="disabled" </c:if>>
                     <option value="0">请选择负责人</option>
-                    <c:forEach var="item" items="${Users}">
-                        <option name="${item.u_email}" value="${item.u_id}" <c:if test="${item.u_id == problem.u_id}">selected="selected"</c:if>>${item.u_nickName}</option>
-                    </c:forEach>
+                    <optgroup label="工艺部">
+                        <c:forEach var="item" items="${gylist}">
+                            <option value="${item.u_id}" name="${item.u_email}" <c:if test="${item.u_id == problem.u_id}">selected="selected"</c:if>>${item.u_nickName}</option>
+                        </c:forEach>
+                    </optgroup>
+                    <optgroup label="生产部">
+                        <c:forEach var="item" items="${sclist}">
+                            <option value="${item.u_id}" name="${item.u_email}" <c:if test="${item.u_id == problem.u_id}">selected="selected"</c:if>>${item.u_nickName}</option>
+                        </c:forEach>
+                    </optgroup>
                 </select>
             </div>
 

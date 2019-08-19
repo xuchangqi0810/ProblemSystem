@@ -59,7 +59,7 @@
             <a class="navbar-brand" style="color: white" href="#">欢迎使用问题管理系统</a>
         </div>
         <ul class="nav navbar-nav navbar-right" >
-            <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span>${pt_user.dep.d_name}&nbsp;&nbsp; ${pt_user.u_name}</a></li>
+            <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span>${pt_user.dep.d_name}&nbsp;&nbsp; ${pt_user.u_nickName}</a></li>
             <li><a href="${pageContext.request.contextPath}/loginOut" style="color: white"><span class="glyphicon glyphicon-log-in"></span> 退出</a></li>
         </ul>
     </div>
@@ -106,11 +106,6 @@
                     </optgroup>
                     <optgroup label="生产部">
                         <c:forEach var="item" items="${sclist}">
-                            <option value="${item.u_id}" name="${item.u_email}">${item.u_nickName}</option>
-                        </c:forEach>
-                    </optgroup>
-                    <optgroup label="质检部">
-                        <c:forEach var="item" items="${zjlist}">
                             <option value="${item.u_id}" name="${item.u_email}">${item.u_nickName}</option>
                         </c:forEach>
                     </optgroup>

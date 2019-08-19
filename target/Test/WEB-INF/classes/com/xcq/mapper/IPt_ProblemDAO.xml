@@ -34,6 +34,9 @@
 
         <collection property="proInfos" ofType="com.xcq.entity.Pt_proInfo" select="selectMultSQLByProInfo" column="pl_id">
         </collection>
+
+        <collection property="dutyList" ofType="com.xcq.entity.Pt_Duty" select="selectMultSQLByDuty" column="pl_id">
+        </collection>
     </resultMap>
 
     <resultMap id="pt_user" type="com.xcq.entity.Pt_User">
@@ -87,8 +90,7 @@
         <result property="pr_id" javaType="int" column="pr_id"/>
         <association property="user" javaType="com.xcq.entity.Pt_User" select="selectMultSQL" column="u_id">
         </association>
-        <association property="pro" javaType="com.xcq.entity.Pt_problem" select="selectProById" column="pr_id">
-        </association>
+
     </resultMap>
 
 
@@ -107,25 +109,42 @@
         SELECT * FROM pt_proinfo WHERE pl_id = #{pl_id}
     </select>
 
+    <select id="selectMultSQLByDuty" resultMap="duty">
+        SELECT * FROM pt_duty WHERE pr_id = #{pl_id}
+    </select>
+
 
     <!--查询所有问题-->
     <select id="ProblemList" resultMap="pt_problem">
         SELECT p.* FROM pt_problem p
-        WHERE p.d_id = #{d_id}
-        <if test='state != 0'>
-            AND p.pl_state = #{state}
-        </if >
-        <if test="startDate != '0001-01-01' and startDate !='0001-01-01'">
-            AND p.pl_lrDate BETWEEN #{startDate} AND #{stopDate}
-        </if>
+        <where>
+            <if test="state == 0">
+                AND p.pl_state != 5
+            </if>
+            <if test='state != 0 and state != 5'>
+                AND p.pl_state = #{state}
+            </if >
+            <if test="state == 5">
+                AND p.pl_state = 5
+            </if>
+            <if test="startDate != '0001-01-01' and startDate !='0001-01-01'">
+                AND p.pl_lrDate BETWEEN #{startDate} AND #{stopDate}
+            </if>
+        </where>
         ORDER BY p.pl_id DESC
     </select>
     <!--查询所有我的问题-->
     <select id="MyProblem" resultMap="pt_problem">
         SELECT p.* FROM pt_problem p where p.`u_id`=#{u_id}
-            <if test='pl_state != 0'>
-                    AND p.pl_state = #{pl_state}
+            <if test="pl_state == 0">
+                AND p.pl_state != 5
+            </if>
+            <if test='pl_state != 0 and pl_state !=5'>
+                AND p.pl_state = #{pl_state} AND p.pl_state != 5
             </if >
+            <if test="pl_state == 5">
+                AND p.pl_state = 5
+            </if>
             <if test="startDate != '0001-01-01' and startDate !='0001-01-01'">
                 AND p.pl_lrDate BETWEEN #{startDate} AND #{stopDate}
             </if>

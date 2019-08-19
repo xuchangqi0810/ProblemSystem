@@ -43,7 +43,7 @@
             <a class="navbar-brand" style="color: white" href="#">欢迎使用问题管理系统</a>
         </div>
         <ul class="nav navbar-nav navbar-right" >
-            <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span>${pt_user.dep.d_name}&nbsp;&nbsp; ${pt_user.u_name}</a></li>
+            <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span>${pt_user.dep.d_name}&nbsp;&nbsp; ${pt_user.u_nickName}</a></li>
             <li><a href="${pageContext.request.contextPath}/loginOut" style="color: white"><span class="glyphicon glyphicon-log-in"></span> 退出</a></li>
         </ul>
     </div>
@@ -78,6 +78,7 @@
                                 <input type="radio" value="2" name="like1" lay-filter="primary" title="进行中" <c:if test="${state == 2}">checked="checked"</c:if>>
                                 <input type="radio" value="3" name="like1" lay-filter="primary" title="审核中" <c:if test="${state == 3}">checked="checked"</c:if>>
                                 <input type="radio" value="4" name="like1" lay-filter="primary" title="已完成" <c:if test="${state == 4}">checked="checked"</c:if>>
+                                <input type="radio" value="5" name="like1" lay-filter="primary" title="已关闭" <c:if test="${state == 5}">checked="checked"</c:if>>
                                 <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6%;width:10.5%;white-space:nowrap;font-size: 1.4rem">起始时间:</label>
                                 <input type="text" class="layui-input col-sm-1" name="startDate" id="fsdate" value="${startDateList}" placeholder="yyyy-MM-dd">
                                 <label class="col-sm-1 control-label" style="padding-top: 0.85em;padding-left: 6%;width:10.5%;white-space:nowrap;font-size: 1.4rem">结束时间:</label>
@@ -142,6 +143,9 @@
                                     <c:when test="${item.pl_state == 4}">
                                         <th>已完成</th>
                                     </c:when>
+                                    <c:when test="${item.pl_state == 5}">
+                                        <th>已关闭</th>
+                                    </c:when>
                                 </c:choose>
                                 <c:choose>
                                     <c:when test="${item.pl_serious == 4}">
@@ -158,14 +162,20 @@
                                     </c:otherwise>
                                 </c:choose>
                                 <th>
-                                    <c:if test="${item.u_id == pt_user.u_id || pt_user.role.id < 3}">
-                                        <i class="layui-icon layui-icon-edit" title="编辑" style="font-size: 1.4em;cursor:pointer;" onclick="getByIdInUpdate(${item.pl_id})"></i>
-                                        <i class="layui-icon <c:if test="${item.pl_state != 1 || item.pl_yqDate == '0001-01-01' || item.u_id == null }">layui-disabled</c:if> layui-icon-play"  title="开始" style="font-size: 1.4em;cursor:pointer;" <c:if test="${item.pl_state == 1 && item.pl_yqDate != '0001-01-01'}">onclick="proStart(${item.pl_id})"</c:if> ></i>
-                                        <i class="layui-icon layui-icon-log"  title="工时" style="font-size: 1.4em;cursor:pointer" onclick="proInfos(${item.pl_id})"></i>
-                                        <i class="layui-icon <c:if test="${item.pl_state == 3 || item.pl_state == 4 || item.pl_yqDate == '0001-01-01' || item.u_id == null }">layui-disabled</c:if> layui-icon-ok" title="完成" style="font-size: 1.4em;cursor:pointer" <c:if test="${(item.pl_state == 1||item.pl_state == 2) && item.pl_yqDate != '0001-01-01'}">onclick="proComplete(${item.pl_id})"</c:if> ></i>
-                                    </c:if>
-                                    <c:if test="${pt_user.role.id <3}">
-                                        <i class="layui-icon <c:if test="${item.pl_state != 3}">layui-disabled</c:if> layui-icon-survey" title="审批" style="font-size: 1.4em;cursor:pointer" <c:if test="${item.pl_state == 3}">onclick="proExamine(${item.pl_id},${item.pl_state})"</c:if> ></i>
+                                    <c:if test="${item.pl_state != 5}">
+                                        <c:if test="${item.u_id == pt_user.u_id || pt_user.role.id < 3}">
+                                            <i class="layui-icon layui-icon-edit" title="编辑" style="font-size: 1.4em;cursor:pointer;" onclick="getByIdInUpdate(${item.pl_id})"></i>
+                                            <i class="layui-icon <c:if test="${item.pl_state != 1 || item.pl_yqDate == '0001-01-01' || item.u_id == null }">layui-disabled</c:if> layui-icon-play"  title="开始" style="font-size: 1.4em;cursor:pointer;" <c:if test="${item.pl_state == 1 && item.pl_yqDate != '0001-01-01'}">onclick="proStart(${item.pl_id})"</c:if> ></i>
+                                            <i class="layui-icon layui-icon-log"  title="工时" style="font-size: 1.4em;cursor:pointer" onclick="proInfos(${item.pl_id})"></i>
+                                            <i class="layui-icon <c:if test="${item.pl_state == 3 || item.pl_state == 4 || item.pl_yqDate == '0001-01-01' || item.u_id == null }">layui-disabled</c:if> layui-icon-ok" title="完成" style="font-size: 1.4em;cursor:pointer" <c:if test="${(item.pl_state == 1||item.pl_state == 2) && item.pl_yqDate != '0001-01-01'}">onclick="proComplete(${item.pl_id})"</c:if> ></i>
+                                        </c:if>
+                                        <c:if test="${pt_user.role.id <3}">
+                                            <i class="layui-icon <c:if test="${item.pl_state != 3}">layui-disabled</c:if> layui-icon-survey" title="审批" style="font-size: 1.4em;cursor:pointer" <c:if test="${item.pl_state == 3}">onclick="proExamine(${item.pl_id},${item.pl_state})"</c:if> ></i>
+                                        </c:if>
+                                        <c:if test="${item.pl_state == 4}">
+                                            <i class="layui-icon layui-icon-close" title="关闭问题" onclick="cloProblem(${item.pl_id})"
+                                               style="font-size: 1.4em;cursor:pointer"></i>
+                                        </c:if>
                                     </c:if>
                                 </th>
                             </tr>
@@ -580,7 +590,6 @@
                             }
                         })
                     }, function() {
-
                     });
                 });
             })
@@ -593,16 +602,50 @@
     function excelExport() {
         layui.use('layer', function(){
             var layer = layui.layer;
-            layer.confirm( "<input type='radio' value='0' name='exp' style='margin-left: 10%;' lay-filter='primary' checked='checked' title='我的问题'/>我的问题&nbsp;&nbsp;" +
-                "<input type='radio' value='1' name='exp' style='margin-left: 10%;' lay-filter='primary' title='全部问题'/>全部问题", {
+            layer.confirm( "<input type='radio' value='0' name='exp' style='margin-left: 14%;' lay-filter='primary' checked='checked' title='我的问题'/>我的问题&nbsp;&nbsp;" +
+                "<input type='radio' value='1' name='exp' style='margin-left: 22%;' lay-filter='primary' title='全部问题'/>全部问题<p>&nbsp;</p>" +
+                "<input type='date' name='expstartDate'/>--<input type='date' name='expstopDate' /> ", {
                 btn: ['确定','取消'] //按钮
             }, function(){//确定
-                location.href = "${pageContext.request.contextPath}/export?num="+$("[name=exp]:checked").val();
+                var start = $("[name=expstartDate]").val();
+                var stop = $("[name=expstopDate]").val()
+                if(start == '' || start == null || start == undefined){
+                    layer.msg("请选择起始时间")
+                    return;
+                }
+                if(stop == '' || stop == null || stop == undefined){
+                    layer.msg("请选择结束时间")
+                    return;
+                }
+                location.href = "${pageContext.request.contextPath}/export?num="+$("[name=exp]:checked").val()+"&start="+start+"&stop="+stop;
             }, function(){//取消
+            });
+        });
+    }
+
+    function cloProblem(pl_id) {
+        layui.use('layer', function () {
+            layer.confirm('问题将更改为‘已关闭’状态，您确定吗？', {
+                btn: ['确定', '取消'] //按钮
+            }, function () {//确定
+                $.ajax({
+                    url: "${pageContext.request.contextPath}/cloProblem",
+                    method: "POST",
+                    data: {
+                        "pl_id": pl_id,
+                        "state": 5,
+                    },
+                    success: function (data) {
+                        layer.msg("更改成功", {icon: 1});
+                        window.setTimeout(function () {
+                            location.reload();
+                        }, 2000);
+                    }
+                })
+            }, function () {//取消
 
             });
-
-        });
+        })
     }
 
 </script>
