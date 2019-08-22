@@ -1,10 +1,9 @@
 package com.xcq.util;
 
 import org.apache.poi.hssf.usermodel.*;
-import org.apache.poi.ss.usermodel.*;
+import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.util.CellRangeAddress;
 
-import static org.apache.poi.ss.usermodel.VerticalAlignment.CENTER;
 
 public class ExcelUtils {
     /**
@@ -33,6 +32,10 @@ public class ExcelUtils {
         titleStyle.setBorderRight(HSSFCellStyle.BORDER_THIN);
         titleStyle.setBorderLeft(HSSFCellStyle.BORDER_THIN);
         titleStyle.setAlignment(HSSFCellStyle.ALIGN_CENTER);
+        titleStyle.setFillForegroundColor(HSSFColor.YELLOW.index);//单元格背景色
+        titleStyle.setFillPattern(HSSFCellStyle.SOLID_FOREGROUND);//图案类型
+        titleStyle.setBorderBottom(HSSFCellStyle.BORDER_THIN);//单元格下边框为细线
+
         // 第二步，在workbook中添加一个sheet,对应Excel文件中的sheet
         HSSFSheet sheet = wb.createSheet(sheetName);
         sheet.setColumnWidth(0,20*256);

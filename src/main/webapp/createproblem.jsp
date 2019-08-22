@@ -204,8 +204,6 @@
                         $("#container"+index).remove();
                     });
 
-
-
                     $("#showImg"+index).bind('click',function () {
                         var width = $("#showImg"+index).width();
                         var height = $("#showImg"+index).height();
@@ -216,9 +214,7 @@
                             bigW = 900;
                             bigH = bigW/scaleWH;
                         }
-
-                        // 放大预览图片
-                        layer.open({
+                        layer.open({// 放大预览图片
                             type: 1,
                             title: false,
                             closeBtn: 1,
@@ -227,7 +223,6 @@
                             content: "<img width='"+bigW+"' height='"+bigH+"' src=" + result + " />"
                         });
                     });
-
                 });
             },
             allDone: function(obj){ //当文件全部被提交后，才触发
@@ -320,7 +315,9 @@
                             "state":100,
                         },
                         success:function (data) {
-                            location.href = "${pageContext.request.contextPath}/myProblem"
+                            window.setTimeout(function () {
+                                location.href = "${pageContext.request.contextPath}/myProblem"
+                            }, 2000);
                         }
                     });
 

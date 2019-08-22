@@ -7,8 +7,6 @@ import com.xcq.service.IPt_ProblemService;
 import com.xcq.service.IPt_UserService;
 import com.xcq.util.MD5Utils;
 import com.xcq.util.Pager;
-import com.xcq.util.SessionListener;
-import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -74,8 +72,7 @@ public class Pt_UserController {
                 try {
                     item.setTimeout((int) ((sdf.parse(item.getPl_yqDate()).getTime() - sdf.parse(sdf.format(new Date())).getTime()) / 1000 / 60 / 60 / 24));
                 } catch (ParseException e) {
-
-
+                    e.printStackTrace();
                 }
             }
         }
