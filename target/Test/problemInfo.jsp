@@ -2,6 +2,9 @@
          pageEncoding="UTF-8"%>
 <html>
 <head>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/layui/css/layui.css">
     <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
     <script src="${pageContext.request.contextPath}/layui/layui.js"></script>
@@ -10,15 +13,11 @@
 <style type="text/css">
     .body::-webkit-scrollbar {display:none}
     fieldset{
-        display: inline-block;
         font-size: 1em;
         background-color: #FFFFFF;
-        border-radius: 5px;
+        border-radius: 3.5px;
     }
-    .actionbox{
-        width: 60%;
-        margin-bottom: 2%;
-    }
+
     table{
         font-size: 1em;
         margin-left: 10%;
@@ -37,92 +36,113 @@
     }
 </style>
 <body style="margin: 2% 2% 0 2%;background-color: #CCCCCC" class="body">
-<fieldset class='actionbox'>
-    <legend>
-        问题描述
-    </legend>
-    <span id="describe"></span>
-
-</fieldset>
-<fieldset  class='action' style="width: 25%;float: right;position: absolute;margin: 0 0 0 9.1%">
-    <legend>
-        基本信息
-    </legend>
-    <table style="font-size: 0.9em" class="table table-data table-condensed table-borderless">
-        <tr>
-            <th class="td-right">反馈人&nbsp;&nbsp;&nbsp;</th>
-            <td id="fkr"></td>
-        </tr>
-        <tr>
-            <th class="td-right">负责人&nbsp;&nbsp;&nbsp;</th>
-            <td id="fzr"></td>
-        </tr>
-        <tr>
-            <th class="td-right">问题类型&nbsp;&nbsp;&nbsp;</th>
-            <td id="type"></td>
-        </tr>
-        <tr>
-            <th class="td-right">问题状态&nbsp;&nbsp;&nbsp;</th>
-            <td id="state"></td>
-        </tr>
-        <tr>
-            <th class="td-right">严重等级&nbsp;&nbsp;&nbsp;</th>
-            <td id="serious"></td>
-        </tr>
-    </table>
-</fieldset>
-<fieldset class='actionbox'>
-    <legend>
-        解决方案
-    </legend>
-    <span id="progarmme"></span>
-
-</fieldset>
-<fieldset class='actionbox'>
-    <legend>
-        图片
-    </legend>
-    <div id="imgs"></div>
-
-</fieldset>
-<fieldset  style="width: 25%;float: right;position: absolute;margin: 2% 0 0 9.1%">
-    <legend>
-        问题的一生
-    </legend>
-    <table style="font-size: 0.9em" class="table table-data table-condensed table-borderless">
-        <tbody><tr>
-            <th class="w-80px">录入时间&nbsp;&nbsp;&nbsp;</th>
-            <td id="lr"></td>
-        </tr>
-        <tr>
-            <th>实际开始&nbsp;&nbsp;&nbsp;</th>
-            <td id="start"></td>
-        </tr>
-        <tr>
-            <th>截止日期&nbsp;&nbsp;&nbsp;</th>
-            <td id="stop"></td>
-        </tr>
-        <tr>
-            <th>完成时间&nbsp;&nbsp;&nbsp;</th>
-            <td id="count"></td>
-        </tr>
-        <tr>
-            <th>总消耗&nbsp;&nbsp;&nbsp;</th>
-            <td id="hours"></td>
-        </tr>
-        </tbody></table>
-</fieldset>
-
-<fieldset class='actionbox'>
-    <legend>
-        历史
-    </legend>
-    <div id="proInfos">
-        <ol id="content">
-        </ol>
+<div class="layui-row">
+    <div class="layui-col-xs12 layui-col-md10">
+        <div class="grid-demo grid-demo-bg1">
+            <fieldset class='actionbox'>
+                <legend>
+                    问题描述
+                </legend>
+                <span id="describe"></span>
+            </fieldset>
+        </div>
     </div>
-
-</fieldset>
+    <div class="layui-col-xs6 layui-col-md2">
+        <div class="grid-demo">
+            <fieldset  class='action' >
+                <legend>
+                    基本信息
+                </legend>
+                <table style="font-size: 0.9em" class="table table-data table-condensed table-borderless">
+                    <tr>
+                        <th class="td-right">反馈人&nbsp;&nbsp;&nbsp;</th>
+                        <td id="fkr"></td>
+                    </tr>
+                    <tr>
+                        <th class="td-right">负责人&nbsp;&nbsp;&nbsp;</th>
+                        <td id="fzr"></td>
+                    </tr>
+                    <tr>
+                        <th class="td-right">问题类型&nbsp;&nbsp;&nbsp;</th>
+                        <td id="type"></td>
+                    </tr>
+                    <tr>
+                        <th class="td-right">问题状态&nbsp;&nbsp;&nbsp;</th>
+                        <td id="state"></td>
+                    </tr>
+                    <tr>
+                        <th class="td-right">严重等级&nbsp;&nbsp;&nbsp;</th>
+                        <td id="serious"></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </div>
+    </div>
+    <div class="layui-col-xs6 layui-col-md10" style="margin-top: -5%;">
+        <div class="grid-demo grid-demo-bg2">
+            <fieldset class='actionbox'>
+                <legend>
+                    解决方案
+                </legend>
+                <span id="progarmme"></span>
+            </fieldset>
+        </div>
+    </div>
+    <div class="layui-col-xs6 layui-col-md10">
+        <div class="grid-demo grid-demo-bg2">
+            <fieldset class='actionbox'>
+                <legend>
+                    图片
+                </legend>
+                <div id="imgs"></div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="layui-col-xs6 layui-col-md10">
+        <div class="grid-demo grid-demo-bg2">
+            <fieldset class='actionbox'>
+                <legend>
+                    历史
+                </legend>
+                <div id="proInfos">
+                    <ol id="content">
+                    </ol>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <div class="layui-col-xs6 layui-col-md2">
+        <div class="grid-demo">
+            <fieldset>
+                <legend>
+                    问题的一生
+                </legend>
+                <table style="font-size: 0.9em" class="table table-data table-condensed table-borderless">
+                    <tbody><tr>
+                        <th class="w-80px">录入时间&nbsp;&nbsp;&nbsp;</th>
+                        <td id="lr"></td>
+                    </tr>
+                    <tr>
+                        <th>实际开始&nbsp;&nbsp;&nbsp;</th>
+                        <td id="start"></td>
+                    </tr>
+                    <tr>
+                        <th>截止日期&nbsp;&nbsp;&nbsp;</th>
+                        <td id="stop"></td>
+                    </tr>
+                    <tr>
+                        <th>完成时间&nbsp;&nbsp;&nbsp;</th>
+                        <td id="count"></td>
+                    </tr>
+                    <tr>
+                        <th>总消耗&nbsp;&nbsp;&nbsp;</th>
+                        <td id="hours"></td>
+                    </tr>
+                    </tbody></table>
+            </fieldset>
+        </div>
+    </div>
+</div>
 <%--<fieldset  style="width: 25%;float: right;position: absolute;margin: 6% 0 0 9.2%">
     <legend>
         相关人员
@@ -133,8 +153,6 @@
         </tbody>
     </table>
 </fieldset>--%>
-
-
 </body>
 <script type="text/javascript">
     function child(data){

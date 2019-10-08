@@ -73,7 +73,7 @@ public class MailSenderSrvServiceImpl implements MailSenderSrvServices {
             messageHelper.setTo(email.getRecipient());
             messageHelper.setSubject(email.getSubject());
             messageHelper.setText(email.getContent(),true);
-            mimeMessage.setRecipients(Message.RecipientType.CC,"xuchangqi0810@dingtalk.com");//抄送人
+            mimeMessage.setRecipients(Message.RecipientType.CC,"tianlei1121@dingtalk.com");//抄送人
             mailSender.send(mimeMessage);
         } catch (MessagingException e) {
             e.printStackTrace();

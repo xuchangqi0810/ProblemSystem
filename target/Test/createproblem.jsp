@@ -268,10 +268,10 @@
         }
 
         var length = document.getElementsByClassName("image-container").length;
-        if(length == 0){
+        /*if(length == 0){
             layer.msg("请选择上传图片");
             return;
-        }
+        }*/
 
         if(length > 2){
             layer.msg("最多上传2张图片");

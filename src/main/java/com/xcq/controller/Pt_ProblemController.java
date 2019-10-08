@@ -39,13 +39,15 @@ public class Pt_ProblemController {
         String subject = "“您有新的问题待查看”";
         String text = "<html><body>点击或复制连接<a href='http://192.168.20.168:8080/Test'>问题管理系统</a>，即可登陆系统查看</br>"+pl_name+"</body></html>";
         ApplicationEmail email = new ApplicationEmail(to,subject,text);
+        ApplicationEmail em = new ApplicationEmail("zhangmingyu0074@dingtalk.com",subject,text);
         try {
             if(state == 100){//新建
                 if(!(to.equals(""))){
-                    //mailSend.sendHtmlEmailByAsynchronousMode(email);
+                    mailSend.sendHtmlEmailByAsynchronousMode(email);//发送至负责人抄送至tl
+                    mailSend.sendMailByAsynchronousMode(em);//发送给zmy
                 }else{//新建问题后必通知人
                     //新建后发送邮件到部门负责人
-                    /*Pt_User user = (Pt_User) session.getAttribute("pt_user");
+                    Pt_User user = (Pt_User) session.getAttribute("pt_user");
                     List<Pt_User> byDIDUserList = userService.getByDIDUserList(user.getD_id());
                     String address = "";
                     for (Pt_User item: byDIDUserList) {
@@ -53,12 +55,11 @@ public class Pt_ProblemController {
                             address = item.getU_email();
                         }
                     }
-                    email.setRecipient(address);*/
-                    //mailSend.sendMailByAsynchronousMode(email);
+                    mailSend.sendHtmlEmailByAsynchronousMode(em);//发送至zmy抄送至tl
                 }
             }else if(state == 200){//修改
                 if(num == 1){
-                    //mailSend.sendMailByAsynchronousMode(email);
+                    mailSend.sendMailByAsynchronousMode(email);//发送至负责人
                 }
             }
         } catch (Exception e) {
@@ -199,22 +200,22 @@ public class Pt_ProblemController {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Pt_User user = (Pt_User) session.getAttribute("pt_user");
         List<Pt_User> byDIDUserList = userService.getByDIDUserList(user.getD_id());
-        String address = "";
+        /*String address = "";
         for (Pt_User item: byDIDUserList) {
             if(item.getRole().getId() == 2){
                 address = item.getU_email();
             }
-        }
+        }*/
         int i = 0;
         try {
             i = problemService.UpdateState(pl_id, state, sdf.parse(sdf.format(new Date())));
             if(i > 0){
                 String subject = "“您有新的问题待审批，请注意查看！”";
                 String text = "<html><body>点击或复制连接<a href='http://192.168.20.168:8080/Test'>问题管理系统</a>，即可登陆系统查看</br>具体信息请登录网站查看。</body></html>";
-                ApplicationEmail email = new ApplicationEmail(address,subject,text);
-                //mailSend.sendMailByAsynchronousMode(email);
+                ApplicationEmail email = new ApplicationEmail("zhangmingyu0074@dingtalk.com",subject,text);
+                mailSend.sendHtmlEmailByAsynchronousMode(email);
             }
-        } catch (ParseException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return i;
@@ -229,7 +230,7 @@ public class Pt_ProblemController {
             String subject = "“您有新的问题已被审批，请注意查收！”";
             String text = "<html><body>点击或复制连接<a href='http://192.168.20.168:8080/Test'>问题管理系统</a>，即可登陆系统查看</br>"+problem.getPl_name()+" 已审批通过。</body></html>";
             ApplicationEmail email = new ApplicationEmail(problem.getPt_user().getU_email(),subject,text);
-            //mailSend.sendMailByAsynchronousMode(email);
+            mailSend.sendMailByAsynchronousMode(email);
         }
         return i;
     }
@@ -254,7 +255,7 @@ public class Pt_ProblemController {
             String subject = "“您的问题有新进展，请注意查收！”";
             String text = "<html><body>点击或复制连接<a href='http://192.168.20.168:8080/Test'>问题管理系统</a>，即可登陆系统查看</br>"+problem.getPl_name()+" 未通过审批，具体信息请登录网站查看。</body></html>";
             ApplicationEmail email = new ApplicationEmail(problem.getPt_user().getU_email(),subject,text);
-            //mailSend.sendMailByAsynchronousMode(email);
+            mailSend.sendMailByAsynchronousMode(email);
         }
         return i;
     }
