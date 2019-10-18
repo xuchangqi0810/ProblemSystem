@@ -5,17 +5,23 @@ import com.xcq.service.IPt_ProblemService;
 import com.xcq.service.IPt_UserService;
 import com.xcq.service.MailSenderSrvServices;
 import com.xcq.util.ExcelUtils;
+import org.apache.commons.io.FileUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import javax.annotation.Resource;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import java.io.IOException;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -40,7 +46,7 @@ public class Pt_ProblemController {
         String text = "<html><body>点击或复制连接<a href='http://192.168.20.168:8080/Test'>问题管理系统</a>，即可登陆系统查看</br>"+pl_name+"</body></html>";
         ApplicationEmail email = new ApplicationEmail(to,subject,text);
         ApplicationEmail em = new ApplicationEmail("zhangmingyu0074@dingtalk.com",subject,text);
-        try {
+       /* try {
             if(state == 100){//新建
                 if(!(to.equals(""))){
                     mailSend.sendHtmlEmailByAsynchronousMode(email);//发送至负责人抄送至tl
@@ -65,7 +71,7 @@ public class Pt_ProblemController {
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
-        }
+        }*/
         return "发送成功";
     }
 
@@ -367,6 +373,23 @@ public class Pt_ProblemController {
         return i != 0 ? "200":"500";
     }
 
+
+    @RequestMapping("/download")
+    public void download(String url,String name,HttpServletResponse response) throws IOException {
+        String formFileName = URLDecoder.decode(name,"UTF-8");
+        //下载文件路径
+        File file=new File("E:\\Test\\target\\Test"+url);
+        OutputStream out = response.getOutputStream();
+        FileInputStream input = new FileInputStream(file);
+        response.setHeader("Content-Disposition", "attachment;filename="+new String(formFileName.getBytes(),"ISO-8859-1"));//必须放在流后面，且文件名一定要进行格式转换
+        byte[] bytes = new byte[1024];
+        int len = 0;
+        while((len=input.read(bytes))!= -1){
+            out.write(bytes,0,len);
+            out.flush();
+        }
+        input.close();
+    }
 
     @RequestMapping(value = "addProUsers",method = RequestMethod.POST)//添加相关人员
     @ResponseBody

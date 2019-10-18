@@ -4,6 +4,15 @@ public class Pt_img {
     private Integer id;
     private Integer pl_id;
     private String url;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
     public Integer getId() {
         return id;

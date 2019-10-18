@@ -16,7 +16,7 @@ public interface IPt_ProblemService {
     //问题分类
     List<Pt_type> Pt_typeList();
     int CreateProblem(Pt_problem problem);//新建问题
-    int UploadImg(Integer pl_id,String url);
+    int UploadImg(Integer pl_id,String url,String name);
     Pt_problem getByIdInProblem(Integer pl_id);
     int UpdateStart(@Param("pl_id")Integer pl_id,@Param("pl_starttime")Date pl_starttime);
     int AddProInfo(Pt_proInfo proInfo);

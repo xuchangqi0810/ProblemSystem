@@ -1,5 +1,5 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" isELIgnored="false" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <link rel="icon" href="${pageContext.request.contextPath}/images/avtar.png" type="image/x-icon"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/layui/css/layui.css">
@@ -11,23 +11,27 @@
     <title>修改问题</title>
 </head>
 <style type="text/css">
-    body{
+    body {
         width: 100%;
         height: 100%;
     }
-    #Navigation{
+
+    #Navigation {
         margin-left: 15%;
         width: 70%;
     }
-    .Navigation ul{
+
+    .Navigation ul {
         height: 50px;
     }
-    .Navigation ul li{
+
+    .Navigation ul li {
         float: left;
         list-style: none;
 
     }
-    #cont{
+
+    #cont {
         width: 70%;
         margin-left: 15%;
         padding: 20px 17% 0 10%;
@@ -37,16 +41,20 @@
         background-color: #e6eae6;
         */
     }
-    #cont label{
+
+    #cont label {
         margin-top: 3%;
     }
-    .form-group div{
+
+    .form-group div {
         margin: 20px 0 20px 0;
     }
-    .form-group label{
+
+    .form-group label {
         margin: 15px 0 0 0;
     }
-    .required{
+
+    .required {
         color: red;
         font-size: 1em;
     }
@@ -57,15 +65,18 @@
         <div class="navbar-header">
             <a class="navbar-brand" style="color: white" href="#">欢迎使用问题管理系统</a>
         </div>
-        <ul class="nav navbar-nav navbar-right" >
-            <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span>${pt_user.dep.d_name}&nbsp;&nbsp; ${pt_user.u_nickName}</a></li>
-            <li><a href="${pageContext.request.contextPath}/loginOut" style="color: white"><span class="glyphicon glyphicon-log-in"></span> 退出</a></li>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span>${pt_user.dep.d_name}&nbsp;&nbsp; ${pt_user.u_nickName}
+            </a></li>
+            <li><a href="${pageContext.request.contextPath}/loginOut" style="color: white"><span
+                    class="glyphicon glyphicon-log-in"></span> 退出</a></li>
         </ul>
     </div>
 </nav>
 <div class="collapse navbar-collapse" id="Navigation">
     <ul class="nav navbar-nav">
-        <li class="dropdown active"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">问题<b class="caret"></b></a>
+        <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">问题<b
+                class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li><a href="${pageContext.request.contextPath}/myProblem">我的</a></li>
                 <li class="divider"></li>
@@ -81,7 +92,8 @@
     <div class="form-group">
         <label class="col-sm-3 control-label">问题名称：<span class="required">*</span></label>
         <div class="col-sm-7">
-            <input type="text" name="pl_name" lay-verify="title" autocomplete="off" value="${problem.pl_name}" placeholder="请输入问题名称" class="layui-input">
+            <input type="text" name="pl_name" lay-verify="title" autocomplete="off" value="${problem.pl_name}"
+                   placeholder="请输入问题名称" class="layui-input">
             <%--<input type="hidden" name="u_id" value="${problem.u_id}">
             <input type="hidden" name="pl_id" value="${problem.pl_id}">--%>
         </div>
@@ -90,27 +102,31 @@
             <select class="form-control" name="t_id">
                 <option value="0">请选择问题类型</option>
                 <c:forEach var="item" items="${typeList}">
-                    <option value="${item.t_id}"<c:if test="${item.t_id == problem.t_id}">selected="selected"</c:if>>${item.t_name}</option>
+                    <option value="${item.t_id}"
+                            <c:if test="${item.t_id == problem.t_id}">selected="selected"</c:if>>${item.t_name}</option>
                 </c:forEach>
             </select>
         </div>
 
-            <label class="col-sm-3 control-label">负责人：</label>
-            <div class="col-sm-7">
-                <select id="fzr" class="form-control" name="u_id" <c:if test="${pt_user.role.id == 3}"> disabled="disabled" </c:if>>
-                    <option value="0">请选择负责人</option>
-                    <optgroup label="工艺部">
-                        <c:forEach var="item" items="${gylist}">
-                            <option value="${item.u_id}" name="${item.u_email}" <c:if test="${item.u_id == problem.u_id}">selected="selected"</c:if>>${item.u_nickName}</option>
-                        </c:forEach>
-                    </optgroup>
-                    <optgroup label="生产部">
-                        <c:forEach var="item" items="${sclist}">
-                            <option value="${item.u_id}" name="${item.u_email}" <c:if test="${item.u_id == problem.u_id}">selected="selected"</c:if>>${item.u_nickName}</option>
-                        </c:forEach>
-                    </optgroup>
-                </select>
-            </div>
+        <label class="col-sm-3 control-label">负责人：</label>
+        <div class="col-sm-7">
+            <select id="fzr" class="form-control" name="u_id" <c:if
+                    test="${pt_user.role.id == 3}"> disabled="disabled" </c:if>>
+                <option value="0">请选择负责人</option>
+                <optgroup label="工艺部">
+                    <c:forEach var="item" items="${gylist}">
+                        <option value="${item.u_id}" name="${item.u_email}"
+                                <c:if test="${item.u_id == problem.u_id}">selected="selected"</c:if>>${item.u_nickName}</option>
+                    </c:forEach>
+                </optgroup>
+                <optgroup label="生产部">
+                    <c:forEach var="item" items="${sclist}">
+                        <option value="${item.u_id}" name="${item.u_email}"
+                                <c:if test="${item.u_id == problem.u_id}">selected="selected"</c:if>>${item.u_nickName}</option>
+                    </c:forEach>
+                </optgroup>
+            </select>
+        </div>
 
         <label class="col-sm-3 control-label">问题描述：</label>
         <div class="col-sm-9">
@@ -120,21 +136,26 @@
 
         <label class="col-sm-3 control-label">发生时间：<span class="required">*</span></label>
         <div class="layui-input-inline col-sm-7">
-            <input type="text" class="layui-input" name="pl_fsDate" value="${problem.pl_fsDate}" id="fsdate" placeholder="yyyy-MM-dd">
+            <input type="text" class="layui-input" name="pl_fsDate" value="${problem.pl_fsDate}" id="fsdate"
+                   placeholder="yyyy-MM-dd">
         </div>
 
-            <label class="col-sm-3 control-label">要求时间：</label>
-            <div class="layui-input-inline col-sm-7" disabled="disabled">
-                <input type="text" class="layui-input" name="pl_yqDate" <c:if test="${pt_user.role.id == 3}">disabled="disabled"</c:if> <c:if test="${problem.pl_yqDate== '0001-01-01'}">value=""</c:if> <c:if test="${problem.pl_yqDate!= '0001-01-01'}">value="${problem.pl_yqDate}"</c:if>   id="yqdate" placeholder="yyyy-MM-dd">
-            </div>
+        <label class="col-sm-3 control-label">要求时间：</label>
+        <div class="layui-input-inline col-sm-7" disabled="disabled">
+            <input type="text" class="layui-input" name="pl_yqDate"
+                   <c:if test="${pt_user.role.id == 3}">disabled="disabled"</c:if>
+                   <c:if test="${problem.pl_yqDate== '0001-01-01'}">value=""</c:if>
+                   <c:if test="${problem.pl_yqDate!= '0001-01-01'}">value="${problem.pl_yqDate}"</c:if> id="yqdate"
+                   placeholder="yyyy-MM-dd">
+        </div>
 
         <label class="col-sm-3 control-label">严重等级:<span class="required">*</span></label>
         <div class="col-sm-7">
             <select class="form-control" name="pl_serious">
-                <option value="4"<c:if test="${4 == problem.pl_serious}">selected="selected"</c:if>>一般</option>
-                <option value="3"<c:if test="${3 == problem.pl_serious}">selected="selected"</c:if>>较重</option>
-                <option value="2"<c:if test="${2 == problem.pl_serious}">selected="selected"</c:if>>严重</option>
-                <option value="1"<c:if test="${1 == problem.pl_serious}">selected="selected"</c:if>>非常严重</option>
+                <option value="4" <c:if test="${4 == problem.pl_serious}">selected="selected"</c:if>>一般</option>
+                <option value="3" <c:if test="${3 == problem.pl_serious}">selected="selected"</c:if>>较重</option>
+                <option value="2" <c:if test="${2 == problem.pl_serious}">selected="selected"</c:if>>严重</option>
+                <option value="1" <c:if test="${1 == problem.pl_serious}">selected="selected"</c:if>>非常严重</option>
             </select>
         </div>
 
@@ -152,23 +173,21 @@
 
 </body>
 <script type="text/javascript">
-    
-    layui.use('laydate', function() {
-        var laydate = layui.laydate;
+
+    layui.use(['laydate', 'form'], function () {
+//        var laydate = layui.laydate;
         //日期时间选择器
-        laydate.render({
+        layui.laydate.render({
             elem: '#fsdate'
-            ,type: 'date'
         });
-        laydate.render({
+        layui.laydate.render({
             elem: '#yqdate'
-            ,type: 'date'
         });
     });
 
 
     function problemSave(prou_id) {
-        layui.use('layer',function () {
+        layui.use('layer', function () {
             var t_id = $("[name=t_id]").val();
             var u_id = $("[name=u_id]").val();
             var pl_name = $("[name=pl_name]").val();
@@ -178,85 +197,85 @@
             var pl_serious = $("[name=pl_serious]").val();
             var pl_programme = $("[name=pl_programme]").val();
             var num;//判断负责人是否变化，0不发，1发送邮件
-            if(prou_id != undefined){
-                if(prou_id == u_id){
+            if (prou_id != undefined) {
+                if (prou_id == u_id) {
                     num = 0;
-                }else{
+                } else {
                     num = 1;
                 }
-            }else{
+            } else {
                 num = 1;
             }
 
-            if(pl_name == null || pl_name == undefined || pl_name == ""){
+            if (pl_name == null || pl_name == undefined || pl_name == "") {
                 layer.msg("请输入问题名称");
                 return;
             }
-            if(t_id == 0 || t_id == undefined || t_id == ""){
+            if (t_id == 0 || t_id == undefined || t_id == "") {
                 layer.msg("请选择问题类型");
                 return;
             }
-            if(pl_fsDate == null || pl_fsDate == undefined || pl_fsDate == ""){
+            if (pl_fsDate == null || pl_fsDate == undefined || pl_fsDate == "") {
                 layer.msg("请选择发生时间");
                 return;
             }
-            if(pl_serious == null || pl_serious == undefined || pl_serious == ""){
+            if (pl_serious == null || pl_serious == undefined || pl_serious == "") {
                 layer.msg("请选择严重等级");
                 return;
             }
-            if(pl_yqDate != null && pl_yqDate != undefined && pl_yqDate != ""){
-                if(pl_fsDate > pl_yqDate){
+            if (pl_yqDate != null && pl_yqDate != undefined && pl_yqDate != "") {
+                if (pl_fsDate > pl_yqDate) {
                     layer.msg("要求日期不能小于发生日期");
                     return;
                 }
             }
 
-            if(u_id != 0){
-                if(pl_yqDate == null || pl_yqDate == undefined || pl_yqDate == ""){
+            if (u_id != 0) {
+                if (pl_yqDate == null || pl_yqDate == undefined || pl_yqDate == "") {
                     layer.msg("请选择完成时间");
                     return;
                 }
             }
             var toEmail = $("#fzr").find("option:selected").attr("name");//获取选中用户的邮箱
 
-            if(pl_yqDate == null || pl_yqDate == undefined || pl_yqDate == ""){
+            if (pl_yqDate == null || pl_yqDate == undefined || pl_yqDate == "") {
                 pl_yqDate = "0001-01-01";
             }
             $.ajax({
-                url:"${pageContext.request.contextPath}/updateProblem",
-                method:"POST",
-                data:{
+                url: "${pageContext.request.contextPath}/updateProblem",
+                method: "POST",
+                data: {
                     "pl_id":${problem.pl_id},
-                    "t_id":parseInt(t_id),
-                    "u_id":parseInt(u_id),
-                    "pl_name":pl_name,
-                    "pl_describe":pl_describe,
-                    "pl_fsDate":pl_fsDate,
-                    "pl_yqDate":pl_yqDate,
-                    "pl_serious":parseInt(pl_serious),
-                    "pl_programme":pl_programme
+                    "t_id": parseInt(t_id),
+                    "u_id": parseInt(u_id),
+                    "pl_name": pl_name,
+                    "pl_describe": pl_describe,
+                    "pl_fsDate": pl_fsDate,
+                    "pl_yqDate": pl_yqDate,
+                    "pl_serious": parseInt(pl_serious),
+                    "pl_programme": pl_programme
                 },
-                success:function (data) {
+                success: function (data) {
                     layer.msg("修改成功")
-                    if(toEmail == undefined){
+                    if (toEmail == undefined) {
                         toEmail = "";
                     }
-                    if(data == "success"){
+                    if (data == "success") {
                         layer.load(0, {shade: false});
                         $.ajax({
                             url: "${pageContext.request.contextPath}/sendEmail",
-                            method:"POST",
-                            data:{
-                                "toEmail":toEmail,
-                                "pl_name":pl_name,
+                            method: "POST",
+                            data: {
+                                "toEmail": toEmail,
+                                "pl_name": pl_name,
                                 "num": num,//1发送  2不发送
-                                "state":200,
+                                "state": 200,
                             },
-                            success:function (data) {
-                                window.location.href=document.referrer;
+                            success: function (data) {
+                                window.location.href = document.referrer;
                             }
                         });
-                    }else{
+                    } else {
                         layer.msg('保存失败，请刷新后重试！');
                     }
                 }

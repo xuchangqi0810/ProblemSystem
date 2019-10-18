@@ -131,7 +131,19 @@
                             <tr>
                                 <th>${item.pl_id}</th>
                                 <th onclick="showPro(${item.pl_id})" style="cursor:pointer" title="${item.pl_name}">
-                                    <span style="padding: 5px;border-radius: 10px;background-color: #007DDB;font-size: 0.6em;color: white">${item.pt_type.t_name}</span>&nbsp;${item.pl_name}
+                                    <c:if test="${item.pt_type.t_id == 4}">
+                                        <span style="padding: 5px;border-radius: 10px;background-color: #007DDB; font-size: 0.6em;color: white">${item.pt_type.t_name}</span>
+                                    </c:if>
+                                    <c:if test="${item.pt_type.t_id == 5}">
+                                        <span style="padding: 5px;border-radius: 10px;background-color: #FF833C; font-size: 0.6em;color: white">${item.pt_type.t_name}</span>
+                                    </c:if>
+                                    <c:if test="${item.pt_type.t_id == 6}">
+                                        <span style="padding: 5px;border-radius: 10px;background-color: #8C4BDB; font-size: 0.6em;color: white">${item.pt_type.t_name}</span>
+                                    </c:if>
+                                    <c:if test="${item.pt_type.t_id == 7}">
+                                        <span style="padding: 5px;border-radius: 10px;background-color: #2DA5DB; font-size: 0.6em;color: white">${item.pt_type.t_name}</span>
+                                    </c:if>
+                                    &nbsp;${item.pl_name}
                                 </th>
                                 <th>${item.pl_feedback}</th>
                                 <th><c:if test="${item.u_id != null}">${item.pt_user.u_nickName}</c:if></th>

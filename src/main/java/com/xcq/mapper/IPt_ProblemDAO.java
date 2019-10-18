@@ -17,7 +17,7 @@ public interface IPt_ProblemDAO {
 
     int CreateProblem(Pt_problem problem);//新建问题
 
-    int UploadImg(Integer pl_id,String url);
+    int UploadImg(Integer pl_id,String url,String name);
 
     Pt_problem getByIdInProblem(Integer pl_id);
 

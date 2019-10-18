@@ -1,5 +1,5 @@
 <%@ page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8" isELIgnored="false" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <link rel="icon" href="${pageContext.request.contextPath}/images/avtar.png" type="image/x-icon"/>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/layui/css/layui.css">
@@ -11,24 +11,31 @@
     <title>新建问题</title>
 </head>
 <style type="text/css">
-    .body::-webkit-scrollbar {display:none}
-    body{
+    .body::-webkit-scrollbar {
+        display: none
+    }
+
+    body {
         width: 100%;
         height: 100%;
     }
-    #Navigation{
+
+    #Navigation {
         margin-left: 15%;
         width: 70%;
     }
-    .Navigation ul{
+
+    .Navigation ul {
         height: 50px;
     }
-    .Navigation ul li{
+
+    .Navigation ul li {
         float: left;
         list-style: none;
 
     }
-    #cont{
+
+    #cont {
         width: 70%;
         margin-left: 15%;
         padding: 20px 17% 0 10%;
@@ -38,51 +45,59 @@
         background-color: #e6eae6;
         */
     }
-    #cont label{
+
+    #cont label {
         margin-top: 3%;
     }
-    .form-group div{
+
+    .form-group div {
         margin: 20px 0 20px 0;
     }
-    .form-group label{
+
+    .form-group label {
         margin: 15px 0 0 0;
     }
-    .required{
+
+    .required {
         color: red;
         font-size: 1em;
     }
 </style>
 <body class="body">
-<nav class="navbar navbar-default" role="navigation" style="background-color: #007DDB;">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" style="color: white" href="#">欢迎使用问题管理系统</a>
+    <nav class="navbar navbar-default" role="navigation" style="background-color: #007DDB;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" style="color: white" href="#">欢迎使用问题管理系统</a>
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span>${pt_user.dep.d_name}&nbsp;&nbsp; ${pt_user.u_nickName}
+                </a></li>
+                <li><a href="${pageContext.request.contextPath}/loginOut" style="color: white"><span
+                        class="glyphicon glyphicon-log-in"></span> 退出</a></li>
+            </ul>
         </div>
-        <ul class="nav navbar-nav navbar-right" >
-            <li><a href="#" style="color: white"><span class="glyphicon glyphicon-user"></span>${pt_user.dep.d_name}&nbsp;&nbsp; ${pt_user.u_nickName}</a></li>
-            <li><a href="${pageContext.request.contextPath}/loginOut" style="color: white"><span class="glyphicon glyphicon-log-in"></span> 退出</a></li>
+    </nav>
+    <div class="collapse navbar-collapse" id="Navigation">
+        <ul class="nav navbar-nav">
+            <li class="dropdown active"><a href="#" class="dropdown-toggle" data-toggle="dropdown">问题<b
+                    class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="${pageContext.request.contextPath}/myProblem">我的</a></li>
+                    <li class="divider"></li>
+                    <li><a href="${pageContext.request.contextPath}/problemList">全部</a></li>
+                </ul>
+            </li>
+            <li><a href="${pageContext.request.contextPath}/pt_typeList">新建问题</a></li>
+            <li><a href="${pageContext.request.contextPath}/statistics.jsp">数据统计</a></li>
+            <li><a href="${pageContext.request.contextPath}/updatepassword.jsp">更改密码</a></li>
         </ul>
     </div>
-</nav>
-<div class="collapse navbar-collapse" id="Navigation">
-    <ul class="nav navbar-nav">
-        <li class="dropdown active"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">问题<b class="caret"></b></a>
-            <ul class="dropdown-menu">
-                <li><a href="${pageContext.request.contextPath}/myProblem">我的</a></li>
-                <li class="divider"></li>
-                <li><a href="${pageContext.request.contextPath}/problemList">全部</a></li>
-            </ul>
-        </li>
-        <li><a href="${pageContext.request.contextPath}/pt_typeList">新建问题</a></li>
-        <li><a href="${pageContext.request.contextPath}/statistics.jsp">数据统计</a></li>
-        <li><a href="${pageContext.request.contextPath}/updatepassword.jsp">更改密码</a></li>
-    </ul>
-</div>
-<div id="cont">
+    <div id="cont">
         <div class="form-group">
             <label class="col-sm-3 control-label">问题名称:<span class="required">*</span></label>
             <div class="col-sm-7">
-                <input type="text" name="pl_name" lay-verify="title" autocomplete="off" placeholder="请输入问题名称" class="layui-input">
+                <input type="text" name="pl_name" lay-verify="title" autocomplete="off" placeholder="请输入问题名称"
+                       class="layui-input">
             </div>
             <label class="col-sm-3 control-label">问题类型:<span class="required">*</span></label>
             <div class="col-sm-7">
@@ -100,9 +115,9 @@
                 <select id="fzr" class="form-control" name="u_id">
                     <option value="0">请选择负责人</option>
                     <optgroup label="工艺部">
-                    <c:forEach var="item" items="${gylist}">
-                        <option value="${item.u_id}" name="${item.u_email}">${item.u_nickName}</option>
-                    </c:forEach>
+                        <c:forEach var="item" items="${gylist}">
+                            <option value="${item.u_id}" name="${item.u_email}">${item.u_nickName}</option>
+                        </c:forEach>
                     </optgroup>
                     <optgroup label="生产部">
                         <c:forEach var="item" items="${sclist}">
@@ -142,91 +157,104 @@
             <div class="col-sm-9">
                 <textarea class="form-control" rows="3" name="pl_programme"></textarea>
             </div>
-            <label class="col-sm-3 control-label">上传图片:<span class="required">*</span></label>
+            <label class="col-sm-3 control-label">上传文件:<span class="required">*</span></label>
             <div class="layui-upload col-sm-9">
-                <button type="button" class="layui-btn" id="test2"  >选择图片</button>&nbsp;&nbsp;&nbsp;<button style="display: none" class="layui-btn" id="btn">上传</button>
+                <button type="button" class="layui-btn" id="test2">选择文件</button>&nbsp;&nbsp;&nbsp;<button
+                    style="display: none" class="layui-btn" id="btn">上传
+            </button>
                 <blockquote class="layui-elem-quote layui-quote-nm" style="margin-top: 10px; background-color: #2aabd2">
                     预览图：
-                    <div class="layui-upload-list"  id="ImgPreview"></div>
+                    <div class="layui-upload-list" id="ImgPreview"></div>
                 </blockquote>
             </div>
             <div class="layui-btn-group col-sm-9" style="margin-left: 49%">
                 <input type="submit" id="sub" class="layui-btn" onclick="problemSave()" value="保存"/>
                 <input type="button" id="back" class="layui-btn" onclick="javascript :history.back(-1);" value="返回"/>
             </div>
-
         </div>
-</div>
-
+    </div>
 </body>
 <script type="text/javascript">
 
     var pl_id = 0;
-    layui.use(['laydate','form'], function() {
+    layui.use(['laydate', 'form'], function () {
         var form = layui.form;
         var laydate = layui.laydate;
         //日期时间选择器
         laydate.render({
             elem: '#fsdate'
-            ,type: 'date'
+            , type: 'date'
         });
         laydate.render({
             elem: '#yqdate'
-            ,type: 'date'
+            , type: 'date'
         });
     });
 
-    layui.use("upload",function () {
+    layui.use("upload", function () {
         var $ = layui.jquery
-            ,upload = layui.upload;
+            , upload = layui.upload;
         //多图片上传
         upload.render({
             elem: '#test2'
-            ,url: '${pageContext.request.contextPath}/upload'
-            ,multiple: true,
-            accept:"image",
-            auto:false,
-            data:{pl_id:pl_id},
-            number:2,
-            acceptMime: 'image/*',
-            bindAction:'#btn',
-            choose:function (obj) {
+            , url: '${pageContext.request.contextPath}/upload'
+            , multiple: true,
+            accept: "file",
+            auto: false,
+            data: {pl_id: pl_id},
+            number: 4,
+            bindAction: '#btn',
+            choose: function (obj) {
                 var files = obj.pushFile();
+                console.log(files)
                 //预读本地文件示例，不支持ie8
-                obj.preview(function(index, file, result){
-                    $('#ImgPreview').append('<div class="image-container" style="display: inline-block" id="container'+index+'">' +
-                        '<div class="delete-css">' +
-                        '<button id="upload_img_'+index+'" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>' +
-                        '</div>' +
-                        '<img id="showImg'+index+'" style="width: 150px; margin:10px;cursor:pointer;" src="'+ result +'" alt="'+ file.name +'" ></div>')
-                    $("#upload_img_" + index).bind('click', function () {
-                        delete files[index];
-                        $("#container"+index).remove();
-                    });
-
-                    $("#showImg"+index).bind('click',function () {
-                        var width = $("#showImg"+index).width();
-                        var height = $("#showImg"+index).height();
-                        var scaleWH = width/height;
-                        var bigH = 600;
-                        var bigW = scaleWH*bigH;
-                        if(bigW>900){
-                            bigW = 900;
-                            bigH = bigW/scaleWH;
-                        }
-                        layer.open({// 放大预览图片
-                            type: 1,
-                            title: false,
-                            closeBtn: 1,
-                            shadeClose: true,
-                            area: [bigW + 'px', bigH + 'px'], //宽高
-                            content: "<img width='"+bigW+"' height='"+bigH+"' src=" + result + " />"
+                var last;
+                obj.preview(function (index, file, result) {
+                    last = files[index].name.split(".");//截取文件后缀获取文件类型  last[0]：文件名  last[1]：后缀
+                    if (last[1] == "jpg" || last[1] == "png" || last[1] == "bmp") {
+                        $('#ImgPreview').append('<div class="image-container" style="display: inline-block" id="container' + index + '">' +
+                            '<div class="delete-css">' +
+                            '<button id="upload_img_' + index + '" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>' +
+                            '</div>' +
+                            '<img id="showImg' + index + '" style="width: 150px; margin:10px;cursor:pointer;" src="' + result + '" alt="' + file.name + '" ></div>')
+                        $("#upload_img_" + index).bind('click', function () {
+                            delete files[index];
+                            $("#container" + index).remove();
                         });
-                    });
+
+                        $("#showImg" + index).bind('click', function () {
+                            var width = $("#showImg" + index).width();
+                            var height = $("#showImg" + index).height();
+                            var scaleWH = width / height;
+                            var bigH = 600;
+                            var bigW = scaleWH * bigH;
+                            if (bigW > 900) {
+                                bigW = 900;
+                                bigH = bigW / scaleWH;
+                            }
+                            layer.open({// 放大预览图片
+                                type: 1,
+                                title: false,
+                                closeBtn: 1,
+                                shadeClose: true,
+                                area: [bigW + 'px', bigH + 'px'], //宽高
+                                content: "<img width='" + bigW + "' height='" + bigH + "' src=" + result + " />"
+                            });
+                        });
+                    } else if (last[1] == "txt" || last[1] == "ppt" || last[1] == "pptx" || last[1] == "doc" || last[1] == "docx"|| last[1] == "xlsx") {
+                        $('#ImgPreview').append('<div class="image-container" style="display: inline-block" id="container' + index + '">' +
+                            '<div class="delete-css">' +
+                            '<button id="upload_file_' + index + '" class="layui-btn layui-btn-danger layui-btn-xs">删除</button>' +
+                            '</div><a href="' + file.name + '">' + file.name + '</a></div>')
+                        $("#upload_file_" + index).bind('click', function () {
+                            delete files[index];
+                            $("#container" + index).remove();
+                        });
+                    }
                 });
             },
-            allDone: function(obj){ //当文件全部被提交后，才触发
-                layer.msg('已成功上传'+obj.successful+'个文件');
+            allDone: function (obj) { //当文件全部被提交后，才触发
+                layer.msg('已成功上传' + obj.successful + '个文件');
             }
         });
     });
@@ -242,26 +270,26 @@
         var pl_yqDate = $("[name=pl_yqDate]").val();
         var pl_serious = $("[name=pl_serious]").val();
         var pl_programme = $("[name=pl_programme]").val();
-        var d_id=${pt_user.d_id};
+        var d_id =${pt_user.d_id};
 
-        if(pl_name == null || pl_name == undefined || pl_name == ""){
+        if (pl_name == null || pl_name == undefined || pl_name == "") {
             layer.msg("请输入问题名称");
             return;
         }
-        if(t_id == 0 || t_id == undefined || t_id == ""){
+        if (t_id == 0 || t_id == undefined || t_id == "") {
             layer.msg("请选择问题类型");
             return;
         }
-        if(pl_fsDate == null || pl_fsDate == undefined || pl_fsDate == ""){
+        if (pl_fsDate == null || pl_fsDate == undefined || pl_fsDate == "") {
             layer.msg("请选择发生时间");
             return;
         }
-        if(pl_serious == null || pl_serious == undefined || pl_serious == ""){
+        if (pl_serious == null || pl_serious == undefined || pl_serious == "") {
             layer.msg("请选择严重等级");
             return;
         }
-        if(pl_yqDate != null && pl_yqDate != undefined && pl_yqDate != ""){
-            if(pl_fsDate > pl_yqDate){
+        if (pl_yqDate != null && pl_yqDate != undefined && pl_yqDate != "") {
+            if (pl_fsDate > pl_yqDate) {
                 layer.msg("要求日期不能小于发生日期");
                 return;
             }
@@ -273,55 +301,56 @@
             return;
         }*/
 
-        if(length > 2){
-            layer.msg("最多上传2张图片");
+        if (length > 4) {
+            layer.msg("最多上传4个文件");
             return;
         }
 
         var toEmail = $("#fzr").find("option:selected").attr("name");//获取选中用户的邮箱
-        if(pl_yqDate == null || pl_yqDate == undefined || pl_yqDate == ""){
+        if (pl_yqDate == null || pl_yqDate == undefined || pl_yqDate == "") {
             pl_yqDate = "0001-01-01";
         }
 
         $.ajax({
-            url:"${pageContext.request.contextPath}/createProblem",
-            method:"POST",
-            data:{"t_id":parseInt(t_id),
-                "u_id":parseInt(u_id),
-                "pl_name":pl_name,
-                "pl_feedback":pl_feedback,
-                "pl_describe":pl_describe,
-                "pl_fsDate":pl_fsDate,
-                "pl_yqDate":pl_yqDate,
-                "pl_serious":parseInt(pl_serious),
-                "pl_programme":pl_programme,
-                "pl_state":1,
-                "d_id":d_id,
+            url: "${pageContext.request.contextPath}/createProblem",
+            method: "POST",
+            data: {
+                "t_id": parseInt(t_id),
+                "u_id": parseInt(u_id),
+                "pl_name": pl_name,
+                "pl_feedback": pl_feedback,
+                "pl_describe": pl_describe,
+                "pl_fsDate": pl_fsDate,
+                "pl_yqDate": pl_yqDate,
+                "pl_serious": parseInt(pl_serious),
+                "pl_programme": pl_programme,
+                "pl_state": 1,
+                "d_id": d_id,
             },
-            success:function (data) {
-                if(toEmail == undefined){
+            success: function (data) {
+                if (toEmail == undefined) {
                     toEmail = "";
                 }
                 $("#btn").click();
-                if(data == "success"){
+                if (data == "success") {
                     layer.load(0, {shade: false});
                     $.ajax({
                         url: "${pageContext.request.contextPath}/sendEmail",
-                        method:"POST",
-                        data:{
-                            "toEmail":toEmail,
-                            "pl_name":pl_name,
-                            "num":0,
-                            "state":100,
+                        method: "POST",
+                        data: {
+                            "toEmail": toEmail,
+                            "pl_name": pl_name,
+                            "num": 0,
+                            "state": 100,
                         },
-                        success:function (data) {
+                        success: function (data) {
                             window.setTimeout(function () {
                                 location.href = "${pageContext.request.contextPath}/myProblem"
                             }, 2000);
                         }
                     });
 
-                }else{
+                } else {
                     layer.msg('保存失败，请刷新后重试！');
                 }
             }

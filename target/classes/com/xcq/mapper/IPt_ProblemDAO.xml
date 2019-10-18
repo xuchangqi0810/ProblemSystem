@@ -58,6 +58,7 @@
         <id property="id" javaType="int" column="id"/>
         <result property="pl_id" javaType="int" column="pl_id"/>
         <result property="url" javaType="String" column="url"/>
+        <result property="name" javaType="String" column="name"/>
     </resultMap>
 
     <resultMap id="pt_proInfo" type="com.xcq.entity.Pt_proInfo">
@@ -260,7 +261,7 @@
     <!--CreateProblem-start-->
     <!--图片上传-->
     <insert id="UploadImg">
-        INSERT INTO pt_img(pl_id,url)VALUES(#{0},#{1})
+        INSERT INTO pt_img(pl_id,url,name)VALUES(#{0},#{1},#{2})
     </insert>
     <!--查看问题信息-->
     <select id="getByIdInProblem" resultMap="pt_problem">

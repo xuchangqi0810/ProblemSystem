@@ -173,7 +173,7 @@ public class Pt_UserController {
         try {
             //上传文件
             file.transferTo(newfile);
-            problemService.UploadImg(pl_id,newName);
+            problemService.UploadImg(pl_id,newName,filename);
         } catch (IOException e) {
             e.printStackTrace();
         }

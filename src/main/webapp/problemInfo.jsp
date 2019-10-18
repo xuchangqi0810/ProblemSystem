@@ -92,7 +92,7 @@
         <div class="grid-demo grid-demo-bg2">
             <fieldset class='actionbox'>
                 <legend>
-                    图片
+                    附件
                 </legend>
                 <div id="imgs"></div>
             </fieldset>
@@ -225,31 +225,38 @@
             $("#serious").html("非常严重");
         }
         if(data.lists.length != 0){
+            var last;
             $.each(data.lists,function(i,item){
-                $("#imgs").append("<img id='showImg"+i+"' style='width: 20%; margin:2%;cursor:pointer;' src='"+item.url+"'/>")
-                $("#showImg"+i+"").bind('click',function () {
-                    var width = $("#showImg"+i).width();
-                    var height = $("#showImg"+i).height();
-                    var scaleWH = width/height;
-                    var bigH = 500;
-                    var bigW = scaleWH*bigH;
-                    if(bigW>800){
-                        bigW = 800;
-                        bigH = bigW/scaleWH;
-                    }
-
-                    layui.use('layer',function () {
-                        // 放大预览图片
-                        layer.open({
-                            type: 1,
-                            title: false,
-                            closeBtn: 1,
-                            shadeClose: true,
-                            area: [bigW + 'px', bigH + 'px'], //宽高
-                            content: "<img width='"+bigW+"' height='"+bigH+"' src=" + item.url + " />"
-                        });
-                    })
-                });
+                last = item.url.split(".");
+                if (last[1] == "jpg" || last[1] == "png" || last[1] == "bmp" || last[1] == "jpeg") {
+                    $("#imgs").append("<img id='showImg"+i+"' style='width: 20%; margin:2%;cursor:pointer;' src='"+item.url+"'/>")
+                    $("#showImg"+i+"").bind('click',function () {
+                        var width = $("#showImg"+i).width();
+                        var height = $("#showImg"+i).height();
+                        var scaleWH = width/height;
+                        var bigH = 500;
+                        var bigW = scaleWH*bigH;
+                        if(bigW>800){
+                            bigW = 800;
+                            bigH = bigW/scaleWH;
+                        }
+                        layui.use('layer',function () {
+                            // 放大预览图片
+                            layer.open({
+                                type: 1,
+                                title: false,
+                                closeBtn: 1,
+                                shadeClose: true,
+                                area: [bigW + 'px', bigH + 'px'], //宽高
+                                content: "<img width='"+bigW+"' height='"+bigH+"' src=" + item.url + " />"
+                            });
+                        })
+                    });
+                }else if(last[1] == "txt" || last[1] == "ppt" || last[1] == "pptx" || last[1] == "doc" || last[1] == "docx" || last[1] == "xlsx"){
+                    var str = JSON.stringify(item.name);
+                    $('#imgs').append('<div class="image-container" style="display: inline-block" id="container' + i + '">' +
+                     '<a href="#" onclick="downloadFile(\''+item.url+'\',\''+item.name+'\')" title="点击下载">' + item.name + '</a></div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;')
+                }
             })
         }else{
             $("#imgs").html("<div style='height: 20%'>&nbsp&nbsp&nbsp;</div>")
@@ -264,6 +271,18 @@
                     "        </tr>");
             })
         }
+    }
+
+    function downloadFile(url,name) {
+        location.href = "${pageContext.request.contextPath}/download?url="+url+"&name="+encodeURI(encodeURI(name));
+        /*$.ajax({
+            url:"",
+            type:"get",
+            data:{
+                "url":url,
+                "name":
+            }
+        })*/
     }
 </script>
 </html>

@@ -39,8 +39,8 @@ public class Pt_ProblemServiceImpl implements IPt_ProblemService{
     }
 
     @Override
-    public int UploadImg(Integer pl_id, String url) {
-        return problemDAO.UploadImg(pl_id,url);
+    public int UploadImg(Integer pl_id, String url,String name) {
+        return problemDAO.UploadImg(pl_id,url,name);
     }
 
     @Override
